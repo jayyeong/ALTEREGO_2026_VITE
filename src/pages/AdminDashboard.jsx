@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 
 // fetch API를 사용하여 반드시 JSON으로 파싱
 const AdminDashboard = () => {
-  const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+  const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8080';
 
   const [receipts, setReceipts]     = useState([]);
   const [page, setPage]             = useState(0);

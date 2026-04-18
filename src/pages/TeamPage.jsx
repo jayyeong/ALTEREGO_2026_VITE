@@ -3,6 +3,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import teams from "../data/teams.json";
 import membersData from "../data/members.json";
+import { resolveAssetUrl } from "../utils/assets";
 
 const TeamPage = () => {
   const { teamId } = useParams();
@@ -74,7 +75,7 @@ const TeamPage = () => {
                     style={{ paddingTop: `${calculatePaddingTop()}%` }}
                   >
                     <img
-                      src={require(`../${member.profileImageUrl}`)}
+                      src={resolveAssetUrl(member.profileImageUrl)}
                       alt={member.name}
                       loading="lazy"
                       className="absolute top-0 left-0 w-full h-full object-contain"
@@ -156,7 +157,7 @@ const TeamPage = () => {
                           style={{ paddingTop: `${calculatePaddingTop()}%` }}
                         >
                           <img
-                            src={require(`../${member.profileImageUrl}`)}
+                            src={resolveAssetUrl(member.profileImageUrl)}
                             alt={member.name}
                             loading="lazy"
                             className="absolute top-0 left-0 w-full h-full object-contain"

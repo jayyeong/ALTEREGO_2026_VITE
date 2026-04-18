@@ -2,48 +2,27 @@
   "name": "kuad_project",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/2026/",
   "dependencies": {
     "axios": "^1.7.9",
-    "cra-template": "1.2.0",
     "lucide-react": "^0.475.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-pageflip": "^2.0.3",
     "react-router-dom": "^7.1.5",
-    "react-scripts": "5.0.1",
-    "swiper": "^11.2.6",
-    "web-vitals": "^4.2.4"
+    "swiper": "^11.2.6"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.35",
     "postcss-preset-env": "^10.1.6",
-    "tailwindcss": "^3.4.1"
+    "tailwindcss": "^3.4.1",
+    "vite": "^6.4.2"
   }
 }

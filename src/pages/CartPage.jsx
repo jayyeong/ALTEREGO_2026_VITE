@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { resolveAssetUrl } from '../utils/assets';
 
 const CartPage = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -118,7 +119,7 @@ const CartPage = () => {
     try {
       // assets/ 경로로 시작하는 경우 require로 가져오기
       if (imagePath && imagePath.startsWith('assets/')) {
-        return require(`../${imagePath}`);
+        return resolveAssetUrl(imagePath);
       }
       return imagePath || 'https://via.placeholder.com/80x80?text=No+Image';
     } catch (error) {
