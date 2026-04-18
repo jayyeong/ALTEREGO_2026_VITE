@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { resolveAssetUrl } from '../utils/assets';
 
 // 환경 변수에서 API URL 가져오기
-const API_URL = process.env.REACT_APP_API_URL || '';
+const API_URL = import.meta.env.VITE_API_URL || '';
 
 const CheckoutPage = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -98,7 +99,7 @@ const CheckoutPage = () => {
     try {
       // assets/ 경로로 시작하는 경우 require로 가져오기
       if (imagePath && imagePath.startsWith('assets/')) {
-        return require(`../${imagePath}`);
+        return resolveAssetUrl(imagePath);
       }
       return imagePath || 'https://via.placeholder.com/80x80?text=No+Image';
     } catch (error) {

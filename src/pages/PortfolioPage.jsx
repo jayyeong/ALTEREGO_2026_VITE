@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import members from '../data/members.json';
 import { Mail, Instagram } from 'lucide-react';
+import { resolveAssetUrl } from '../utils/assets';
 
 const PortfolioPage = () => {
   const { portfolioUrl } = useParams();
@@ -59,7 +60,7 @@ const PortfolioPage = () => {
             <div className="w-full max-w-[180px] mr-auto">
               <div className="aspect-[3/4] bg-white">
                 <img
-                  src={require(`../${member.profileImageUrl}`)}
+                  src={resolveAssetUrl(member.profileImageUrl)}
                   alt={`${member.name} profile`}
                   className="w-full h-full object-contain"
                 />
@@ -85,7 +86,7 @@ const PortfolioPage = () => {
               <div key={`${item.type}-${idx}`} className="w-full">
                 {item.type === 'image' ? (
                   <img
-                    src={require(`../${item.src}`)}
+                    src={resolveAssetUrl(item.src)}
                     alt={`작품 이미지 ${idx + 1}`}
                     className="w-full h-auto object-contain"
                     loading="lazy"
@@ -120,7 +121,7 @@ const PortfolioPage = () => {
                 <div className="w-full max-w-[180px] mr-auto">
                   <div className="bg-white overflow-hidden">
                     <img
-                      src={require(`../${member.profileImageUrl}`)}
+                      src={resolveAssetUrl(member.profileImageUrl)}
                       alt={`${member.name} profile`}
                       className="w-full h-full object-cover"
                     />
@@ -180,7 +181,7 @@ const PortfolioPage = () => {
                       {item.type === "image" ? (
                         <div className="w-full aspect-[3/4] overflow-hidden bg-white">
                           <img
-                            src={require(`../${item.src}`)}
+                            src={resolveAssetUrl(item.src)}
                             alt={`작품 이미지 ${idx + 1}`}
                             className="w-full h-full object-cover"
                             loading="lazy"

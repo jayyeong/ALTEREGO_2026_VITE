@@ -32,8 +32,10 @@ import BehindMaking from "./pages/BehindMaking";
 import Runway from "./pages/Runway";
 
 function App() {
+  const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+
   return (
-    <BrowserRouter basename="/2026">
+    <BrowserRouter basename={basePath}>
       <ScrollToTop />
       <div className="min-h-screen-dvh bg-white">
         <Header />
@@ -84,7 +86,7 @@ function App() {
               <div className="mt-20 text-center">
                 <h1 className="text-3xl font-bold mb-4">페이지를 찾을 수 없습니다</h1>
                 <p className="mb-8">요청하신 페이지가 존재하지 않습니다.</p>
-                <a href="/2026/" className="bg-black text-white px-4 py-2 hover:bg-gray-800 transition">
+                <a href={import.meta.env.BASE_URL} className="bg-black text-white px-4 py-2 hover:bg-gray-800 transition">
                   홈으로 돌아가기
                 </a>
               </div>

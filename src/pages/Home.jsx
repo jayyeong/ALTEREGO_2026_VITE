@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import teams from "../data/teams.json";
+import { withBaseUrl } from "../utils/assets";
 
 const teamDescriptionByName = teams.reduce((acc, team) => {
     acc[team.name] = team.description || "";
@@ -181,7 +182,7 @@ export default function Home() {
                                     <video
                                         ref={videoRef}
                                         key={currentIndex}
-                                        src={`${process.env.PUBLIC_URL}${current.src}`}
+                                        src={withBaseUrl(current.src)}
                                         autoPlay
                                         muted
                                         playsInline

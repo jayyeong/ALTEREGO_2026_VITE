@@ -2,8 +2,9 @@ import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import { Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { resolveAssetUrl } from '../utils/assets';
 
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = import.meta.env.VITE_API_URL;
 
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -61,7 +62,7 @@ const fetchMembers = useCallback(async (term) => {
                 style={{ paddingTop: `${calculatePaddingTop()}%` }}
               >
                 <img
-                  src={require(`../${member.profileImageUrl}`)}
+                  src={resolveAssetUrl(member.profileImageUrl)}
                   alt={member.name}
                   loading="lazy"
                   className="absolute top-0 left-0 w-full h-full object-contain"
