@@ -8,8 +8,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-pageflip": "^2.0.3",
-    "react-router-dom": "^7.1.5",
-    "swiper": "^11.2.6"
+    "react-router-dom": "^7.1.5"
   },
   "scripts": {
     "start": "vite",

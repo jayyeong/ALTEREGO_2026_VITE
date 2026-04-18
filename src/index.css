@@ -55,13 +55,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.swiper-button-prev,
-.swiper-button-next {
-  color: black !important;
-}
-
-.swiper-grid-column > .swiper-slide,
-.swiper-grid-row    > .swiper-slide {
-  height: auto !important;  
-}
