@@ -4,22 +4,28 @@ on:
   push:
     branches:
       - master
+  workflow_dispatch:
+
+env:
+  AWS_REGION: ap-northeast-2
+  DEPLOY_YEAR: "2026"
+  S3_BUCKET: kuad-archive
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout source code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: "20"
+          cache: npm
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: npm ci
 
       - name: Build
@@ -32,22 +38,28 @@ jobs:
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-northeast-2
+          aws-region: ${{ env.AWS_REGION }}
 
-      - name: Upload to S3
+      - name: Upload static assets to S3
         run: |
-          echo "Syncing build files to S3..."
-          aws s3 sync build/ s3://kuad-archive/2025/ \
+          echo "Syncing dist/ to s3://${S3_BUCKET}/${DEPLOY_YEAR}/"
+          aws s3 sync dist/ s3://${S3_BUCKET}/${DEPLOY_YEAR}/ \
             --delete \
-            --cache-control "max-age=31536000"
+            --exclude "index.html" \
+            --cache-control "public,max-age=31536000,immutable"
 
-      - name: Invalidate CloudFront
+      - name: Upload index.html with no-cache
+        run: |
+          aws s3 cp dist/index.html s3://${S3_BUCKET}/${DEPLOY_YEAR}/index.html \
+            --cache-control "no-cache,no-store,must-revalidate" \
+            --content-type "text/html"
+
+      - name: Invalidate CloudFront cache
         run: |
           echo "Creating CloudFront invalidation..."
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/2026/*"
+            --paths "/${DEPLOY_YEAR}" "/${DEPLOY_YEAR}/*" "/"
 
-      - name: Deployment Status
-        run: |
-          echo "Deployment completed successfully!"
+      - name: Deployment status
+        run: echo "Deployment completed successfully."
