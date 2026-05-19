@@ -2,13 +2,13 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import teams from "../data/teams.json";
 import { withBaseUrl } from "../utils/assets";
 
-const teamDescriptionByName = teams.reduce((acc, team) => {
-    acc[team.name] = team.description || "";
+const teamsById = teams.reduce((acc, team) => {
+    acc[team.id] = team;
     return acc;
 }, {});
 
-const getCaptionLines = (teamName) => {
-    const description = teamDescriptionByName[teamName];
+const getCaptionLines = (teamId) => {
+    const description = teamsById[teamId]?.description;
     if (!description) return [];
     return description.split("\n\n").map((line, idx) => (idx === 0 ? line : `\n${line}`));
 };
@@ -17,48 +17,54 @@ const videoList = [
     {
         title: "ALTER EGO",
         src: "/videos/MainTeaser.mp4",
-        captionTitle: "Alter ego",
+        captionTitle: "ALTER EGO",
         captionLines: [
-            "SOMA는 체세포, 더 나아가 물리적 형태인 몸과 정신이 깃든 신체를 아우르는 개념이다.신체는 타고난 본성으로부터 시작하여, 나로 비롯된 취향, 그리고 자연스럽게 형성된 습관을 통해 하나의 고유한 실체로 완성되어 간다.",
-            "\n우리는 이번 쇼에서 의식하지 않아도 완성되는 개인의 - SOMA를 담았다. 이는 단순한 패션쇼를 넘어 신체와 감각의 경계를 탐구하는 예술적 실험이자, 인간의 본질에 대한 깊은 질문을 던지는 무대다.",
-            "\n2025 SOMA를 통해 관객이 자신의 감각 세계를 확장하고, 신체를 매개로 한 새로운 이야기를 발견할 수 있기를 바란다.",
+            "시선의 기준을 세상과 타인에 두고 스스로를 가늠하기 시작할 때 존재는 중심을 잃는다. 비교는 사유를 하나의 궤도로 고정시키고, 우리는 그 안에서 ‘생각’하고 있다고 착각한다.",
+            "2026 ALTER EGO는 그 착각이 흔들리는 지점이다.",
+            "고착된 궤도를 빗겨가 외면해왔던 스스로를 마주하는 시간이다. ",
         ],
     },
     {
-        title: "AGIOTITA",
+        title: "Limbo",
         src: "/videos/team_1_cut_comp.mp4",
-        captionTitle: "Agiotita",
-        captionLines: getCaptionLines("AGIOTITA"),
+        captionTitle: "Limbo",
+        captionLines: getCaptionLines("limbo"),
     },
     {
-        title: "BIPOLAR",
+        title: "11:11",
         src: "/videos/team_2_cut_2560.mp4",
-        captionTitle: "Bipolar",
-        captionLines: getCaptionLines("BIPOLAR"),
+        captionTitle: "11:11",
+        captionLines: getCaptionLines("eleven-eleven"),
     },
     {
-        title: '" - - - "',
+        title: "Tiny Lodge",
         src: "/videos/team_3_cut_comp.mp4",
-        captionTitle: '" - - - "',
-        captionLines: getCaptionLines('" - - - "'),
+        captionTitle: "Tiny Lodge",
+        captionLines: getCaptionLines("tiny-lodge"),
     },
     {
-        title: "Dialysis",
+        title: "(Un)skinned",
         src: "/videos/team_4_cut_comp.mp4",
-        captionTitle: "Dialysis",
-        captionLines: getCaptionLines("Dialysis"),
+        captionTitle: "(Un)skinned",
+        captionLines: getCaptionLines("unskinned"),
     },
     {
-        title: "표류[ ]기",
+        title: "RE:I",
         src: "/videos/team_5_cut_comp.mp4",
-        captionTitle: "표류[ ]기",
-        captionLines: getCaptionLines("표류[ ]기"),
+        captionTitle: "RE:I",
+        captionLines: getCaptionLines("rei"),
     },
     {
-        title: "자각몽",
+        title: "Dreamscape",
         src: "/videos/team_6_cut_comp.mp4",
-        captionTitle: "자각몽",
-        captionLines: getCaptionLines("자각몽"),
+        captionTitle: "Dreamscape",
+        captionLines: getCaptionLines("dreamscape"),
+    },
+    {
+        title: "가시:화(花)",
+        src: "/videos/MainTeaser.mp4",
+        captionTitle: "가시:화(花)",
+        captionLines: getCaptionLines("thorn-bloom"),
     },
 ];
 
