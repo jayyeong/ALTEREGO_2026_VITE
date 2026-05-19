@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const teams = [
-  { name: "AGIOTITA", image: "/2026/poster/Agiotita.webp", url: "agiotita" },
-  { name: "BIPOLAR", image: "/2026/poster/Bipolar.webp", url: "bipolar" },
-  { name: '" - - - "', image: "/2026/poster/DASH.webp", url: "dash" },
-  { name: "Dialysis", image: "/2026/poster/Dialysis.webp", url: "dialysis" },
-  { name: "표류[ ]기", image: "/2026/poster/표류기.webp", url: "drift" },
-  { name: "자각몽", image: "/2026/poster/자각몽.webp", url: "lucid-dream" },
-  { name: "TEAM 7", image: "/2026/poster/team7.webp", url: "team7" },
+  { name: "Limbo", image: "/2026/poster/Limbo_poster.webp", url: "limbo" },
+  { name: "11:11", image: "/2026/poster/11_11_poster.webp", url: "eleven-eleven" },
+  { name: 'Tiny Lodge', image: "/2026/poster/TinyLodge_poster.webp", url: "tiny-lodge" },
+  { name: "(Un)skinned", image: "/2026/poster/unskinned_poster.webp", url: "unskinned" },
+  { name: "RE:I", image: "/2026/poster/REI_poster.webp", url: "rei" },
+  { name: "Dreamscape", image: "/2026/poster/REI_poster.webp", url: "dreamscape" },
+  { name: "가시:화(花)", image: "/2026/poster/thronbloom_poster.webp", url: "thorn-bloom" },
 ];
 
 const TeamCard = ({ team }) => (

@@ -8,7 +8,6 @@ import ShowInfo from "./pages/ShowInfo";
 import ProjectPage from './pages/ProjectPage';
 import TeamPage from './pages/TeamPage';
 
-import SearchPage from "./pages/SearchPage";
 import StorePage from "./pages/StorePage";
 import StoreDetailPage from "./pages/StoreDetailPage";
 import CartPage from "./pages/CartPage";
@@ -56,7 +55,6 @@ function App() {
           {/* 런웨이 */}
           <Route path="/project/runway" element={<Runway />} />
           {/* 기존 경로 */}
-          <Route path="/search" element={<SearchPage />} />
           <Route path="/portfolio/:portfolioUrl" element={<PortfolioPage />} />
 
           {/* 스토어 관련 경로 - teamName 대신 teamId 사용 */}
