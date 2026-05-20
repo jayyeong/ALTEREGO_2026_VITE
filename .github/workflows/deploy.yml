@@ -10,6 +10,7 @@ env:
   AWS_REGION: ap-northeast-2
   DEPLOY_YEAR: "2026"
   S3_BUCKET: kuadarchive
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   deploy:
