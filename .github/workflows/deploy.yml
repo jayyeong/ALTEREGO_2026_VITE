@@ -9,7 +9,7 @@ on:
 env:
   AWS_REGION: ap-northeast-2
   DEPLOY_YEAR: "2026"
-  S3_BUCKET: kuad-archive
+  S3_BUCKET: kuadarchive
 
 jobs:
   deploy:
@@ -46,6 +46,7 @@ jobs:
           aws s3 sync dist/ s3://${S3_BUCKET}/${DEPLOY_YEAR}/ \
             --delete \
             --exclude "index.html" \
+            --exclude ".DS_Store" \
             --cache-control "public,max-age=31536000,immutable"
 
       - name: Upload index.html with no-cache
