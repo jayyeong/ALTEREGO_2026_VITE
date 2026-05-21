@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { resolveAssetUrl } from '../utils/assets';
 import { sortByTeamOrder } from '../utils/teamOrder';
@@ -15,7 +15,7 @@ const StoreDetailPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // const navigate = useNavigate(); // navigation hook 사용
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -77,64 +77,22 @@ const StoreDetailPage = () => {
     }
   };
 
-  // const handleAddToCart = () => {
-  //   // 로컬 스토리지에서 장바구니 불러오기
-  //   const savedCart = localStorage.getItem('cart');
-  //   let cart = savedCart ? JSON.parse(savedCart) : [];
+  const handleDirectCheckout = () => {
+    const checkoutItem = {
+      id: item.id,
+      name: item.name,
+      price: item.price,
+      quantity: quantity,
+      imagePath: item.itemImagePath,
+      teamId: item.teamId,
+      teamName: item.teamName,
+      creator: item.creator
+    };
     
-  //   // 현재 상품 추가
-  //   const cartItem = {
-  //     id: item.id,
-  //     name: item.name,
-  //     price: item.price,
-  //     quantity: quantity,
-  //     imagePath: item.itemImagePath,
-  //     teamId: item.teamId,
-  //     teamName: item.teamName,
-  //     creator: item.creator
-  //   };
+    localStorage.setItem('directOrderItems', JSON.stringify([checkoutItem]));
     
-  //   // 이미 장바구니에 있는지 확인
-  //   const existingItemIndex = cart.findIndex(i => i.id === item.id);
-    
-  //   if (existingItemIndex >= 0) {
-  //     // 이미 있으면 수량만 증가
-  //     cart[existingItemIndex].quantity += quantity;
-  //   } else {
-  //     // 없으면 새로 추가
-  //     cart.push(cartItem);
-  //   }
-    
-  //   // 장바구니 저장
-  //   localStorage.setItem('cart', JSON.stringify(cart));
-    
-  //   // 사용자에게 알림
-  //   alert('장바구니에 상품이 추가되었습니다!');
-    
-  //   // 장바구니 상태 업데이트를 위한 이벤트 발생
-  //   window.dispatchEvent(new Event('storage'));
-  // };
-
-  // 바로 주문하기 함수 추가
-  // const handleDirectCheckout = () => {
-  //   // 현재 상품 정보로 장바구니 아이템 생성
-  //   const checkoutItem = {
-  //     id: item.id,
-  //     name: item.name,
-  //     price: item.price,
-  //     quantity: quantity,
-  //     imagePath: item.itemImagePath,
-  //     teamId: item.teamId,
-  //     teamName: item.teamName,
-  //     creator: item.creator
-  //   };
-    
-  //   // 바로 주문할 상품만 포함하는 배열을 localStorage에 저장
-  //   localStorage.setItem('selectedCart', JSON.stringify([checkoutItem]));
-    
-  //   // 체크아웃 페이지로 이동
-  //   navigate('/checkout');
-  // };
+    navigate('/checkout');
+  };
 
   // 모바일 메뉴 토글 함수
   const toggleMobileMenu = () => {
@@ -313,20 +271,12 @@ const StoreDetailPage = () => {
             </div>
             
             {/* Action Buttons */}
-            <div className="flex flex-col md:flex-row gap-2 md:gap-4">
+            <div>
               <button 
-                className="w-full md:w-1/2 py-3 bg-indigo-600 text-white font-medium cursor-not-allowed"
-                // hover:bg-indigo-700 transition-colors
-                // onClick={handleAddToCart}
+                className="w-full py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors"
+                onClick={handleDirectCheckout}
               >
-                SOLD OUT
-              </button>
-              <button 
-                className="w-full md:w-1/2 py-3 bg-white text-indigo-600 font-medium border border-indigo-600 cursor-not-allowed"
-                // hover:bg-indigo-50 transition-colors"
-                // onClick={handleDirectCheckout}
-              >
-                SOLD OUT
+                BUY NOW
               </button>
             </div>
             
