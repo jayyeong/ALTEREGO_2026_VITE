@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { resolveAssetUrl } from '../utils/assets';
+import { getTeamOrderIndex, sortByTeamOrder } from '../utils/teamOrder';
 
 // 환경 변수에서 API URL 가져오기
 const API_URL = import.meta.env.VITE_API_URL || '';
@@ -31,12 +32,14 @@ const StorePage = () => {
         console.log('Fetching teams from:', `${API_URL}/api/store/teams`);
         const teamsResponse = await axios.get(`${API_URL}/api/store/teams`);
         console.log('Teams response:', teamsResponse.data);
-        setTeams(teamsResponse.data);
+        const sortedTeams = sortByTeamOrder(teamsResponse.data);
+        const teamRankById = new Map(sortedTeams.map((team, index) => [team.id, index]));
+        setTeams(sortedTeams);
         
         // teamId가 제공된 경우 해당 팀 찾기
         if (teamId) {
           // eslint-disable-next-line eqeqeq
-          const team = teamsResponse.data.find(t => t.id === Number(teamId));
+          const team = sortedTeams.find(t => t.id === Number(teamId));
           setSelectedTeam(team);
         }
         
@@ -49,7 +52,12 @@ const StorePage = () => {
         const itemsResponse = await axios.get(itemsUrl);
         console.log('Items response data:', itemsResponse.data);
         console.log('Items count:', itemsResponse.data.length);
-        setItems(itemsResponse.data);
+        const sortedItems = [...itemsResponse.data].sort((a, b) => {
+          const aRank = teamRankById.get(a.teamId) ?? getTeamOrderIndex({ teamName: a.teamName });
+          const bRank = teamRankById.get(b.teamId) ?? getTeamOrderIndex({ teamName: b.teamName });
+          return aRank - bRank;
+        });
+        setItems(sortedItems);
         
         setLoading(false);
       } catch (err) {

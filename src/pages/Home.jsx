@@ -31,28 +31,10 @@ const videoList = [
         captionLines: getCaptionLines("limbo"),
     },
     {
-        title: "11:11",
-        src: "/videos/eleven-eleven-preview.mp4",
-        captionTitle: "11:11",
-        captionLines: getCaptionLines("eleven-eleven"),
-    },
-    {
-        title: "Tiny Lodge",
-        src: "/videos/tiny-lodge-preview.mp4",
-        captionTitle: "Tiny Lodge",
-        captionLines: getCaptionLines("tiny-lodge"),
-    },
-    {
         title: "(Un)skinned",
         src: "/videos/unskinned-preview.mp4",
         captionTitle: "(Un)skinned",
         captionLines: getCaptionLines("unskinned"),
-    },
-    {
-        title: "RE:I",
-        src: "/videos/rei-preview.mp4",
-        captionTitle: "RE:I",
-        captionLines: getCaptionLines("rei"),
     },
     {
         title: "Dreamscape",
@@ -61,10 +43,28 @@ const videoList = [
         captionLines: getCaptionLines("dreamscape"),
     },
     {
+        title: "Tiny Lodge",
+        src: "/videos/tiny-lodge-preview.mp4",
+        captionTitle: "Tiny Lodge",
+        captionLines: getCaptionLines("tiny-lodge"),
+    },
+    {
+        title: "11:11",
+        src: "/videos/eleven-eleven-preview.mp4",
+        captionTitle: "11:11",
+        captionLines: getCaptionLines("eleven-eleven"),
+    },
+    {
         title: "가시:화(花)",
         src: "/videos/thorn-bloom-preview.mp4",
         captionTitle: "가시:화(花)",
         captionLines: getCaptionLines("thorn-bloom"),
+    },
+    {
+        title: "RE:I",
+        src: "/videos/rei-preview.mp4",
+        captionTitle: "RE:I",
+        captionLines: getCaptionLines("rei"),
     },
 ];
 
