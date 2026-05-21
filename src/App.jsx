@@ -10,7 +10,6 @@ import TeamPage from './pages/TeamPage';
 
 import StorePage from "./pages/StorePage";
 import StoreDetailPage from "./pages/StoreDetailPage";
-import CartPage from "./pages/CartPage";
 import CheckoutPage from "./pages/CheckoutPage";
 import OrderCompletePage from "./pages/OrderCompletePage";
 import AdminLogin from './pages/AdminLogin';
@@ -63,7 +62,6 @@ function App() {
           <Route path="/store/team/:teamId" element={<StorePage />} />
           <Route path="/store/item/:itemId" element={<StoreDetailPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/cart" element={<CartPage />} />
           <Route path="/order-complete/:receiptId" element={<OrderCompletePage />} />
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />

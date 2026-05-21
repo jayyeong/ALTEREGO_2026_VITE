@@ -7,7 +7,7 @@ import { resolveAssetUrl } from '../utils/assets';
 const API_URL = import.meta.env.VITE_API_URL || '';
 
 const CheckoutPage = () => {
-  const [cartItems, setCartItems] = useState([]);
+  const [orderItems, setOrderItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [orderName, setOrderName] = useState('');
   const [bankName, setBankName] = useState('');  // 은행명 상태 추가
@@ -15,37 +15,82 @@ const CheckoutPage = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
+  const [copyMessage, setCopyMessage] = useState('');
   const navigate = useNavigate();
 
-  // 로컬 스토리지에서 장바구니 불러오기
-  useEffect(() => {
-    const loadCart = () => {
-      // 체크아웃 페이지로 이동 시 선택된 상품만 포함
-      const selectedCart = localStorage.getItem('selectedCart');
-      if (selectedCart) {
-        const parsedCart = JSON.parse(selectedCart);
-        setCartItems(parsedCart);
+  const depositAccountNumber = '11116875301018';
 
-        // 총 금액 계산
-        const total = parsedCart.reduce((sum, item) => {
+  useEffect(() => {
+    const loadOrderItems = () => {
+      try {
+        const directOrderItems = localStorage.getItem('directOrderItems');
+        if (!directOrderItems) {
+          navigate('/store/all');
+          return;
+        }
+
+        const parsedItems = JSON.parse(directOrderItems);
+        if (!Array.isArray(parsedItems) || parsedItems.length === 0) {
+          localStorage.removeItem('directOrderItems');
+          navigate('/store/all');
+          return;
+        }
+
+        setOrderItems(parsedItems);
+
+        const total = parsedItems.reduce((sum, item) => {
           return sum + (Number(item.price) * item.quantity);
         }, 0);
 
         setTotalPrice(total);
-      } else {
-        // 선택된 상품이 없을 경우 장바구니 페이지로 리다이렉트
-        navigate('/cart');
+      } catch (err) {
+        console.error('주문 상품 정보를 불러오는 중 오류 발생:', err);
+        localStorage.removeItem('directOrderItems');
+        navigate('/store/all');
       }
     };
 
-    loadCart();
+    loadOrderItems();
   }, [navigate]);
+
+  const normalizeDigitsAndHyphen = (value) => {
+    return value.replace(/[^\d-]/g, '');
+  };
+
+  const handleCopyAccountNumber = async () => {
+    try {
+      await navigator.clipboard.writeText(depositAccountNumber);
+      setCopyMessage('계좌번호가 복사되었습니다.');
+    } catch (err) {
+      console.error('계좌번호 복사 실패:', err);
+      setCopyMessage('복사에 실패했습니다. 계좌번호를 직접 선택해주세요.');
+    }
+  };
 
   const handleOrderSubmit = async (e) => {
     e.preventDefault();
 
-    if (!orderName || !bankName || !accountNumber || !phoneNumber) {
+    if (isSubmitting) {
+      return;
+    }
+
+    const trimmedOrderName = orderName.trim();
+    const trimmedBankName = bankName.trim();
+    const trimmedAccountNumber = accountNumber.trim();
+    const trimmedPhoneNumber = phoneNumber.trim();
+
+    if (!trimmedOrderName || !trimmedBankName || !trimmedAccountNumber || !trimmedPhoneNumber) {
       setError('입금자명, 은행명, 계좌번호, 연락처를 모두 입력해주세요.');
+      return;
+    }
+
+    if (orderItems.length === 0) {
+      setError('주문 상품이 없습니다. 상품을 다시 선택해주세요.');
+      return;
+    }
+
+    if (trimmedPhoneNumber.replace(/\D/g, '').length < 10) {
+      setError('연락처를 정확히 입력해주세요.');
       return;
     }
 
@@ -55,35 +100,20 @@ const CheckoutPage = () => {
 
       // 백엔드에 보낼 주문 데이터 구성
       const orderData = {
-        accountHolder: orderName,
-        bankName: bankName,  // 은행명 추가
-        accountNumber: accountNumber,
-        phoneNumber: phoneNumber,
-        orders: cartItems.map(item => ({
+        accountHolder: trimmedOrderName,
+        bankName: trimmedBankName,
+        accountNumber: trimmedAccountNumber,
+        phoneNumber: trimmedPhoneNumber,
+        orders: orderItems.map(item => ({
           itemId: item.id,
           quantity: item.quantity
         }))
       };
 
-      // 백엔드 API 호출하여 주문 생성
       const response = await axios.post(`${API_URL}/api/store/checkout`, orderData);
 
-      // 주문 성공 시 장바구니에서 주문한 상품 제거
-      const savedCart = localStorage.getItem('cart');
-      if (savedCart) {
-        const parsedCart = JSON.parse(savedCart);
-        const orderedItemIds = cartItems.map(item => item.id);
-        const updatedCart = parsedCart.filter(item => !orderedItemIds.includes(item.id));
-        localStorage.setItem('cart', JSON.stringify(updatedCart));
-      }
+      localStorage.removeItem('directOrderItems');
 
-      // 선택된 장바구니 상품 정보 삭제
-      localStorage.removeItem('selectedCart');
-
-      // 장바구니 상태 업데이트를 위한 이벤트 발생
-      window.dispatchEvent(new Event('storage'));
-
-      // 주문 완료 페이지로 이동
       navigate(`/order-complete/${response.data.id}`);
 
     } catch (err) {
@@ -116,8 +146,6 @@ const CheckoutPage = () => {
           <nav className="text-sm text-black">
             <Link to="/store" className="hover:underline">STORE</Link>
             {' > '}
-            <Link to="/cart" className="hover:underline">장바구니</Link>
-            {' > '}
             <span>주문하기</span>
           </nav>
         </div>
@@ -137,7 +165,7 @@ const CheckoutPage = () => {
           <div className="w-full md:hidden mb-6">
             <div className="border-t border-gray-300 pt-4">
               <h2 className="text-lg font-semibold mb-3">주문 상품</h2>
-              {cartItems.map(item => (
+              {orderItems.map(item => (
                 <div key={item.id} className="flex items-center py-2 border-b border-gray-200">
                   <div className="w-[50px] h-[50px] mr-3 overflow-hidden">
                     <img
@@ -169,13 +197,23 @@ const CheckoutPage = () => {
           {/* 입금 정보 */}
           <div className="w-full md:w-1/2 md:pr-4 mb-6 md:mb-0">
             <div className="mb-6">
-              <h2 className="text-lg md:text-xl font-semibold mb-3">입금 계좌 정보:</h2>
-              <div className="space-y-1 md:space-y-2 text-sm md:text-base">
-                <p><span className="font-medium">은행명:</span> IBK기업은행</p>
-                <p><span className="font-medium">계좌번호:</span> 11116875301018</p>
-                <p><span className="font-medium">예금주:</span> 박상현</p>
+                <h2 className="text-lg md:text-xl font-semibold mb-3">입금 계좌 정보:</h2>
+                <div className="space-y-1 md:space-y-2 text-sm md:text-base">
+                  <p><span className="font-medium">은행명:</span> IBK기업은행</p>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p><span className="font-medium">계좌번호:</span> {depositAccountNumber}</p>
+                    <button
+                      type="button"
+                      onClick={handleCopyAccountNumber}
+                      className="px-2 py-1 text-xs border border-gray-300 rounded hover:bg-gray-100 transition-colors"
+                    >
+                      복사하기
+                    </button>
+                  </div>
+                  {copyMessage && <p className="text-xs text-gray-600">{copyMessage}</p>}
+                  <p><span className="font-medium">예금주:</span> 박상현</p>
+                </div>
               </div>
-            </div>
 
             <div className="mb-6">
               <h2 className="text-lg md:text-xl font-semibold mb-3">입금 방법:</h2>
@@ -208,6 +246,7 @@ const CheckoutPage = () => {
                   placeholder="입금자 성함을 입력하세요"
                   required
                 />
+                <p className="mt-1 text-xs text-gray-500">실제 입금자명과 동일하게 입력해주세요.</p>
               </div>
 
               <div className="mb-4 md:mb-6">
@@ -227,9 +266,10 @@ const CheckoutPage = () => {
                 <input
                   type="text"
                   value={accountNumber}
-                  onChange={(e) => setAccountNumber(e.target.value)}
+                  onChange={(e) => setAccountNumber(normalizeDigitsAndHyphen(e.target.value))}
                   className="w-full p-2 border border-gray-300 rounded"
                   placeholder="입금자 계좌번호"
+                  inputMode="numeric"
                   required
                 />
               </div>
@@ -239,9 +279,10 @@ const CheckoutPage = () => {
                 <input
                   type="text"
                   value={phoneNumber}
-                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  onChange={(e) => setPhoneNumber(normalizeDigitsAndHyphen(e.target.value))}
                   className="w-full p-2 border border-gray-300 rounded"
                   placeholder="연락 가능한 전화번호"
+                  inputMode="tel"
                   required
                 />
               </div>
@@ -249,7 +290,7 @@ const CheckoutPage = () => {
               {/* 주문 상품 목록 - 데스크톱 */}
               <div className="hidden md:block mb-6 border-t border-gray-300 pt-4">
                 <h2 className="text-xl font-semibold mb-4">주문 상품</h2>
-                {cartItems.map(item => (
+                {orderItems.map(item => (
                   <div key={item.id} className="flex items-center py-2 border-b border-gray-200">
                     <div className="w-[50px] h-[50px] mr-3 overflow-hidden">
                       <img
@@ -281,10 +322,14 @@ const CheckoutPage = () => {
                 </div>
 
                 <button
-                  type="submit"
-                  className="w-full py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors"
-                  disabled={isSubmitting}
-                >
+	                  type="submit"
+	                  className={`w-full py-3 text-white font-medium transition-colors ${
+	                    isSubmitting
+	                      ? 'bg-gray-400 cursor-not-allowed'
+	                      : 'bg-indigo-600 hover:bg-indigo-700'
+	                  }`}
+	                  disabled={isSubmitting}
+	                >
                   {isSubmitting ? '처리 중...' : '예약 주문하기'}
                 </button>
               </div>
