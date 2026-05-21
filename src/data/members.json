@@ -127,85 +127,201 @@
     ]
   },
   {
-    "teamName": "TEAM 11:11",
-    "teamPageUrl": "eleven-eleven",
+    "teamName": "TEAM (Un)skinned",
+    "teamPageUrl": "unskinned",
     "members": [
       {
-        "name": "김지훈",
-        "englishName": "KIM JI HOON",
+        "name": "김영서",
+        "englishName": "Youngseo Kim",
         "projectTitle": "",
         "description": "",
-        "email": "garrix05144@gmail.com",
-        "instagram": "itscalled.language",
-        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_kim-ji-hoon_profile.webp",
+        "email": "pinkylove0516@naver.com",
+        "instagram": "Kimpopalt",
+        "profileImageUrl": "assets/unskinned/profile/unskinned_youngseo-kim_profile.webp",
         "slides": [],
-        "portfolioUrl": "kim-ji-hoon"
+        "portfolioUrl": "youngseo-kim"
       },
       {
-        "name": "주예원",
-        "englishName": "JU YEWON",
+        "name": "박예진",
+        "englishName": "yejin Park",
         "projectTitle": "",
         "description": "",
-        "email": "dywjd7895@naver.com",
-        "instagram": "yewonju",
-        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_ju-yewon_profile.webp",
+        "email": "pyejin9089@gmail.com",
+        "instagram": "nijeyx",
+        "profileImageUrl": "assets/unskinned/profile/unskinned_yejin-park_profile.webp",
         "slides": [],
-        "portfolioUrl": "ju-yewon"
+        "portfolioUrl": "yejin-park"
       },
       {
-        "name": "양연홍",
-        "englishName": "YANG YAN HONG",
+        "name": "김예올",
+        "englishName": "Ye-ol Kim",
         "projectTitle": "",
         "description": "",
-        "email": "yangyanhongcn.@naver.com",
-        "instagram": "_yyh_77",
-        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_yang-yan-hong_profile.webp",
+        "email": "wink2rose@naver.com",
+        "instagram": "yeolkeem",
+        "profileImageUrl": "assets/unskinned/profile/unskinned_ye-ol-kim_profile.webp",
         "slides": [],
-        "portfolioUrl": "yang-yan-hong"
+        "portfolioUrl": "ye-ol-kim"
       },
       {
-        "name": "장완영",
-        "englishName": "ZHANG WANYING",
+        "name": "김유나",
+        "englishName": "Yuna Kim",
         "projectTitle": "",
         "description": "",
-        "email": "zwy0923@naver.com",
-        "instagram": "zblessyou",
-        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_zhang-wanying_profile.webp",
+        "email": "abbc200@naver.com",
+        "instagram": "I_won_2_d",
+        "profileImageUrl": "assets/unskinned/profile/unskinned_yuna-kim_profile.webp",
         "slides": [],
-        "portfolioUrl": "zhang-wanying"
+        "portfolioUrl": "yuna-kim"
       },
       {
-        "name": "주가진",
-        "englishName": "ZHOU KECHEN",
+        "name": "이진재",
+        "englishName": "JIN JAE LEE",
         "projectTitle": "",
         "description": "",
-        "email": "zhou62552000@gmail.com",
-        "instagram": "kajin_choo",
-        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_zhou-kechen_profile.webp",
+        "email": "jin724596@gmail.com",
+        "instagram": "wlswolee",
+        "profileImageUrl": "assets/unskinned/profile/unskinned_jin-jae-lee_profile.webp",
         "slides": [],
-        "portfolioUrl": "zhou-kechen"
+        "portfolioUrl": "jin-jae-lee"
       },
       {
-        "name": "애슐리",
-        "englishName": "ASHLEY",
+        "name": "조아라",
+        "englishName": "Ara cho",
         "projectTitle": "",
         "description": "",
-        "email": "its.ashleylo64@gmail.com",
-        "instagram": "",
-        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_ashley_profile.webp",
+        "email": "ara_yk_cho@naver.com",
+        "instagram": "skxauyvr",
+        "profileImageUrl": "assets/unskinned/profile/unskinned_ara-cho_profile.webp",
         "slides": [],
-        "portfolioUrl": "ashley"
+        "portfolioUrl": "ara-cho"
       },
       {
-        "name": "한지희",
-        "englishName": "HAN JI HEE",
+        "name": "조우진",
+        "englishName": "woojin cho",
         "projectTitle": "",
         "description": "",
-        "email": "jihee.hahn@gmail.com",
-        "instagram": "heehnn",
-        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_han-ji-hee_profile.webp",
+        "email": "cwj0818@naver.com",
+        "instagram": "wu._.genie",
+        "profileImageUrl": "assets/unskinned/profile/unskinned_woojin-cho_profile.webp",
         "slides": [],
-        "portfolioUrl": "han-ji-hee"
+        "portfolioUrl": "woojin-cho"
+      },
+      {
+        "name": "표정호",
+        "englishName": "Jeongho Pyo",
+        "projectTitle": "",
+        "description": "",
+        "email": "harry3200@naver.com",
+        "instagram": "pyori_budong",
+        "profileImageUrl": "assets/unskinned/profile/unskinned_jeongho-pyo_profile.webp",
+        "slides": [],
+        "portfolioUrl": "jeongho-pyo"
+      }
+    ]
+  },
+  {
+    "teamName": "TEAM Dreamscape",
+    "teamPageUrl": "dreamscape",
+    "members": [
+      {
+        "name": "김혜령",
+        "englishName": "Jin Huiling",
+        "projectTitle": "",
+        "description": "",
+        "email": "huilingjin080@gmail.com",
+        "instagram": "inaroooooom",
+        "profileImageUrl": "assets/dreamscape/profile/dreamscape_jin-huiling_profile.webp",
+        "slides": [],
+        "portfolioUrl": "jin-huiling"
+      },
+      {
+        "name": "수닌윗뭄",
+        "englishName": "Su Hnin Wutt Hmone",
+        "projectTitle": "",
+        "description": "",
+        "email": "estellablythethu@gmail.com",
+        "instagram": "estella18reveuse",
+        "profileImageUrl": "assets/dreamscape/profile/dreamscape_su-hnin-wutt-hmone_profile.webp",
+        "slides": [],
+        "portfolioUrl": "su-hnin-wutt-hmone"
+      },
+      {
+        "name": "왕가루",
+        "englishName": "Wang Jialu",
+        "projectTitle": "",
+        "description": "",
+        "email": "15855441546@163.com",
+        "instagram": "wik_1317kk",
+        "profileImageUrl": "assets/dreamscape/profile/dreamscape_wang-jialu_profile.webp",
+        "slides": [],
+        "portfolioUrl": "wang-jialu"
+      },
+      {
+        "name": "나타샤",
+        "englishName": "Natasha",
+        "projectTitle": "",
+        "description": "",
+        "email": "effendinatasha@gmail.com",
+        "instagram": "cloverblossomm",
+        "profileImageUrl": "assets/dreamscape/profile/dreamscape_natasha_profile.webp",
+        "slides": [],
+        "portfolioUrl": "natasha"
+      },
+      {
+        "name": "아나세라노 고메스",
+        "englishName": "Ana",
+        "projectTitle": "",
+        "description": "",
+        "email": "anaserranogomez.77@gmail.com",
+        "instagram": "a_messyg",
+        "profileImageUrl": "assets/dreamscape/profile/dreamscape_ana_profile.webp",
+        "slides": [],
+        "portfolioUrl": "ana"
+      },
+      {
+        "name": "왕가인",
+        "englishName": "Wang Keer",
+        "projectTitle": "",
+        "description": "",
+        "email": "wjl020828@126.com",
+        "instagram": "020828isabelle",
+        "profileImageUrl": "assets/dreamscape/profile/dreamscape_wang-keer_profile.webp",
+        "slides": [],
+        "portfolioUrl": "wang-keer"
+      },
+      {
+        "name": "이샤니아",
+        "englishName": "Shannia",
+        "projectTitle": "",
+        "description": "",
+        "email": "niavivin1222@gmail.com",
+        "instagram": "shanniameidy_",
+        "profileImageUrl": "assets/dreamscape/profile/dreamscape_shannia_profile.webp",
+        "slides": [],
+        "portfolioUrl": "shannia"
+      },
+      {
+        "name": "조영기",
+        "englishName": "Zhao Yongqi",
+        "projectTitle": "",
+        "description": "",
+        "email": "yongqizhao98@gamil.com",
+        "instagram": "timi9142",
+        "profileImageUrl": "assets/dreamscape/profile/dreamscape_zhao-yongqi_profile.webp",
+        "slides": [],
+        "portfolioUrl": "zhao-yongqi"
+      },
+      {
+        "name": "첼시",
+        "englishName": "Chellsy",
+        "projectTitle": "",
+        "description": "",
+        "email": "chellsysp25@gmail.com",
+        "instagram": "sefaniachellsy_",
+        "profileImageUrl": "assets/dreamscape/profile/dreamscape_chellsy_profile.webp",
+        "slides": [],
+        "portfolioUrl": "chellsy"
       }
     ]
   },
@@ -304,96 +420,157 @@
     ]
   },
   {
-    "teamName": "TEAM (Un)skinned",
-    "teamPageUrl": "unskinned",
+    "teamName": "TEAM 11:11",
+    "teamPageUrl": "eleven-eleven",
     "members": [
       {
-        "name": "김영서",
-        "englishName": "Youngseo Kim",
+        "name": "김지훈",
+        "englishName": "KIM JI HOON",
         "projectTitle": "",
         "description": "",
-        "email": "pinkylove0516@naver.com",
-        "instagram": "Kimpopalt",
-        "profileImageUrl": "assets/unskinned/profile/unskinned_youngseo-kim_profile.webp",
+        "email": "garrix05144@gmail.com",
+        "instagram": "itscalled.language",
+        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_kim-ji-hoon_profile.webp",
         "slides": [],
-        "portfolioUrl": "youngseo-kim"
+        "portfolioUrl": "kim-ji-hoon"
       },
       {
-        "name": "박예진",
-        "englishName": "yejin Park",
+        "name": "주예원",
+        "englishName": "JU YEWON",
         "projectTitle": "",
         "description": "",
-        "email": "pyejin9089@gmail.com",
-        "instagram": "nijeyx",
-        "profileImageUrl": "assets/unskinned/profile/unskinned_yejin-park_profile.webp",
+        "email": "dywjd7895@naver.com",
+        "instagram": "yewonju",
+        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_ju-yewon_profile.webp",
         "slides": [],
-        "portfolioUrl": "yejin-park"
+        "portfolioUrl": "ju-yewon"
       },
       {
-        "name": "김예올",
-        "englishName": "Ye-ol Kim",
+        "name": "양연홍",
+        "englishName": "YANG YAN HONG",
         "projectTitle": "",
         "description": "",
-        "email": "wink2rose@naver.com",
-        "instagram": "yeolkeem",
-        "profileImageUrl": "assets/unskinned/profile/unskinned_ye-ol-kim_profile.webp",
+        "email": "yangyanhongcn.@naver.com",
+        "instagram": "_yyh_77",
+        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_yang-yan-hong_profile.webp",
         "slides": [],
-        "portfolioUrl": "ye-ol-kim"
+        "portfolioUrl": "yang-yan-hong"
       },
       {
-        "name": "김유나",
-        "englishName": "Yuna Kim",
+        "name": "장완영",
+        "englishName": "ZHANG WANYING",
         "projectTitle": "",
         "description": "",
-        "email": "abbc200@naver.com",
-        "instagram": "I_won_2_d",
-        "profileImageUrl": "assets/unskinned/profile/unskinned_yuna-kim_profile.webp",
+        "email": "zwy0923@naver.com",
+        "instagram": "zblessyou",
+        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_zhang-wanying_profile.webp",
         "slides": [],
-        "portfolioUrl": "yuna-kim"
+        "portfolioUrl": "zhang-wanying"
       },
       {
-        "name": "이진재",
-        "englishName": "JIN JAE LEE",
+        "name": "주가진",
+        "englishName": "ZHOU KECHEN",
         "projectTitle": "",
         "description": "",
-        "email": "jin724596@gmail.com",
-        "instagram": "wlswolee",
-        "profileImageUrl": "assets/unskinned/profile/unskinned_jin-jae-lee_profile.webp",
+        "email": "zhou62552000@gmail.com",
+        "instagram": "kajin_choo",
+        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_zhou-kechen_profile.webp",
         "slides": [],
-        "portfolioUrl": "jin-jae-lee"
+        "portfolioUrl": "zhou-kechen"
       },
       {
-        "name": "조아라",
-        "englishName": "Ara cho",
+        "name": "애슐리",
+        "englishName": "ASHLEY",
         "projectTitle": "",
         "description": "",
-        "email": "ara_yk_cho@naver.com",
-        "instagram": "skxauyvr",
-        "profileImageUrl": "assets/unskinned/profile/unskinned_ara-cho_profile.webp",
+        "email": "its.ashleylo64@gmail.com",
+        "instagram": "",
+        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_ashley_profile.webp",
         "slides": [],
-        "portfolioUrl": "ara-cho"
+        "portfolioUrl": "ashley"
       },
       {
-        "name": "조우진",
-        "englishName": "woojin cho",
+        "name": "한지희",
+        "englishName": "HAN JI HEE",
         "projectTitle": "",
         "description": "",
-        "email": "cwj0818@naver.com",
-        "instagram": "wu._.genie",
-        "profileImageUrl": "assets/unskinned/profile/unskinned_woojin-cho_profile.webp",
+        "email": "jihee.hahn@gmail.com",
+        "instagram": "heehnn",
+        "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_han-ji-hee_profile.webp",
         "slides": [],
-        "portfolioUrl": "woojin-cho"
+        "portfolioUrl": "han-ji-hee"
+      }
+    ]
+  },
+  {
+    "teamName": "TEAM 가시:화(花)",
+    "teamPageUrl": "thorn-bloom",
+    "members": [
+      {
+        "name": "이승현",
+        "englishName": "Lee seunghyeon",
+        "projectTitle": "",
+        "description": "",
+        "email": "sh042611@naver.com",
+        "instagram": "2shyeony",
+        "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_lee-seunghyeon_profile.webp",
+        "slides": [],
+        "portfolioUrl": "lee-seunghyeon"
       },
       {
-        "name": "표정호",
-        "englishName": "Jeongho Pyo",
+        "name": "김지우",
+        "englishName": "Kim jiwoo",
         "projectTitle": "",
         "description": "",
-        "email": "harry3200@naver.com",
-        "instagram": "pyori_budong",
-        "profileImageUrl": "assets/unskinned/profile/unskinned_jeongho-pyo_profile.webp",
+        "email": "kjw030456@gmail.com",
+        "instagram": "juu.xe",
+        "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_kim-jiwoo_profile.webp",
         "slides": [],
-        "portfolioUrl": "jeongho-pyo"
+        "portfolioUrl": "kim-jiwoo"
+      },
+      {
+        "name": "이가은",
+        "englishName": "Lee gaeun",
+        "projectTitle": "",
+        "description": "",
+        "email": "ikonegaun@naver.com",
+        "instagram": "deary_gani",
+        "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_lee-gaeun_profile.webp",
+        "slides": [],
+        "portfolioUrl": "lee-gaeun"
+      },
+      {
+        "name": "복은지",
+        "englishName": "Bok eunji",
+        "projectTitle": "",
+        "description": "",
+        "email": "cjstk032323@gmail.com",
+        "instagram": "bokk_ndi",
+        "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_bok-eunji_profile.webp",
+        "slides": [],
+        "portfolioUrl": "bok-eunji"
+      },
+      {
+        "name": "이소민",
+        "englishName": "Lee somin",
+        "projectTitle": "",
+        "description": "",
+        "email": "hebs01@naver.com",
+        "instagram": "ddddd312737",
+        "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_lee-somin_profile.webp",
+        "slides": [],
+        "portfolioUrl": "lee-somin"
+      },
+      {
+        "name": "임이안",
+        "englishName": "Lim ian",
+        "projectTitle": "",
+        "description": "",
+        "email": "dladldks0913@naver.com",
+        "instagram": "ianlim_0913",
+        "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_lim-ian_profile.webp",
+        "slides": [],
+        "portfolioUrl": "lim-ian"
       }
     ]
   },
@@ -510,183 +687,6 @@
         "profileImageUrl": "assets/rei/profile/rei_rurika-kuroshima_profile.webp",
         "slides": [],
         "portfolioUrl": "rurika-kuroshima"
-      }
-    ]
-  },
-  {
-    "teamName": "TEAM Dreamscape",
-    "teamPageUrl": "dreamscape",
-    "members": [
-      {
-        "name": "김혜령",
-        "englishName": "Jin Huiling",
-        "projectTitle": "",
-        "description": "",
-        "email": "huilingjin080@gmail.com",
-        "instagram": "inaroooooom",
-        "profileImageUrl": "assets/dreamscape/profile/dreamscape_jin-huiling_profile.webp",
-        "slides": [],
-        "portfolioUrl": "jin-huiling"
-      },
-      {
-        "name": "수닌윗뭄",
-        "englishName": "Su Hnin Wutt Hmone",
-        "projectTitle": "",
-        "description": "",
-        "email": "estellablythethu@gmail.com",
-        "instagram": "estella18reveuse",
-        "profileImageUrl": "assets/dreamscape/profile/dreamscape_su-hnin-wutt-hmone_profile.webp",
-        "slides": [],
-        "portfolioUrl": "su-hnin-wutt-hmone"
-      },
-      {
-        "name": "왕가루",
-        "englishName": "Wang Jialu",
-        "projectTitle": "",
-        "description": "",
-        "email": "15855441546@163.com",
-        "instagram": "wik_1317kk",
-        "profileImageUrl": "assets/dreamscape/profile/dreamscape_wang-jialu_profile.webp",
-        "slides": [],
-        "portfolioUrl": "wang-jialu"
-      },
-      {
-        "name": "나타샤",
-        "englishName": "Natasha",
-        "projectTitle": "",
-        "description": "",
-        "email": "effendinatasha@gmail.com",
-        "instagram": "cloverblossomm",
-        "profileImageUrl": "assets/dreamscape/profile/dreamscape_natasha_profile.webp",
-        "slides": [],
-        "portfolioUrl": "natasha"
-      },
-      {
-        "name": "아나세라노 고메스",
-        "englishName": "Ana",
-        "projectTitle": "",
-        "description": "",
-        "email": "anaserranogomez.77@gmail.com",
-        "instagram": "a_messyg",
-        "profileImageUrl": "assets/dreamscape/profile/dreamscape_ana_profile.webp",
-        "slides": [],
-        "portfolioUrl": "ana"
-      },
-      {
-        "name": "왕가인",
-        "englishName": "Wang Keer",
-        "projectTitle": "",
-        "description": "",
-        "email": "wjl020828@126.com",
-        "instagram": "020828isabelle",
-        "profileImageUrl": "assets/dreamscape/profile/dreamscape_wang-keer_profile.webp",
-        "slides": [],
-        "portfolioUrl": "wang-keer"
-      },
-      {
-        "name": "이샤니아",
-        "englishName": "Shannia",
-        "projectTitle": "",
-        "description": "",
-        "email": "niavivin1222@gmail.com",
-        "instagram": "shanniameidy_",
-        "profileImageUrl": "assets/dreamscape/profile/dreamscape_shannia_profile.webp",
-        "slides": [],
-        "portfolioUrl": "shannia"
-      },
-      {
-        "name": "조영기",
-        "englishName": "Zhao Yongqi",
-        "projectTitle": "",
-        "description": "",
-        "email": "yongqizhao98@gamil.com",
-        "instagram": "timi9142",
-        "profileImageUrl": "assets/dreamscape/profile/dreamscape_zhao-yongqi_profile.webp",
-        "slides": [],
-        "portfolioUrl": "zhao-yongqi"
-      },
-      {
-        "name": "첼시",
-        "englishName": "Chellsy",
-        "projectTitle": "",
-        "description": "",
-        "email": "chellsysp25@gmail.com",
-        "instagram": "sefaniachellsy_",
-        "profileImageUrl": "assets/dreamscape/profile/dreamscape_chellsy_profile.webp",
-        "slides": [],
-        "portfolioUrl": "chellsy"
-      }
-    ]
-  },
-  {
-    "teamName": "TEAM 가시:화(花)",
-    "teamPageUrl": "thorn-bloom",
-    "members": [
-      {
-        "name": "이승현",
-        "englishName": "Lee seunghyeon",
-        "projectTitle": "",
-        "description": "",
-        "email": "sh042611@naver.com",
-        "instagram": "2shyeony",
-        "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_lee-seunghyeon_profile.webp",
-        "slides": [],
-        "portfolioUrl": "lee-seunghyeon"
-      },
-      {
-        "name": "김지우",
-        "englishName": "Kim jiwoo",
-        "projectTitle": "",
-        "description": "",
-        "email": "kjw030456@gmail.com",
-        "instagram": "juu.xe",
-        "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_kim-jiwoo_profile.webp",
-        "slides": [],
-        "portfolioUrl": "kim-jiwoo"
-      },
-      {
-        "name": "이가은",
-        "englishName": "Lee gaeun",
-        "projectTitle": "",
-        "description": "",
-        "email": "ikonegaun@naver.com",
-        "instagram": "deary_gani",
-        "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_lee-gaeun_profile.webp",
-        "slides": [],
-        "portfolioUrl": "lee-gaeun"
-      },
-      {
-        "name": "복은지",
-        "englishName": "Bok eunji",
-        "projectTitle": "",
-        "description": "",
-        "email": "cjstk032323@gmail.com",
-        "instagram": "bokk_ndi",
-        "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_bok-eunji_profile.webp",
-        "slides": [],
-        "portfolioUrl": "bok-eunji"
-      },
-      {
-        "name": "이소민",
-        "englishName": "Lee somin",
-        "projectTitle": "",
-        "description": "",
-        "email": "hebs01@naver.com",
-        "instagram": "ddddd312737",
-        "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_lee-somin_profile.webp",
-        "slides": [],
-        "portfolioUrl": "lee-somin"
-      },
-      {
-        "name": "임이안",
-        "englishName": "Lim ian",
-        "projectTitle": "",
-        "description": "",
-        "email": "dladldks0913@naver.com",
-        "instagram": "ianlim_0913",
-        "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_lim-ian_profile.webp",
-        "slides": [],
-        "portfolioUrl": "lim-ian"
       }
     ]
   }

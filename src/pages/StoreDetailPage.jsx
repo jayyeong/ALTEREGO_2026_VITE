@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { resolveAssetUrl } from '../utils/assets';
+import { sortByTeamOrder } from '../utils/teamOrder';
 
 // 환경 변수에서 API URL 가져오기
 const API_URL = import.meta.env.VITE_API_URL || '';
@@ -25,7 +26,7 @@ const StoreDetailPage = () => {
         console.log('Fetching teams from:', `${API_URL}/api/store/teams`);
         const teamsResponse = await axios.get(`${API_URL}/api/store/teams`);
         console.log('Teams response:', teamsResponse.data);
-        setTeams(teamsResponse.data);
+        setTeams(sortByTeamOrder(teamsResponse.data));
         
         // 상품 상세 정보 가져오기
         console.log('Fetching item from:', `${API_URL}/api/store/items/${itemId}`);
