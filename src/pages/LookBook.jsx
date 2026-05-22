@@ -1,5 +1,8 @@
 import React, { useEffect, useState, useMemo } from "react";
 
+const LOOKBOOK_PAGE_COUNT = 292;
+const LOOKBOOK_BASE_PATH = `${import.meta.env.BASE_URL}lookbook/`;
+
 const LookBook = () => {
   const [scrollOffset, setScrollOffset] = useState(8);
 
@@ -42,22 +45,22 @@ const LookBook = () => {
 
   const imagePaths = useMemo(
     () =>
-      Array.from({ length: 252 }, (_, i) => {
-        const suffix = i === 0 ? "" : `${i}`;
-        return `/2026/lookbook/SOMA2025${suffix}.jpg`;
+      Array.from({ length: LOOKBOOK_PAGE_COUNT }, (_, i) => {
+        const pageNumber = String(i + 1).padStart(3, "0");
+        return `${LOOKBOOK_BASE_PATH}lookbook-${pageNumber}.webp`;
       }),
     []
   );
 
   const teamToc = useMemo(
     () => [
-      { name: "AGIOTITA", index: 6 },
-      { name: "BIPOLAR", index: 48 },
-      { name: " \" - - - \" ", index: 96 },
-      { name: "Dialysis", index: 138 },
-      { name: "표류[]기", index: 180 },
-      { name: "자각몽", index: 218 },
-      { name: "TEAM 7", index: 250 },
+      { name: "Limbo", index: 6 },
+      { name: "(Un)skinned", index: 58 },
+      { name: "Dreamscape", index: 96 },
+      { name: "Tiny Lodge", index: 140 },
+      { name: "11:11", index: 178 },
+      { name: "Thorn Bloom", index: 212 },
+      { name: "RE:I", index: 242 },
     ],
     []
   );
@@ -73,6 +76,7 @@ const LookBook = () => {
 
   const renderImageGrid = (withIds = false) => (
     <div className="grid grid-cols-2 gap-x-0 gap-y-1.5">
+      <div className="w-full bg-white" aria-hidden="true" />
       {imagePaths.map((src, i) => (
         <div
           id={withIds ? `lookbook-image-${i}` : undefined}
