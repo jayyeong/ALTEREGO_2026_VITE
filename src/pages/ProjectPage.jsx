@@ -32,8 +32,8 @@ const ProjectPage = () => {
   const row2 = teams.slice(4);
 
   return (
-    <div className="mx-auto max-w-[980px] xl:max-w-[1120px] 2xl:max-w-[1260px] px-4 py-8 md:py-0">
-      <section>
+    <div className="mx-auto max-w-[980px] xl:max-w-[1120px] 2xl:max-w-[1260px] px-4 py-8 md:h-[calc(100dvh-88px)] md:overflow-hidden md:py-0">
+      <section className="md:h-full">
         {/* 모바일: 1열(네 코드 의도 유지) */}
         <div className="grid grid-cols-1 gap-y-10 md:hidden">
           {teams.map((team, idx) => (
@@ -44,17 +44,17 @@ const ProjectPage = () => {
         </div>
 
         {/* PC: 4개 + 3개 “두 줄 분리” */}
-        <div className="hidden md:flex h-[calc(100dvh-88px)] flex-col justify-center py-8">
+        <div className="hidden h-full md:flex flex-col justify-center py-[clamp(12px,3vh,32px)]">
           {/* 첫째 줄: 4개 (카드 폭 동일) */}
-          <div className="grid grid-cols-4 w-full max-w-[920px] xl:max-w-[980px] 2xl:max-w-[1100px] mx-auto gap-x-14 gap-y-6">
+          <div className="grid grid-cols-4 w-full max-w-[min(920px,calc((100dvh-176px)*3/2))] xl:max-w-[min(980px,calc((100dvh-176px)*3/2))] 2xl:max-w-[min(1100px,calc((100dvh-176px)*3/2))] mx-auto gap-x-[clamp(20px,4vw,56px)] gap-y-4">
             {row1.map((team, idx) => (
               <TeamCard key={idx} team={team} />
             ))}
           </div>
 
           {/* 둘째 줄: 3개 (가운데 정렬 + 카드 폭은 1줄과 동일하게 유지) */}
-          <div className="mt-8 flex justify-center">
-            <div className="grid grid-cols-3 w-full max-w-[676px] xl:max-w-[721px] 2xl:max-w-[812px] gap-x-14">
+          <div className="mt-[clamp(14px,3vh,32px)] flex justify-center">
+            <div className="grid grid-cols-3 w-full max-w-[min(676px,calc((100dvh-176px)*9/8))] xl:max-w-[min(721px,calc((100dvh-176px)*9/8))] 2xl:max-w-[min(812px,calc((100dvh-176px)*9/8))] gap-x-[clamp(20px,4vw,56px)]">
               {row2.map((team, idx) => (
                 <TeamCard key={idx} team={team} />
               ))}
