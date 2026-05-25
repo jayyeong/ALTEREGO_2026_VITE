@@ -202,7 +202,6 @@ const CheckoutPage = () => {
             <div className="mb-6">
                 <h2 className="text-lg md:text-xl font-semibold mb-3">입금 계좌 정보:</h2>
                 <div className="space-y-1 md:space-y-2 text-sm md:text-base">
-                  <p><span className="font-medium">상품 구분:</span> {depositAccount.label}</p>
                   <p><span className="font-medium">은행명:</span> {depositAccount.bankName}</p>
                   <div className="flex flex-wrap items-center gap-2">
                     <p><span className="font-medium">계좌번호:</span> {depositAccount.accountNumber}</p>

@@ -126,10 +126,6 @@ const OrderCompletePage = () => {
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 md:p-6">
             <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
               <div className="mb-2 md:mb-0">
-                <p className="font-medium text-sm md:text-base">상품 구분</p>
-                <p className="text-gray-700 text-sm md:text-base">{depositAccount.label}</p>
-              </div>
-              <div className="mb-2 md:mb-0">
                 <p className="font-medium text-sm md:text-base">은행명</p>
                 <p className="text-gray-700 text-sm md:text-base">{depositAccount.bankName}</p>
               </div>
