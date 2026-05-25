@@ -3,15 +3,10 @@ import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { resolveAssetUrl } from '../utils/assets';
 import { formatKoreanDateTime } from '../utils/dateFormat';
+import { formatStoreContacts, getDepositAccountForItems } from '../data/depositAccounts';
 
 // 환경 변수에서 API URL 가져오기
 const API_URL = import.meta.env.VITE_API_URL || '';
-const DEPOSIT_ACCOUNT = {
-  bankName: '추후 공지 예정',
-  accountNumber: '000-0000-0000-00',
-  holder: 'KUAD 2026',
-};
-const STORE_CONTACT = '010-0000-0000';
 
 const OrderCompletePage = () => {
   const { receiptId: publicToken } = useParams();
@@ -48,6 +43,9 @@ const OrderCompletePage = () => {
       return 'https://via.placeholder.com/80x80?text=Error+Loading+Image';
     }
   };
+
+  const depositAccount = getDepositAccountForItems(receipt?.orders || []);
+  const storeContact = formatStoreContacts();
 
   if (loading) return (
     <div className="store-page" style={{ backgroundColor: 'white', minHeight: 'calc(100vh - 150px)' }}>
@@ -128,19 +126,23 @@ const OrderCompletePage = () => {
           <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 md:p-6">
             <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
               <div className="mb-2 md:mb-0">
+                <p className="font-medium text-sm md:text-base">상품 구분</p>
+                <p className="text-gray-700 text-sm md:text-base">{depositAccount.label}</p>
+              </div>
+              <div className="mb-2 md:mb-0">
                 <p className="font-medium text-sm md:text-base">은행명</p>
-                <p className="text-gray-700 text-sm md:text-base">{DEPOSIT_ACCOUNT.bankName}</p>
+                <p className="text-gray-700 text-sm md:text-base">{depositAccount.bankName}</p>
               </div>
               <div className="mb-2 md:mb-0">
                 <p className="font-medium text-sm md:text-base">계좌번호</p>
-                <p className="text-gray-700 text-sm md:text-base">{DEPOSIT_ACCOUNT.accountNumber}</p>
+                <p className="text-gray-700 text-sm md:text-base">{depositAccount.accountNumber}</p>
               </div>
               <div>
                 <p className="font-medium text-sm md:text-base">예금주</p>
-                <p className="text-gray-700 text-sm md:text-base">{DEPOSIT_ACCOUNT.holder}</p>
+                <p className="text-gray-700 text-sm md:text-base">{depositAccount.holder}</p>
               </div>
             </div>
-            <p className="mt-4 text-xs text-gray-500">현재 계좌 정보는 임시 정보이며, 실제 운영 전 최종 정보로 교체될 예정입니다.</p>
+            <p className="mt-4 text-xs text-gray-500">주문 상품에 맞는 위 계좌로 총 주문금액을 입금해주세요.</p>
           </div>
         </div>
 
@@ -195,7 +197,7 @@ const OrderCompletePage = () => {
         </div>
 
         <div className="text-gray-600 text-center text-xs md:text-sm">
-          <p>주문과 관련된 문의사항은 [{STORE_CONTACT}]로 연락주세요.</p>
+          <p>주문과 관련된 문의사항은 [{storeContact}]로 연락주세요.</p>
         </div>
       </div>
     </div>

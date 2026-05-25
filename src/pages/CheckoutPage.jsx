@@ -2,15 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { resolveAssetUrl } from '../utils/assets';
+import { formatStoreContacts, getDepositAccountForItems } from '../data/depositAccounts';
 
 // 환경 변수에서 API URL 가져오기
 const API_URL = import.meta.env.VITE_API_URL || '';
-const DEPOSIT_ACCOUNT = {
-  bankName: '추후 공지 예정',
-  accountNumber: '000-0000-0000-00',
-  holder: 'KUAD 2026',
-};
-const STORE_CONTACT = '010-0000-0000';
 
 const CheckoutPage = () => {
   const [orderItems, setOrderItems] = useState([]);
@@ -23,6 +18,8 @@ const CheckoutPage = () => {
   const [error, setError] = useState('');
   const [copyMessage, setCopyMessage] = useState('');
   const navigate = useNavigate();
+  const depositAccount = getDepositAccountForItems(orderItems);
+  const storeContact = formatStoreContacts();
 
   useEffect(() => {
     const loadOrderItems = () => {
@@ -63,7 +60,7 @@ const CheckoutPage = () => {
 
   const handleCopyAccountNumber = async () => {
     try {
-      await navigator.clipboard.writeText(DEPOSIT_ACCOUNT.accountNumber);
+      await navigator.clipboard.writeText(depositAccount.accountNumber);
       setCopyMessage('계좌번호가 복사되었습니다.');
     } catch (err) {
       console.error('계좌번호 복사 실패:', err);
@@ -205,9 +202,10 @@ const CheckoutPage = () => {
             <div className="mb-6">
                 <h2 className="text-lg md:text-xl font-semibold mb-3">입금 계좌 정보:</h2>
                 <div className="space-y-1 md:space-y-2 text-sm md:text-base">
-                  <p><span className="font-medium">은행명:</span> {DEPOSIT_ACCOUNT.bankName}</p>
+                  <p><span className="font-medium">상품 구분:</span> {depositAccount.label}</p>
+                  <p><span className="font-medium">은행명:</span> {depositAccount.bankName}</p>
                   <div className="flex flex-wrap items-center gap-2">
-                    <p><span className="font-medium">계좌번호:</span> {DEPOSIT_ACCOUNT.accountNumber}</p>
+                    <p><span className="font-medium">계좌번호:</span> {depositAccount.accountNumber}</p>
                     <button
                       type="button"
                       onClick={handleCopyAccountNumber}
@@ -217,14 +215,14 @@ const CheckoutPage = () => {
                     </button>
                   </div>
                   {copyMessage && <p className="text-xs text-gray-600">{copyMessage}</p>}
-                  <p><span className="font-medium">예금주:</span> {DEPOSIT_ACCOUNT.holder}</p>
+                  <p><span className="font-medium">예금주:</span> {depositAccount.holder}</p>
                 </div>
               </div>
 
             <div className="mb-6">
               <h2 className="text-lg md:text-xl font-semibold mb-3">입금 방법:</h2>
               <div className="space-y-1 md:space-y-2 text-sm md:text-base text-gray-700">
-                <p>위의 계좌 정보는 임시 정보입니다. 실제 운영 전 최종 계좌로 교체될 예정입니다.</p>
+                <p>주문 상품에 맞는 위 계좌로 총 입금액을 입금해주세요.</p>
                 <p>입금시, 반드시 주문자 성함을 기재해주시기 바랍니다.</p>
                 <p>입금 확인 후, 운영진이 일괄적으로 주문을 확인하고 문자로 안내드립니다.</p>
               </div>
@@ -234,7 +232,7 @@ const CheckoutPage = () => {
               <h2 className="text-lg md:text-xl font-semibold mb-3">유의사항:</h2>
               <div className="space-y-1 md:space-y-2 text-sm md:text-base text-gray-700">
                 <p>입금 금액이 다를 경우, 주문이 취소될 수 있으니 정확한 금액을 입금해 주시기 바랍니다.</p>
-                <p>입금 확인 또는 주문 관련 문의는 [{STORE_CONTACT}]로 연락해주세요.</p>
+                <p>입금 확인 또는 주문 관련 문의는 [{storeContact}]로 연락해주세요.</p>
               </div>
             </div>
           </div>
