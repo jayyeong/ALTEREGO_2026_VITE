@@ -1,13 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 
-import Home from './pages/Home';
-
-import ShowInfo from "./pages/ShowInfo";
-
-import ProjectPage from './pages/ProjectPage';
-import TeamPage from './pages/TeamPage';
-
 import StorePage from "./pages/StorePage";
 import StoreDetailPage from "./pages/StoreDetailPage";
 import CheckoutPage from "./pages/CheckoutPage";
@@ -16,21 +9,13 @@ import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminReceiptDetail from './pages/AdminReceiptDetail';
 
-import PortfolioPage from './pages/PortfolioPage';
-
-
 import ScrollToTop from './components/ScrollToTop';
 
-import LookBook from "./pages/LookBook";
-// import ComingSoon from "./pages/ComingSoon";
-import ArchivePage from "./pages/ArchivePage";
-import BehindShow from "./pages/BehindShow";
-import BehindBrochure from "./pages/BehindBrochure";
-import BehindMaking from "./pages/BehindMaking";
-import Runway from "./pages/Runway";
+import ComingSoon from "./pages/ComingSoon";
 
 function App() {
   const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const blockedPage = <Navigate to="/opening-soon" replace />;
 
   return (
     <BrowserRouter basename={basePath}>
@@ -38,23 +23,24 @@ function App() {
       <div className="min-h-screen-dvh bg-white">
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={blockedPage} />
+          <Route path="/opening-soon" element={<ComingSoon />} />
           {/* PROJECT 카테고리 경로 */}
 
           {/* 쇼 인포 */}
-          <Route path="/show-info" element={<ShowInfo />} />
+          <Route path="/show-info" element={blockedPage} />
           
           {/* 메인 테마 */}
-          <Route path="/project/" element={<ProjectPage />} />
+          <Route path="/project/" element={blockedPage} />
  
           {/* 팀 페이지 */}
-          <Route path="/team/:teamId" element={<TeamPage />} />
+          <Route path="/team/:teamId" element={blockedPage} />
           {/* 룩북 */}
-          <Route path="/project/look-book" element={<LookBook />} />
+          <Route path="/project/look-book" element={blockedPage} />
           {/* 런웨이 */}
-          <Route path="/project/runway" element={<Runway />} />
+          <Route path="/project/runway" element={blockedPage} />
           {/* 기존 경로 */}
-          <Route path="/portfolio/:portfolioUrl" element={<PortfolioPage />} />
+          <Route path="/portfolio/:portfolioUrl" element={blockedPage} />
 
           {/* 스토어 관련 경로 - teamName 대신 teamId 사용 */}
           <Route path="/store" element={<Navigate to="/store/all" />} />
@@ -68,26 +54,16 @@ function App() {
           <Route path="/admin/receipt/:id" element={<AdminReceiptDetail />} />
 
           {/* 비하인드 */}
-          <Route path="/behind/" element={<Navigate to="/behind/show" />} />
-          <Route path="/behind/show" element={<BehindShow />} />
-          <Route path="/behind/brochure" element={<BehindBrochure />} />
-          <Route path="/behind/making" element={<BehindMaking />} />
+          <Route path="/behind/" element={blockedPage} />
+          <Route path="/behind/show" element={blockedPage} />
+          <Route path="/behind/brochure" element={blockedPage} />
+          <Route path="/behind/making" element={blockedPage} />
           
           {/* archive */}
-          <Route path="/archive" element={<ArchivePage />} />
+          <Route path="/archive" element={blockedPage} />
 
-          {/* 404 페이지 */}
-          <Route path="*" element={
-            <div className="flex flex-col items-center justify-center h-screen">
-              <div className="mt-20 text-center">
-                <h1 className="text-3xl font-bold mb-4">페이지를 찾을 수 없습니다</h1>
-                <p className="mb-8">요청하신 페이지가 존재하지 않습니다.</p>
-                <a href={import.meta.env.BASE_URL} className="bg-black text-white px-4 py-2 hover:bg-gray-800 transition">
-                  홈으로 돌아가기
-                </a>
-              </div>
-            </div>
-          } />
+          {/* 스토어 선오픈 기간에는 미공개 경로를 임시 안내 페이지로 보냅니다. */}
+          <Route path="*" element={blockedPage} />
         </Routes>
       </div>
     </BrowserRouter>

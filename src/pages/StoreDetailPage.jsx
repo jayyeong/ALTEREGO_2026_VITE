@@ -173,11 +173,11 @@ const StoreDetailPage = () => {
   return (
     <div className="store-page" style={{ backgroundColor: 'white', minHeight: 'calc(100vh - 150px)' }}>
       {/* Spacer preserves the former breadcrumb/category vertical rhythm. */}
-      <div className="px-4 py-8" aria-hidden="true" />
+      <div className="px-4 py-6 md:py-7" aria-hidden="true" />
 
       {/* Product Detail Content */}
-      <div className="mx-auto w-full max-w-7xl px-4 py-6 md:py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(320px,460px)] md:gap-12 lg:gap-16">
+      <div className="mx-auto w-full max-w-7xl px-4 py-5 md:py-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(300px,430px)] md:gap-10 lg:gap-14">
           {/* Main Product Image */}
           <div className="w-full md:col-start-1 md:row-start-1">
             <div className="w-full overflow-hidden bg-gray-100">
@@ -195,13 +195,13 @@ const StoreDetailPage = () => {
           </div>
 
           {/* Product Info */}
-          <aside className="w-full md:col-start-2 md:row-start-1 md:sticky md:top-24 md:max-h-[calc(100vh-7rem)] md:self-start md:overflow-y-auto md:pr-2">
+          <aside className="w-full md:col-start-2 md:row-start-1 md:sticky md:top-20 md:self-start">
             <div className="bg-white">
-              <h1 className="mb-2 text-2xl font-medium leading-tight text-black md:text-[26px]">{item.name}</h1>
-              <p className="mb-5 text-lg text-gray-800">{Number(item.price).toLocaleString()} ₩</p>
+              <h1 className="mb-1.5 text-2xl font-medium leading-tight text-black md:text-[22px]">{item.name}</h1>
+              <p className="mb-3 text-base text-gray-800">{Number(item.price).toLocaleString()} ₩</p>
 
               {hasDescription && (
-                <div className="mb-5 space-y-2 text-sm leading-6 text-gray-700">
+                <div className="mb-3 space-y-1 text-xs leading-[1.55] text-gray-700 md:text-[12px]">
                   {productDetail.description.map((text) => (
                     <p key={text}>{text}</p>
                   ))}
@@ -209,11 +209,11 @@ const StoreDetailPage = () => {
               )}
 
               {hasDetails && (
-                <div className="mb-5 border-t border-gray-200 pt-4">
-                  <h2 className="mb-3 text-xs font-semibold tracking-[0.18em] text-black">DETAIL</h2>
-                  <dl className="space-y-2 text-sm text-gray-700">
+                <div className="mb-3 border-t border-gray-200 pt-3">
+                  <h2 className="mb-2 text-[11px] font-semibold tracking-[0.18em] text-black">DETAIL</h2>
+                  <dl className="space-y-1.5 text-xs text-gray-700">
                     {productDetail.details.map((detail) => (
-                      <div key={detail.label} className="grid grid-cols-[100px_1fr] gap-3">
+                      <div key={detail.label} className="grid grid-cols-[88px_1fr] gap-3">
                         <dt className="font-medium text-black">{detail.label}</dt>
                         <dd>{detail.value}</dd>
                       </div>
@@ -223,19 +223,19 @@ const StoreDetailPage = () => {
               )}
 
               {hasOptions && (
-                <div className="mb-5">
-                  <p className="mb-2 text-sm text-gray-700">{productDetail.optionLabel || '옵션'}별 수량</p>
-                  <div className="space-y-2">
+                <div className="mb-3">
+                  <p className="mb-1.5 text-xs text-gray-700">{productDetail.optionLabel || '옵션'}별 수량</p>
+                  <div className="space-y-1.5">
                     {productDetail.options.map((option) => (
                       <div
                         key={option.value}
-                        className="flex items-center justify-between border border-gray-200 px-4 py-2.5"
+                        className="flex items-center justify-between border border-gray-200 px-3 py-2"
                       >
-                        <span className="text-sm font-medium text-black">{option.label}</span>
-                        <div className="inline-flex h-9 overflow-hidden rounded-full border border-gray-300 bg-white">
+                        <span className="text-xs font-medium text-black">{option.label}</span>
+                        <div className="inline-flex h-8 overflow-hidden rounded-full border border-gray-300 bg-white">
                           <button
                             type="button"
-                            className="flex w-9 items-center justify-center text-base leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
+                            className="flex w-8 items-center justify-center text-sm leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
                             onClick={() => decrementOptionQuantity(option.value)}
                             aria-label={`${option.label} 수량 감소`}
                           >
@@ -245,13 +245,13 @@ const StoreDetailPage = () => {
                             type="number"
                             value={optionQuantities[option.value] || 0}
                             onChange={(e) => updateOptionQuantity(option.value, e.target.value)}
-                            className="h-full w-12 border-x border-gray-200 text-center text-sm text-black outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                            className="h-full w-10 border-x border-gray-200 text-center text-xs text-black outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                             min="0"
                             aria-label={`${option.label} 수량`}
                           />
                           <button
                             type="button"
-                            className="flex w-9 items-center justify-center text-base leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
+                            className="flex w-8 items-center justify-center text-sm leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
                             onClick={() => incrementOptionQuantity(option.value)}
                             aria-label={`${option.label} 수량 증가`}
                           >
@@ -261,17 +261,17 @@ const StoreDetailPage = () => {
                       </div>
                     ))}
                   </div>
-                  {optionError && <p className="mt-2 text-sm text-red-500">{optionError}</p>}
+                  {optionError && <p className="mt-1.5 text-xs text-red-500">{optionError}</p>}
                 </div>
               )}
 
               {!hasOptions && (
-                <div className="mb-5">
-                  <p className="mb-2 text-sm text-gray-700">수량</p>
-                  <div className="inline-flex h-11 overflow-hidden rounded-full border border-gray-300 bg-white shadow-[0_1px_10px_rgba(0,0,0,0.04)]">
+                <div className="mb-3">
+                  <p className="mb-1.5 text-xs text-gray-700">수량</p>
+                  <div className="inline-flex h-9 overflow-hidden rounded-full border border-gray-300 bg-white shadow-[0_1px_10px_rgba(0,0,0,0.04)]">
                     <button
                       type="button"
-                      className="flex w-11 items-center justify-center text-lg leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
+                      className="flex w-9 items-center justify-center text-base leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
                       onClick={decrementQuantity}
                       aria-label="수량 감소"
                     >
@@ -281,13 +281,13 @@ const StoreDetailPage = () => {
                       type="number"
                       value={quantity}
                       onChange={handleQuantityChange}
-                      className="h-full w-14 border-x border-gray-200 text-center text-sm text-black outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                      className="h-full w-12 border-x border-gray-200 text-center text-xs text-black outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                       min="1"
                       aria-label="수량"
                     />
                     <button
                       type="button"
-                      className="flex w-11 items-center justify-center text-lg leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
+                      className="flex w-9 items-center justify-center text-base leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
                       onClick={incrementQuantity}
                       aria-label="수량 증가"
                     >
@@ -297,16 +297,16 @@ const StoreDetailPage = () => {
                 </div>
               )}
 
-              <div className="mb-4 flex items-center justify-between border-t border-gray-200 pt-4 text-sm">
+              <div className="mb-3 flex items-center justify-between border-t border-gray-200 pt-3 text-xs">
                 <span className="text-gray-500">예상 주문금액</span>
-                <span className="text-lg font-medium text-black">
+                <span className="text-base font-medium text-black">
                   {estimatedTotalPrice.toLocaleString()} ₩
                 </span>
               </div>
 
               {/* Action Buttons */}
               <button
-                className="w-full py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors"
+                className="w-full bg-indigo-600 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-700"
                 onClick={handleDirectCheckout}
               >
                 BUY NOW
