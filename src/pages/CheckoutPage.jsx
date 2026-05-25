@@ -230,6 +230,7 @@ const CheckoutPage = () => {
             <div className="mb-6 md:mb-0">
               <h2 className="text-lg md:text-xl font-semibold mb-3">유의사항:</h2>
               <div className="space-y-1 md:space-y-2 text-sm md:text-base text-gray-700">
+                <p className="text-blue-600">가급적으로 쇼당일 부스에서 픽업부탁드리며 쇼 이후에는 예술디자인대학 6층 과사무실에서 픽업 가능합니다.</p>
                 <p>입금 금액이 다를 경우, 주문이 취소될 수 있으니 정확한 금액을 입금해 주시기 바랍니다.</p>
                 <p>입금 확인 또는 주문 관련 문의는 [{storeContact}]로 연락해주세요.</p>
               </div>
