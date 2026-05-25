@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { formatKoreanDateTime } from '../utils/dateFormat';
+
+const EMPTY_SUMMARY = {
+  totalCount: 0,
+  pendingCount: 0,
+  completedCount: 0,
+  totalAmount: 0,
+};
 
 // fetch API를 사용하여 반드시 JSON으로 파싱
 const AdminDashboard = () => {
   const API_URL = import.meta.env.VITE_API_URL || '';
 
   const [receipts, setReceipts]     = useState([]);
+  const [summary, setSummary]       = useState(EMPTY_SUMMARY);
   const [page, setPage]             = useState(0);
   const [totalPages, setTotalPages] = useState(0);
   const [loading, setLoading]       = useState(true);
@@ -27,15 +36,37 @@ const AdminDashboard = () => {
           `${API_URL}/api/admin/receipts?page=${page}&size=20`,
           { headers: { Accept: 'application/json' } }
         );
+
         if (!resp.ok) throw new Error(resp.statusText);
         const data = await resp.json();
-        console.log('✅ fetched data:', data);
+        const receiptContent = Array.isArray(data.content) ? data.content : [];
 
-        setReceipts(Array.isArray(data.content) ? data.content : []);
+        setReceipts(receiptContent);
         setTotalPages(typeof data.totalPages === 'number' ? data.totalPages : 1);
+
+        try {
+          const summaryResp = await fetch(
+            `${API_URL}/api/admin/receipts/summary`,
+            { headers: { Accept: 'application/json' } }
+          );
+
+          if (!summaryResp.ok) throw new Error(summaryResp.statusText);
+
+          const summaryData = await summaryResp.json();
+          setSummary({ ...EMPTY_SUMMARY, ...summaryData });
+        } catch {
+          setSummary({
+            ...EMPTY_SUMMARY,
+            totalCount: typeof data.totalElements === 'number' ? data.totalElements : receiptContent.length,
+            pendingCount: receiptContent.filter(receipt => receipt.status === 'PENDING_PAYMENT').length,
+            completedCount: receiptContent.filter(receipt => receipt.status === 'PAYMENT_COMPLETED').length,
+            totalAmount: receiptContent.reduce((sum, receipt) => sum + Number(receipt.totalAmount || 0), 0),
+          });
+        }
       } catch (err) {
-        console.error('❌ fetch error:', err);
+        console.error('fetch error:', err);
         setReceipts([]);
+        setSummary(EMPTY_SUMMARY);
         setTotalPages(0);
       } finally {
         setLoading(false);
@@ -58,6 +89,7 @@ const AdminDashboard = () => {
       if (!response.ok) throw new Error('상태 변경에 실패했습니다.');
 
       const updatedReceipt = await response.json();
+      const targetReceipt = receipts.find(receipt => receipt.id === receiptId);
       
       // 로컬 상태 업데이트
       setReceipts(prevReceipts => 
@@ -67,8 +99,20 @@ const AdminDashboard = () => {
             : receipt
         )
       );
+
+      if (targetReceipt && targetReceipt.status !== updatedReceipt.status) {
+        setSummary(prevSummary => ({
+          ...prevSummary,
+          pendingCount: updatedReceipt.status === 'PENDING_PAYMENT'
+            ? prevSummary.pendingCount + 1
+            : Math.max(prevSummary.pendingCount - 1, 0),
+          completedCount: updatedReceipt.status === 'PAYMENT_COMPLETED'
+            ? prevSummary.completedCount + 1
+            : Math.max(prevSummary.completedCount - 1, 0),
+        }));
+      }
     } catch (err) {
-      console.error('❌ toggle status error:', err);
+      console.error('toggle status error:', err);
       alert('상태 변경 중 오류가 발생했습니다.');
     }
   };
@@ -86,15 +130,30 @@ const AdminDashboard = () => {
       });
 
       if (!response.ok) throw new Error('삭제에 실패했습니다.');
+      const deletedReceipt = receipts.find(receipt => receipt.id === receiptId);
 
       // 로컬 상태에서 해당 주문 제거
       setReceipts(prevReceipts => 
         prevReceipts.filter(receipt => receipt.id !== receiptId)
       );
 
+      if (deletedReceipt) {
+        setSummary(prevSummary => ({
+          ...prevSummary,
+          totalCount: Math.max(prevSummary.totalCount - 1, 0),
+          pendingCount: deletedReceipt.status === 'PENDING_PAYMENT'
+            ? Math.max(prevSummary.pendingCount - 1, 0)
+            : prevSummary.pendingCount,
+          completedCount: deletedReceipt.status === 'PAYMENT_COMPLETED'
+            ? Math.max(prevSummary.completedCount - 1, 0)
+            : prevSummary.completedCount,
+          totalAmount: Math.max(Number(prevSummary.totalAmount) - Number(deletedReceipt.totalAmount || 0), 0),
+        }));
+      }
+
       alert('주문이 삭제되었습니다.');
     } catch (err) {
-      console.error('❌ delete error:', err);
+      console.error('delete error:', err);
       alert('삭제 중 오류가 발생했습니다.');
     }
   };
@@ -115,7 +174,7 @@ const AdminDashboard = () => {
       a.click();
       a.remove();
     } catch (err) {
-      console.error('❌ export error:', err);
+      console.error('export error:', err);
       alert('엑셀 내보내기 중 오류가 발생했습니다.');
     }
   };
@@ -144,6 +203,15 @@ const AdminDashboard = () => {
       : 'bg-green-500 hover:bg-green-600';
   };
 
+  const formatCurrency = (value) => `${Number(value || 0).toLocaleString()} ₩`;
+
+  const summaryCards = [
+    { label: '전체 주문', value: `${Number(summary.totalCount || 0).toLocaleString()}건`, tone: 'text-gray-900' },
+    { label: '입금 대기', value: `${Number(summary.pendingCount || 0).toLocaleString()}건`, tone: 'text-yellow-700' },
+    { label: '입금 완료', value: `${Number(summary.completedCount || 0).toLocaleString()}건`, tone: 'text-green-700' },
+    { label: '총 주문금액', value: formatCurrency(summary.totalAmount), tone: 'text-indigo-700' },
+  ];
+
   if (loading) {
     return <div className="min-h-screen flex items-center justify-center">로딩 중...</div>;
   }
@@ -160,6 +228,16 @@ const AdminDashboard = () => {
           >
             로그아웃
           </button>
+        </div>
+
+        {/* 주문 요약 */}
+        <div className="grid grid-cols-1 gap-4 mb-8 sm:grid-cols-2 lg:grid-cols-4">
+          {summaryCards.map(card => (
+            <div key={card.label} className="bg-white rounded shadow p-5">
+              <p className="text-sm text-gray-500 mb-2">{card.label}</p>
+              <p className={`text-2xl font-bold ${card.tone}`}>{card.value}</p>
+            </div>
+          ))}
         </div>
 
         {/* 엑셀 내보내기 */}
@@ -213,7 +291,7 @@ const AdminDashboard = () => {
                 receipts.map(r => (
                   <tr key={r.id}>
                     <td className="px-6 py-4 text-sm">{r.id}</td>
-                    <td className="px-6 py-4 text-sm">{new Date(r.createdAt).toLocaleString('ko-KR')}</td>
+                    <td className="px-6 py-4 text-sm">{formatKoreanDateTime(r.createdAt)}</td>
                     <td className="px-6 py-4 text-sm">
                       <span className={`px-2 py-1 text-xs rounded border ${getStatusStyle(r.status)}`}>
                         {r.statusDescription}

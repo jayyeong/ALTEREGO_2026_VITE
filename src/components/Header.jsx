@@ -7,6 +7,8 @@ import {
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
 
+const STORE_ONLY_MODE = true;
+
 const Header = () => {
   const navigate = useNavigate();
 
@@ -63,6 +65,11 @@ const Header = () => {
   // =========================
   const openDropdown = (menuLabel) => {
     const target = menus.find(m => m.label === menuLabel);
+    if (STORE_ONLY_MODE && target?.label !== 'STORE') {
+      setHoveredMenu(null);
+      return;
+    }
+
     if (!target?.subItems?.length) {
       setHoveredMenu(null);
       return;
@@ -89,6 +96,11 @@ const Header = () => {
   // ✅ Mobile: 클릭 시 아코디언 펼치기
   // =========================
   const onMobileTopClick = (menu) => {
+    if (STORE_ONLY_MODE && menu.label !== 'STORE') {
+      setExpandedMobile(null);
+      return;
+    }
+
     if (menu.subItems?.length) {
       // 같은 메뉴를 다시 누르면 접기
       setExpandedMobile(prev => (prev === menu.label ? null : menu.label));
@@ -127,13 +139,24 @@ const Header = () => {
               </div>
             </div>
 
-            <Link
-              to="/"
-              className="text-3xl font-bold tracking-tight text-black"
-              style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-            >
-              ALTER EGO
-            </Link>
+            {STORE_ONLY_MODE ? (
+              <button
+                type="button"
+                className="text-3xl font-bold tracking-tight text-black cursor-default"
+                style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+                aria-disabled="true"
+              >
+                ALTER EGO
+              </button>
+            ) : (
+              <Link
+                to="/"
+                className="text-3xl font-bold tracking-tight text-black"
+                style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+              >
+                ALTER EGO
+              </Link>
+            )}
           </div>
 
           {/* 🔹 오른쪽 메뉴 */}
@@ -151,13 +174,25 @@ const Header = () => {
                   className="relative"
                   onMouseEnter={() => openDropdown(menu.label)}
                 >
-                  <Link
-                    to={menu.path}
-                    className="text-lg font-semibold text-black hover:text-black/60 transition"
-                    style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-                  >
-                    {menu.label}
-                  </Link>
+                  {STORE_ONLY_MODE && menu.label !== 'STORE' ? (
+                    <button
+                      type="button"
+                      className="text-lg font-semibold text-black/35 cursor-not-allowed transition"
+                      style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+                      aria-disabled="true"
+                      title="Coming soon"
+                    >
+                      {menu.label}
+                    </button>
+                  ) : (
+                    <Link
+                      to={menu.path}
+                      className="text-lg font-semibold text-black hover:text-black/60 transition"
+                      style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+                    >
+                      {menu.label}
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
@@ -204,13 +239,24 @@ const Header = () => {
           <div className="relative px-4 py-4">
             {/* 가운데 타이틀 */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <Link
-                to="/"
-                className="text-xl font-bold text-black"
-                style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-              >
-                ALTER EGO
-              </Link>
+              {STORE_ONLY_MODE ? (
+                <button
+                  type="button"
+                  className="text-xl font-bold text-black cursor-default"
+                  style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+                  aria-disabled="true"
+                >
+                  ALTER EGO
+                </button>
+              ) : (
+                <Link
+                  to="/"
+                  className="text-xl font-bold text-black"
+                  style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+                >
+                  ALTER EGO
+                </Link>
+              )}
             </div>
 
             <div className="flex items-center justify-between">
@@ -262,14 +308,18 @@ const Header = () => {
               {menus.map((menu) => {
                 const isOpen = expandedMobile === menu.label;
                 const hasSub = !!menu.subItems?.length;
+                const isLocked = STORE_ONLY_MODE && menu.label !== 'STORE';
 
                 return (
                   <li key={menu.label}>
                     {/* 1차 */}
                     <button
-                      className="w-full text-left text-2xl font-semibold uppercase"
+                      className={`w-full text-left text-2xl font-semibold uppercase ${
+                        isLocked ? 'text-black/35 cursor-not-allowed' : 'text-black'
+                      }`}
                       onClick={() => onMobileTopClick(menu)}
                       style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+                      aria-disabled={isLocked}
                     >
                       {menu.label}
                     </button>
