@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { resolveAssetUrl } from '../utils/assets';
-import { sortByTeamOrder } from '../utils/teamOrder';
+import { getStoreProductDetail } from '../data/storeProductDetails';
 
 // 환경 변수에서 API URL 가져오기
 const API_URL = import.meta.env.VITE_API_URL || '';
@@ -10,30 +10,24 @@ const API_URL = import.meta.env.VITE_API_URL || '';
 const StoreDetailPage = () => {
   const { itemId } = useParams();
   const [item, setItem] = useState(null);
-  const [teams, setTeams] = useState([]);
   const [quantity, setQuantity] = useState(1);
+  const [optionQuantities, setOptionQuantities] = useState({});
+  const [optionError, setOptionError] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        
-        // 팀 정보 가져오기
-        console.log('Fetching teams from:', `${API_URL}/api/store/teams`);
-        const teamsResponse = await axios.get(`${API_URL}/api/store/teams`);
-        console.log('Teams response:', teamsResponse.data);
-        setTeams(sortByTeamOrder(teamsResponse.data));
-        
+
         // 상품 상세 정보 가져오기
-        console.log('Fetching item from:', `${API_URL}/api/store/items/${itemId}`);
         const itemResponse = await axios.get(`${API_URL}/api/store/items/${itemId}`);
-        console.log('Item response:', itemResponse.data);
         setItem(itemResponse.data);
-        
+        setOptionQuantities({});
+        setOptionError('');
+
         setLoading(false);
       } catch (err) {
         setError('상품을 불러오는 중 오류가 발생했습니다');
@@ -77,26 +71,70 @@ const StoreDetailPage = () => {
     }
   };
 
+  const updateOptionQuantity = (optionValue, nextQuantity) => {
+    const normalizedQuantity = Math.max(0, Number(nextQuantity) || 0);
+    setOptionQuantities((prev) => ({
+      ...prev,
+      [optionValue]: normalizedQuantity
+    }));
+    setOptionError('');
+  };
+
+  const incrementOptionQuantity = (optionValue) => {
+    setOptionQuantities((prev) => ({
+      ...prev,
+      [optionValue]: (prev[optionValue] || 0) + 1
+    }));
+    setOptionError('');
+  };
+
+  const decrementOptionQuantity = (optionValue) => {
+    setOptionQuantities((prev) => ({
+      ...prev,
+      [optionValue]: Math.max(0, (prev[optionValue] || 0) - 1)
+    }));
+  };
+
   const handleDirectCheckout = () => {
-    const checkoutItem = {
+    const productDetail = getStoreProductDetail(item);
+    const hasOptions = productDetail.options?.length > 0;
+
+    const baseCheckoutItem = {
       id: item.id,
       name: item.name,
       price: item.price,
-      quantity: quantity,
       imagePath: item.itemImagePath,
       teamId: item.teamId,
       teamName: item.teamName,
       creator: item.creator
     };
-    
-    localStorage.setItem('directOrderItems', JSON.stringify([checkoutItem]));
-    
-    navigate('/checkout');
-  };
 
-  // 모바일 메뉴 토글 함수
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
+    if (hasOptions) {
+      const checkoutItems = productDetail.options
+        .map((option) => ({
+          ...baseCheckoutItem,
+          quantity: optionQuantities[option.value] || 0,
+          optionName: option.value
+        }))
+        .filter((checkoutItem) => checkoutItem.quantity > 0);
+
+      if (checkoutItems.length === 0) {
+        setOptionError(`${productDetail.optionLabel || '옵션'}별 수량을 1개 이상 선택해주세요.`);
+        return;
+      }
+
+      localStorage.setItem('directOrderItems', JSON.stringify(checkoutItems));
+      navigate('/checkout');
+      return;
+    }
+
+    localStorage.setItem('directOrderItems', JSON.stringify([{
+      ...baseCheckoutItem,
+      quantity: quantity,
+      optionName: ''
+    }]));
+
+    navigate('/checkout');
   };
 
   if (loading) return (
@@ -106,7 +144,7 @@ const StoreDetailPage = () => {
       </div>
     </div>
   );
-  
+
   if (error) return (
     <div className="store-page" style={{ backgroundColor: 'white', minHeight: 'calc(100vh - 150px)' }}>
       <div className="mx-auto py-8 px-4 w-full max-w-7xl">
@@ -114,7 +152,7 @@ const StoreDetailPage = () => {
       </div>
     </div>
   );
-  
+
   if (!item) return (
     <div className="store-page" style={{ backgroundColor: 'white', minHeight: 'calc(100vh - 150px)' }}>
       <div className="mx-auto py-8 px-4 w-full max-w-7xl">
@@ -123,108 +161,31 @@ const StoreDetailPage = () => {
     </div>
   );
 
-  // 팀 이름 가져오기
-  const teamName = item.teamName || '';
+  const productDetail = getStoreProductDetail(item);
+  const hasDescription = productDetail.description?.length > 0;
+  const hasDetails = productDetail.details?.length > 0;
+  const hasOptions = productDetail.options?.length > 0;
+  const optionTotalQuantity = hasOptions
+    ? productDetail.options.reduce((sum, option) => sum + (optionQuantities[option.value] || 0), 0)
+    : 0;
+  const estimatedQuantity = hasOptions ? optionTotalQuantity : quantity;
+  const estimatedTotalPrice = Number(item.price) * estimatedQuantity;
 
   return (
     <div className="store-page" style={{ backgroundColor: 'white', minHeight: 'calc(100vh - 150px)' }}>
-      {/* Breadcrumb Navigation */}
-      <div className="breadcrumb border-t border-b border-gray-300 py-2 px-4">
-        <div className="mx-auto w-full max-w-7xl px-4">
-          <nav className="text-sm text-black">
-            <Link to="/store" className="hover:underline">STORE</Link>
-            {' > '}
-            <Link to={`/store/team/${item.teamId}`} className="hover:underline">
-              {teamName}
-            </Link>
-            {' > '}
-            <span>{item.name}</span>
-          </nav>
-        </div>
-      </div>
-      
-      {/* Team Categories - Desktop */}
-      <div className="team-categories border-b border-gray-300 py-3 px-4 hidden md:block">
-        <div className="mx-auto w-full max-w-7xl px-4">
-          <ul className="flex flex-wrap space-x-4">
-            <li className="text-black">
-              <Link to="/store/all">전체보기</Link>
-            </li>
-            {teams.map(team => (
-              <li 
-                key={team.id} 
-                className={`${team.id === item.teamId ? 'font-bold' : ''} text-black`}
-              >
-                <Link to={`/store/team/${team.id}`}>{team.name}</Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      
-      {/* Mobile Category Dropdown */}
-      <div className="md:hidden border-b border-gray-300">
-        <div className="mx-auto w-full px-4 py-2">
-          <div 
-            className="flex justify-between items-center py-2"
-            onClick={toggleMobileMenu}
-          >
-            <span className="font-medium text-black">
-              {teamName || '카테고리'}
-            </span>
-            <svg 
-              className={`w-5 h-5 transition-transform ${mobileMenuOpen ? 'transform rotate-180' : ''}`} 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </div>
-          
-          {mobileMenuOpen && (
-            <div className="py-2 bg-white shadow-md absolute left-0 right-0 z-10">
-              <ul className="px-4">
-                <li className="py-2 border-b border-gray-100">
-                  <Link 
-                    to="/store/all" 
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block w-full"
-                  >
-                    전체보기
-                  </Link>
-                </li>
-                {teams.map(team => (
-                  <li 
-                    key={team.id} 
-                    className={`py-2 border-b border-gray-100 ${team.id === item.teamId ? 'font-bold' : ''}`}
-                  >
-                    <Link 
-                      to={`/store/team/${team.id}`} 
-                      onClick={() => setMobileMenuOpen(false)}
-                      className="block w-full"
-                    >
-                      {team.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-        </div>
-      </div>
-      
+      {/* Spacer preserves the former breadcrumb/category vertical rhythm. */}
+      <div className="px-4 py-8" aria-hidden="true" />
+
       {/* Product Detail Content */}
-      <div className="mx-auto py-6 md:py-12 px-4 w-full max-w-7xl">
-        <div className="flex flex-col md:flex-row md:gap-16">
-          {/* Product Image */}
-          <div className="w-full md:w-1/2 mb-6 md:mb-0">
-            <div>
-              <img 
-                src={getImageSrc(item.itemImagePath)} 
-                alt={item.name} 
-                className="w-full h-auto object-cover"
+      <div className="mx-auto w-full max-w-7xl px-4 py-6 md:py-12">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(360px,520px)] md:gap-16 lg:gap-20">
+          {/* Main Product Image */}
+          <div className="w-full md:col-start-1 md:row-start-1">
+            <div className="w-full overflow-hidden bg-gray-100">
+              <img
+                src={getImageSrc(item.itemImagePath)}
+                alt={item.name}
+                className="block w-full h-auto object-cover"
                 onError={(e) => {
                   console.error('Image failed to load:', item.itemImagePath);
                   e.target.onerror = null;
@@ -233,73 +194,143 @@ const StoreDetailPage = () => {
               />
             </div>
           </div>
-          
+
           {/* Product Info */}
-          <div className="w-full md:w-1/2">
-            <h1 className="text-2xl md:text-3xl font-medium text-black mb-2">{item.name}</h1>
-            <p className="text-lg md:text-xl text-gray-800 mb-4 md:mb-6">{Number(item.price).toLocaleString()} ₩</p>
-            
-            <div className="mb-6 md:mb-8">
-              <p className="text-gray-700 mb-1">제작자: {item.creator}</p>
-              <p className="text-gray-700">팀: {teamName}</p>
-            </div>
-            
-            {/* Quantity Selector */}
-            <div className="mb-6 md:mb-8">
-              <p className="text-gray-700 mb-2">수량:</p>
-              <div className="flex">
-                <button 
-                  className="w-10 h-10 flex items-center justify-center border border-gray-300"
-                  onClick={decrementQuantity}
-                >
-                  -
-                </button>
-                <input 
-                  type="number" 
-                  value={quantity} 
-                  onChange={handleQuantityChange}
-                  className="w-16 h-10 text-center border-t border-b border-gray-300"
-                  min="1"
-                />
-                <button 
-                  className="w-10 h-10 flex items-center justify-center border border-gray-300"
-                  onClick={incrementQuantity}
-                >
-                  +
-                </button>
+          <aside className="w-full md:col-start-2 md:row-start-1 md:sticky md:top-28 md:self-start">
+            <div className="bg-white">
+              <h1 className="text-2xl md:text-3xl font-medium leading-tight text-black mb-3">{item.name}</h1>
+              <p className="text-lg md:text-xl text-gray-800 mb-7">{Number(item.price).toLocaleString()} ₩</p>
+
+              {hasDescription && (
+                <div className="mb-8 space-y-3 text-sm leading-6 text-gray-700 md:text-base md:leading-7">
+                  {productDetail.description.map((text) => (
+                    <p key={text}>{text}</p>
+                  ))}
+                </div>
+              )}
+
+              {hasDetails && (
+                <div className="mb-8 border-t border-gray-200 pt-5">
+                  <h2 className="mb-4 text-sm font-semibold tracking-[0.18em] text-black">DETAIL</h2>
+                  <dl className="space-y-3 text-sm text-gray-700">
+                    {productDetail.details.map((detail) => (
+                      <div key={detail.label} className="grid grid-cols-[120px_1fr] gap-4">
+                        <dt className="font-medium text-black">{detail.label}</dt>
+                        <dd>{detail.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                </div>
+              )}
+
+              {hasOptions && (
+                <div className="mb-8">
+                  <p className="mb-3 text-gray-700">{productDetail.optionLabel || '옵션'}별 수량</p>
+                  <div className="space-y-3">
+                    {productDetail.options.map((option) => (
+                      <div
+                        key={option.value}
+                        className="flex items-center justify-between border border-gray-200 px-4 py-3"
+                      >
+                        <span className="text-sm font-medium text-black">{option.label}</span>
+                        <div className="inline-flex h-9 overflow-hidden rounded-full border border-gray-300 bg-white">
+                          <button
+                            type="button"
+                            className="flex w-9 items-center justify-center text-base leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
+                            onClick={() => decrementOptionQuantity(option.value)}
+                            aria-label={`${option.label} 수량 감소`}
+                          >
+                            -
+                          </button>
+                          <input
+                            type="number"
+                            value={optionQuantities[option.value] || 0}
+                            onChange={(e) => updateOptionQuantity(option.value, e.target.value)}
+                            className="h-full w-12 border-x border-gray-200 text-center text-sm text-black outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                            min="0"
+                            aria-label={`${option.label} 수량`}
+                          />
+                          <button
+                            type="button"
+                            className="flex w-9 items-center justify-center text-base leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
+                            onClick={() => incrementOptionQuantity(option.value)}
+                            aria-label={`${option.label} 수량 증가`}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  {optionError && <p className="mt-2 text-sm text-red-500">{optionError}</p>}
+                </div>
+              )}
+
+              {!hasOptions && (
+                <div className="mb-8">
+                  <p className="text-gray-700 mb-3">수량</p>
+                  <div className="inline-flex h-11 overflow-hidden rounded-full border border-gray-300 bg-white shadow-[0_1px_10px_rgba(0,0,0,0.04)]">
+                    <button
+                      type="button"
+                      className="flex w-11 items-center justify-center text-lg leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
+                      onClick={decrementQuantity}
+                      aria-label="수량 감소"
+                    >
+                      -
+                    </button>
+                    <input
+                      type="number"
+                      value={quantity}
+                      onChange={handleQuantityChange}
+                      className="h-full w-14 border-x border-gray-200 text-center text-sm text-black outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                      min="1"
+                      aria-label="수량"
+                    />
+                    <button
+                      type="button"
+                      className="flex w-11 items-center justify-center text-lg leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
+                      onClick={incrementQuantity}
+                      aria-label="수량 증가"
+                    >
+                      +
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              <div className="mb-5 flex items-center justify-between border-t border-gray-200 pt-5 text-sm">
+                <span className="text-gray-500">예상 주문금액</span>
+                <span className="text-lg font-medium text-black">
+                  {estimatedTotalPrice.toLocaleString()} ₩
+                </span>
               </div>
-            </div>
-            
-            {/* Action Buttons */}
-            <div>
-              <button 
+
+              {/* Action Buttons */}
+              <button
                 className="w-full py-3 bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition-colors"
                 onClick={handleDirectCheckout}
               >
                 BUY NOW
               </button>
             </div>
-            
+          </aside>
 
-          </div>
+          {item.descriptionImagePath && (
+            <div className="w-full md:col-start-1 md:row-start-2">
+              <img
+                src={getImageSrc(item.descriptionImagePath)}
+                alt={`${item.name} 상세 설명`}
+                className="block w-full h-auto"
+                onError={(e) => {
+                  console.error('Description image failed to load:', item.descriptionImagePath);
+                  e.target.onerror = null;
+                  e.target.src = null;
+                  e.target.style.display = 'none';
+                }}
+              />
+            </div>
+          )}
         </div>
-        
-        {/* Description Image */}
-        {item.descriptionImagePath && (
-          <div className="mt-8 md:mt-16">
-            <img 
-              src={getImageSrc(item.descriptionImagePath)} 
-              alt={`${item.name} 상세 설명`} 
-              className="w-full h-auto"
-              onError={(e) => {
-                console.error('Description image failed to load:', item.descriptionImagePath);
-                e.target.onerror = null;
-                e.target.src = null;
-                e.target.style.display = 'none';
-              }}
-            />
-          </div>
-        )}
       </div>
     </div>
   );

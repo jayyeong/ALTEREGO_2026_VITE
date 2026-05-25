@@ -5,6 +5,12 @@ import { resolveAssetUrl } from '../utils/assets';
 
 // 환경 변수에서 API URL 가져오기
 const API_URL = import.meta.env.VITE_API_URL || '';
+const DEPOSIT_ACCOUNT = {
+  bankName: '추후 공지 예정',
+  accountNumber: '000-0000-0000-00',
+  holder: 'KUAD 2026',
+};
+const STORE_CONTACT = '010-0000-0000';
 
 const CheckoutPage = () => {
   const [orderItems, setOrderItems] = useState([]);
@@ -17,8 +23,6 @@ const CheckoutPage = () => {
   const [error, setError] = useState('');
   const [copyMessage, setCopyMessage] = useState('');
   const navigate = useNavigate();
-
-  const depositAccountNumber = '11116875301018';
 
   useEffect(() => {
     const loadOrderItems = () => {
@@ -59,7 +63,7 @@ const CheckoutPage = () => {
 
   const handleCopyAccountNumber = async () => {
     try {
-      await navigator.clipboard.writeText(depositAccountNumber);
+      await navigator.clipboard.writeText(DEPOSIT_ACCOUNT.accountNumber);
       setCopyMessage('계좌번호가 복사되었습니다.');
     } catch (err) {
       console.error('계좌번호 복사 실패:', err);
@@ -106,7 +110,8 @@ const CheckoutPage = () => {
         phoneNumber: trimmedPhoneNumber,
         orders: orderItems.map(item => ({
           itemId: item.id,
-          quantity: item.quantity
+          quantity: item.quantity,
+          optionName: item.optionName || null
         }))
       };
 
@@ -114,7 +119,7 @@ const CheckoutPage = () => {
 
       localStorage.removeItem('directOrderItems');
 
-      navigate(`/order-complete/${response.data.id}`);
+      navigate(`/order-complete/${response.data.publicToken}`);
 
     } catch (err) {
       console.error('주문 처리 중 오류 발생:', err);
@@ -166,7 +171,7 @@ const CheckoutPage = () => {
             <div className="border-t border-gray-300 pt-4">
               <h2 className="text-lg font-semibold mb-3">주문 상품</h2>
               {orderItems.map(item => (
-                <div key={item.id} className="flex items-center py-2 border-b border-gray-200">
+                <div key={`${item.id}-${item.optionName || 'default'}`} className="flex items-center py-2 border-b border-gray-200">
                   <div className="w-[50px] h-[50px] mr-3 overflow-hidden">
                     <img
                       src={getImageSrc(item.imagePath)}
@@ -180,6 +185,7 @@ const CheckoutPage = () => {
                   </div>
                   <div className="flex-1 mr-2">
                     <p className="font-medium text-sm">{item.name || '상품명 없음'}</p>
+                    {item.optionName && <p className="text-xs text-gray-500">옵션: {item.optionName}</p>}
                     <p className="text-xs text-gray-600">{Number(item.price).toLocaleString()} ₩ × {item.quantity}</p>
                   </div>
                   <div className="text-right">
@@ -199,9 +205,9 @@ const CheckoutPage = () => {
             <div className="mb-6">
                 <h2 className="text-lg md:text-xl font-semibold mb-3">입금 계좌 정보:</h2>
                 <div className="space-y-1 md:space-y-2 text-sm md:text-base">
-                  <p><span className="font-medium">은행명:</span> IBK기업은행</p>
+                  <p><span className="font-medium">은행명:</span> {DEPOSIT_ACCOUNT.bankName}</p>
                   <div className="flex flex-wrap items-center gap-2">
-                    <p><span className="font-medium">계좌번호:</span> {depositAccountNumber}</p>
+                    <p><span className="font-medium">계좌번호:</span> {DEPOSIT_ACCOUNT.accountNumber}</p>
                     <button
                       type="button"
                       onClick={handleCopyAccountNumber}
@@ -211,16 +217,16 @@ const CheckoutPage = () => {
                     </button>
                   </div>
                   {copyMessage && <p className="text-xs text-gray-600">{copyMessage}</p>}
-                  <p><span className="font-medium">예금주:</span> 박상현</p>
+                  <p><span className="font-medium">예금주:</span> {DEPOSIT_ACCOUNT.holder}</p>
                 </div>
               </div>
 
             <div className="mb-6">
               <h2 className="text-lg md:text-xl font-semibold mb-3">입금 방법:</h2>
               <div className="space-y-1 md:space-y-2 text-sm md:text-base text-gray-700">
-                <p>위의 계좌로 인터넷 뱅킹을 통해 입금해 주시기 바랍니다.</p>
+                <p>위의 계좌 정보는 임시 정보입니다. 실제 운영 전 최종 계좌로 교체될 예정입니다.</p>
                 <p>입금시, 반드시 주문자 성함을 기재해주시기 바랍니다.</p>
-                <p>입금 후, 매일 오전 9시에 일괄적으로 주문을 확인하고, 문자를 통해 결제확인을 도와드리고 있습니다.</p>
+                <p>입금 확인 후, 운영진이 일괄적으로 주문을 확인하고 문자로 안내드립니다.</p>
               </div>
             </div>
 
@@ -228,7 +234,7 @@ const CheckoutPage = () => {
               <h2 className="text-lg md:text-xl font-semibold mb-3">유의사항:</h2>
               <div className="space-y-1 md:space-y-2 text-sm md:text-base text-gray-700">
                 <p>입금 금액이 다를 경우, 주문이 취소될 수 있으니 정확한 금액을 입금해 주시기 바랍니다.</p>
-                <p>입금 후 다음날 오후 1시까지 확인되지 않을 경우, 혹은 추가로 문의사항이 있을 경우 [010-2049-7239]로 연락주시면 신속하게 처리해드리겠습니다.</p>
+                <p>입금 확인 또는 주문 관련 문의는 [{STORE_CONTACT}]로 연락해주세요.</p>
               </div>
             </div>
           </div>
@@ -291,7 +297,7 @@ const CheckoutPage = () => {
               <div className="hidden md:block mb-6 border-t border-gray-300 pt-4">
                 <h2 className="text-xl font-semibold mb-4">주문 상품</h2>
                 {orderItems.map(item => (
-                  <div key={item.id} className="flex items-center py-2 border-b border-gray-200">
+                  <div key={`${item.id}-${item.optionName || 'default'}`} className="flex items-center py-2 border-b border-gray-200">
                     <div className="w-[50px] h-[50px] mr-3 overflow-hidden">
                       <img
                         src={getImageSrc(item.imagePath)}
@@ -305,6 +311,7 @@ const CheckoutPage = () => {
                     </div>
                     <div className="flex-1 mr-3">
                       <p className="font-medium">{item.name || '상품명 없음'}</p>
+                      {item.optionName && <p className="text-xs text-gray-500">옵션: {item.optionName}</p>}
                       <p className="text-sm text-gray-600">{Number(item.price).toLocaleString()} ₩ × {item.quantity}</p>
                     </div>
                     <div className="text-right">

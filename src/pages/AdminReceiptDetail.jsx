@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import { formatKoreanDateTime } from '../utils/dateFormat';
 
 const API_URL = import.meta.env.VITE_API_URL || '';
 
@@ -72,7 +73,7 @@ const AdminReceiptDetail = () => {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <p><span className="font-medium">주문번호:</span> {receipt.id}</p>
-              <p><span className="font-medium">주문일시:</span> {new Date(receipt.createdAt).toLocaleString()}</p>
+              <p><span className="font-medium">주문일시:</span> {formatKoreanDateTime(receipt.createdAt)}</p>
             </div>
             <div>
               <p><span className="font-medium">총 주문금액:</span> {Number(receipt.totalAmount).toLocaleString()} ₩</p>
@@ -111,7 +112,10 @@ const AdminReceiptDetail = () => {
             <tbody className="divide-y divide-gray-200">
               {receipt.orders && receipt.orders.map((order) => (
                 <tr key={order.id}>
-                  <td className="px-4 py-3">{order.itemName}</td>
+                  <td className="px-4 py-3">
+                    <p>{order.itemName}</p>
+                    {order.optionName && <p className="text-xs text-gray-500">옵션: {order.optionName}</p>}
+                  </td>
                   <td className="px-4 py-3">{order.creator}</td>
                   <td className="px-4 py-3">{Number(order.price).toLocaleString()} ₩</td>
                   <td className="px-4 py-3">{order.quantity}</td>

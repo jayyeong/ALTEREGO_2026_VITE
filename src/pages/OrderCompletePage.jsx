@@ -2,12 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
 import { resolveAssetUrl } from '../utils/assets';
+import { formatKoreanDateTime } from '../utils/dateFormat';
 
 // 환경 변수에서 API URL 가져오기
 const API_URL = import.meta.env.VITE_API_URL || '';
+const DEPOSIT_ACCOUNT = {
+  bankName: '추후 공지 예정',
+  accountNumber: '000-0000-0000-00',
+  holder: 'KUAD 2026',
+};
+const STORE_CONTACT = '010-0000-0000';
 
 const OrderCompletePage = () => {
-  const { receiptId } = useParams();
+  const { receiptId: publicToken } = useParams();
   const [receipt, setReceipt] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -16,7 +23,7 @@ const OrderCompletePage = () => {
     const fetchReceiptDetails = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`${API_URL}/api/store/receipts/${receiptId}`);
+        const response = await axios.get(`${API_URL}/api/store/receipts/${publicToken}`);
         setReceipt(response.data);
         setLoading(false);
       } catch (err) {
@@ -27,7 +34,7 @@ const OrderCompletePage = () => {
     };
 
     fetchReceiptDetails();
-  }, [receiptId]);
+  }, [publicToken]);
 
   // 이미지 경로 처리 함수
   const getImageSrc = (imagePath) => {
@@ -99,9 +106,8 @@ const OrderCompletePage = () => {
 
       <div className="mx-auto py-4 md:py-8 px-4 w-full max-w-7xl">
         <div className="text-center mb-6 md:mb-10">
-          <h1 className="text-2xl md:text-3xl font-bold mb-2 md:mb-4">주문이 완료되었습니다</h1>
-          <p className="text-lg md:text-xl text-gray-700 mb-1 md:mb-2">주문번호: {receipt.id}</p>
-          <p className="text-sm md:text-base text-gray-600">입금 확인 후 문자로 알려드리겠습니다.</p>
+          <h1 className="text-2xl md:text-3xl font-bold mb-2 md:mb-4">예약 주문이 접수되었습니다</h1>
+          <p className="text-sm md:text-base text-gray-600">입금 확인 후 운영진이 문자로 안내드립니다.</p>
         </div>
 
         <div className="bg-gray-50 border border-gray-200 rounded-lg p-4 md:p-6 mb-4 md:mb-8">
@@ -112,7 +118,7 @@ const OrderCompletePage = () => {
               <p className="text-sm md:text-base"><span className="font-medium">연락처:</span> {receipt.phoneNumber}</p>
             </div>
             <div>
-              <p className="text-sm md:text-base"><span className="font-medium">주문일시:</span> {new Date(receipt.createdAt).toLocaleString()}</p>
+              <p className="text-sm md:text-base"><span className="font-medium">접수일시:</span> {formatKoreanDateTime(receipt.createdAt)}</p>
             </div>
           </div>
         </div>
@@ -123,17 +129,18 @@ const OrderCompletePage = () => {
             <div className="grid grid-cols-1 gap-3 md:grid-cols-3 md:gap-4">
               <div className="mb-2 md:mb-0">
                 <p className="font-medium text-sm md:text-base">은행명</p>
-                <p className="text-gray-700 text-sm md:text-base">IBK기업은행</p>
+                <p className="text-gray-700 text-sm md:text-base">{DEPOSIT_ACCOUNT.bankName}</p>
               </div>
               <div className="mb-2 md:mb-0">
                 <p className="font-medium text-sm md:text-base">계좌번호</p>
-                <p className="text-gray-700 text-sm md:text-base">11116875301018</p>
+                <p className="text-gray-700 text-sm md:text-base">{DEPOSIT_ACCOUNT.accountNumber}</p>
               </div>
               <div>
                 <p className="font-medium text-sm md:text-base">예금주</p>
-                <p className="text-gray-700 text-sm md:text-base">박상현</p>
+                <p className="text-gray-700 text-sm md:text-base">{DEPOSIT_ACCOUNT.holder}</p>
               </div>
             </div>
+            <p className="mt-4 text-xs text-gray-500">현재 계좌 정보는 임시 정보이며, 실제 운영 전 최종 정보로 교체될 예정입니다.</p>
           </div>
         </div>
 
@@ -156,6 +163,7 @@ const OrderCompletePage = () => {
                   </div>
                   <div className="flex-grow">
                     <h3 className="font-medium text-sm md:text-base">{order.itemName || '상품명 없음'}</h3>
+                    {order.optionName && <p className="text-xs md:text-sm text-gray-500">옵션: {order.optionName}</p>}
                     <p className="text-xs md:text-sm text-gray-600">{order.creator || ''}</p>
                   </div>
                 </div>
@@ -187,7 +195,7 @@ const OrderCompletePage = () => {
         </div>
 
         <div className="text-gray-600 text-center text-xs md:text-sm">
-          <p>주문과 관련된 문의사항은 [010-2049-7239]로 연락주세요.</p>
+          <p>주문과 관련된 문의사항은 [{STORE_CONTACT}]로 연락주세요.</p>
         </div>
       </div>
     </div>
