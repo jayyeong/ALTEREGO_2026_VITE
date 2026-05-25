@@ -6,7 +6,6 @@ import { getStoreProductDetail } from '../data/storeProductDetails';
 
 // 환경 변수에서 API URL 가져오기
 const API_URL = import.meta.env.VITE_API_URL || '';
-
 const StoreDetailPage = () => {
   const { itemId } = useParams();
   const [item, setItem] = useState(null);
@@ -178,7 +177,7 @@ const StoreDetailPage = () => {
 
       {/* Product Detail Content */}
       <div className="mx-auto w-full max-w-7xl px-4 py-6 md:py-12">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(360px,520px)] md:gap-16 lg:gap-20">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(320px,460px)] md:gap-12 lg:gap-16">
           {/* Main Product Image */}
           <div className="w-full md:col-start-1 md:row-start-1">
             <div className="w-full overflow-hidden bg-gray-100">
@@ -196,13 +195,13 @@ const StoreDetailPage = () => {
           </div>
 
           {/* Product Info */}
-          <aside className="w-full md:col-start-2 md:row-start-1 md:sticky md:top-28 md:self-start">
+          <aside className="w-full md:col-start-2 md:row-start-1 md:sticky md:top-24 md:max-h-[calc(100vh-7rem)] md:self-start md:overflow-y-auto md:pr-2">
             <div className="bg-white">
-              <h1 className="text-2xl md:text-3xl font-medium leading-tight text-black mb-3">{item.name}</h1>
-              <p className="text-lg md:text-xl text-gray-800 mb-7">{Number(item.price).toLocaleString()} ₩</p>
+              <h1 className="mb-2 text-2xl font-medium leading-tight text-black md:text-[26px]">{item.name}</h1>
+              <p className="mb-5 text-lg text-gray-800">{Number(item.price).toLocaleString()} ₩</p>
 
               {hasDescription && (
-                <div className="mb-8 space-y-3 text-sm leading-6 text-gray-700 md:text-base md:leading-7">
+                <div className="mb-5 space-y-2 text-sm leading-6 text-gray-700">
                   {productDetail.description.map((text) => (
                     <p key={text}>{text}</p>
                   ))}
@@ -210,11 +209,11 @@ const StoreDetailPage = () => {
               )}
 
               {hasDetails && (
-                <div className="mb-8 border-t border-gray-200 pt-5">
-                  <h2 className="mb-4 text-sm font-semibold tracking-[0.18em] text-black">DETAIL</h2>
-                  <dl className="space-y-3 text-sm text-gray-700">
+                <div className="mb-5 border-t border-gray-200 pt-4">
+                  <h2 className="mb-3 text-xs font-semibold tracking-[0.18em] text-black">DETAIL</h2>
+                  <dl className="space-y-2 text-sm text-gray-700">
                     {productDetail.details.map((detail) => (
-                      <div key={detail.label} className="grid grid-cols-[120px_1fr] gap-4">
+                      <div key={detail.label} className="grid grid-cols-[100px_1fr] gap-3">
                         <dt className="font-medium text-black">{detail.label}</dt>
                         <dd>{detail.value}</dd>
                       </div>
@@ -224,13 +223,13 @@ const StoreDetailPage = () => {
               )}
 
               {hasOptions && (
-                <div className="mb-8">
-                  <p className="mb-3 text-gray-700">{productDetail.optionLabel || '옵션'}별 수량</p>
-                  <div className="space-y-3">
+                <div className="mb-5">
+                  <p className="mb-2 text-sm text-gray-700">{productDetail.optionLabel || '옵션'}별 수량</p>
+                  <div className="space-y-2">
                     {productDetail.options.map((option) => (
                       <div
                         key={option.value}
-                        className="flex items-center justify-between border border-gray-200 px-4 py-3"
+                        className="flex items-center justify-between border border-gray-200 px-4 py-2.5"
                       >
                         <span className="text-sm font-medium text-black">{option.label}</span>
                         <div className="inline-flex h-9 overflow-hidden rounded-full border border-gray-300 bg-white">
@@ -267,8 +266,8 @@ const StoreDetailPage = () => {
               )}
 
               {!hasOptions && (
-                <div className="mb-8">
-                  <p className="text-gray-700 mb-3">수량</p>
+                <div className="mb-5">
+                  <p className="mb-2 text-sm text-gray-700">수량</p>
                   <div className="inline-flex h-11 overflow-hidden rounded-full border border-gray-300 bg-white shadow-[0_1px_10px_rgba(0,0,0,0.04)]">
                     <button
                       type="button"
@@ -298,7 +297,7 @@ const StoreDetailPage = () => {
                 </div>
               )}
 
-              <div className="mb-5 flex items-center justify-between border-t border-gray-200 pt-5 text-sm">
+              <div className="mb-4 flex items-center justify-between border-t border-gray-200 pt-4 text-sm">
                 <span className="text-gray-500">예상 주문금액</span>
                 <span className="text-lg font-medium text-black">
                   {estimatedTotalPrice.toLocaleString()} ₩

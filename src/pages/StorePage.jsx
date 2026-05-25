@@ -70,7 +70,7 @@ const StorePage = () => {
           ) : (
             <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-x-[32px] lg:gap-x-[44px] md:gap-y-[40px]">
               {items.map(item => (
-                <div key={item.id} className="item-card">
+                <div key={item.id} className="item-card text-center">
                   <Link to={`/store/item/${item.id}`}>
                     <div className="w-full aspect-square overflow-hidden mb-3 bg-gray-100">
                       <img 
@@ -84,9 +84,9 @@ const StorePage = () => {
                         }}
                       />
                     </div>
-                    <h3 className="text-base md:text-lg font-medium text-black truncate">{item.name}</h3>
+                    <h3 className="text-base md:text-lg font-medium text-black truncate text-center">{item.name}</h3>
                   </Link>
-                  <p className="text-gray-800 text-sm md:text-base">{item.price ? Number(item.price).toLocaleString() : '0'} ₩</p>
+                  <p className="text-center text-gray-800 text-sm md:text-base">{item.price ? Number(item.price).toLocaleString() : '0'} ₩</p>
                 </div>
               ))}
             </div>
