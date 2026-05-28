@@ -52,12 +52,33 @@ jobs:
             --cache-control "no-cache,no-store,must-revalidate" \
             --content-type "text/html"
 
+      - name: Upload site icons with no-cache
+        run: |
+          aws s3 cp dist/favicon.ico s3://${S3_BUCKET}/${DEPLOY_YEAR}/favicon.ico \
+            --cache-control "no-cache,no-store,must-revalidate" \
+            --content-type "image/vnd.microsoft.icon"
+          aws s3 cp dist/favicon.svg s3://${S3_BUCKET}/${DEPLOY_YEAR}/favicon.svg \
+            --cache-control "no-cache,no-store,must-revalidate" \
+            --content-type "image/svg+xml"
+          aws s3 cp dist/manifest.json s3://${S3_BUCKET}/${DEPLOY_YEAR}/manifest.json \
+            --cache-control "no-cache,no-store,must-revalidate" \
+            --content-type "application/manifest+json"
+          aws s3 cp dist/favicon.ico s3://${S3_BUCKET}/favicon.ico \
+            --cache-control "no-cache,no-store,must-revalidate" \
+            --content-type "image/vnd.microsoft.icon"
+          aws s3 cp dist/favicon.svg s3://${S3_BUCKET}/favicon.svg \
+            --cache-control "no-cache,no-store,must-revalidate" \
+            --content-type "image/svg+xml"
+          aws s3 cp dist/manifest.json s3://${S3_BUCKET}/manifest.json \
+            --cache-control "no-cache,no-store,must-revalidate" \
+            --content-type "application/manifest+json"
+
       - name: Invalidate CloudFront cache
         run: |
           echo "Creating CloudFront invalidation..."
           aws cloudfront create-invalidation \
             --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
-            --paths "/${DEPLOY_YEAR}" "/${DEPLOY_YEAR}/*" "/"
+            --paths "/${DEPLOY_YEAR}" "/${DEPLOY_YEAR}/*" "/" "/favicon.ico" "/favicon.svg" "/manifest.json"
 
       - name: Deployment status
         run: echo "Deployment completed successfully."
