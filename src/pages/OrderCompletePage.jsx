@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { resolveAssetUrl } from '../utils/assets';
+import { API_URL } from '../config/api';
 import { formatKoreanDateTime } from '../utils/dateFormat';
 import { formatStoreContacts, getDepositAccountForItems } from '../data/depositAccounts';
-
-// 환경 변수에서 API URL 가져오기
-const API_URL = import.meta.env.VITE_API_URL || '';
+import { getStoreProductPrice } from '../data/storeProductDetails';
+import { getStoreImageSrc, setStoreImageFallback } from '../utils/storeImages';
 
 const OrderCompletePage = () => {
   const { receiptId: publicToken } = useParams();
@@ -30,19 +29,6 @@ const OrderCompletePage = () => {
 
     fetchReceiptDetails();
   }, [publicToken]);
-
-  // 이미지 경로 처리 함수
-  const getImageSrc = (imagePath) => {
-    try {
-      if (imagePath && imagePath.startsWith('assets/')) {
-        return resolveAssetUrl(imagePath);
-      }
-      return imagePath || 'https://via.placeholder.com/80x80?text=No+Image';
-    } catch (error) {
-      console.error('Error loading image:', error);
-      return 'https://via.placeholder.com/80x80?text=Error+Loading+Image';
-    }
-  };
 
   const depositAccount = getDepositAccountForItems(receipt?.orders || []);
   const storeContact = formatStoreContacts();
@@ -89,9 +75,19 @@ const OrderCompletePage = () => {
     </div>
   );
 
+  const displayOrders = (receipt.orders || []).map((order) => {
+    const price = getStoreProductPrice(order);
+
+    return {
+      ...order,
+      price,
+      totalPrice: price * Number(order.quantity || 0)
+    };
+  });
+  const displayTotalAmount = displayOrders.reduce((sum, order) => sum + Number(order.totalPrice || 0), 0);
+
   return (
     <div className="store-page" style={{ backgroundColor: 'white', minHeight: 'calc(100vh - 150px)' }}>
-      {/* Breadcrumb Navigation */}
       <div className="breadcrumb border-t border-b border-gray-300 py-2 px-4">
         <div className="mx-auto w-full max-w-7xl px-4">
           <nav className="text-sm text-black">
@@ -145,18 +141,15 @@ const OrderCompletePage = () => {
         <div className="mb-6 md:mb-10">
           <h2 className="text-lg md:text-xl font-semibold mb-3 md:mb-4">주문 상품 정보</h2>
           <div className="border-t border-b border-gray-200">
-            {receipt.orders && receipt.orders.map((order) => (
+            {displayOrders.map((order) => (
               <div key={order.id} className="flex flex-col md:flex-row py-3 md:py-4 border-b border-gray-200 last:border-b-0">
                 <div className="flex items-center mb-2 md:mb-0">
                   <div className="w-[60px] h-[60px] md:w-[80px] md:h-[80px] mr-3 md:mr-4 overflow-hidden">
                     <img
-                      src={order.itemImagePath ? getImageSrc(order.itemImagePath) : 'https://via.placeholder.com/80x80?text=No+Image'}
+                      src={getStoreImageSrc(order.itemImagePath)}
                       alt={order.itemName || '상품 이미지'}
                       className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = 'https://via.placeholder.com/80x80?text=Error';
-                      }}
+                      onError={(e) => setStoreImageFallback(e)}
                     />
                   </div>
                   <div className="flex-grow">
@@ -179,7 +172,7 @@ const OrderCompletePage = () => {
         <div className="border-t border-gray-200 pt-4 md:pt-6 mb-6 md:mb-10">
           <div className="flex justify-between">
             <span className="text-lg md:text-xl font-semibold">총 주문금액</span>
-            <span className="text-lg md:text-xl font-bold">{Number(receipt.totalAmount).toLocaleString()} ₩</span>
+            <span className="text-lg md:text-xl font-bold">{displayTotalAmount.toLocaleString()} ₩</span>
           </div>
         </div>
 

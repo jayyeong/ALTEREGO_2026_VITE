@@ -135,7 +135,6 @@ export default function Runway() {
   return (
     <>
       <div className="max-w-[1140px] mx-auto px-4 py-10 pt-20">
-        {/* video */}
         <div className="w-full max-w-[860px] mx-auto aspect-video mb-12 md:mb-14">
           <iframe
             src="https://www.youtube.com/embed/I6ZhuIJTGug"

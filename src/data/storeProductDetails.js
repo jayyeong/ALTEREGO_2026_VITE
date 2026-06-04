@@ -1,5 +1,6 @@
 const storeProductDetails = {
   'ALTER EGO REVERSIBLE ECHO BAG': {
+    price: 25000,
     description: [
       '“ALTEREGO”의 주제에 맞춰 서로 다른 분위기를 지닌 리버서블 에코백을 디자인했습니다.',
       '겉면은 현대 사회 속에서 드러나는 차갑고 절제된 자아를 표현하기 위해 부담스럽지 않은 무채색 톤으로 구성하였고, 속면은 숨겨진 내면의 감정을 보여주듯 따뜻한 노란색과 밝은 프린팅을 활용해 발랄한 무드를 담아냈습니다.',
@@ -11,6 +12,7 @@ const storeProductDetails = {
     ],
   },
   'Removable STICKER': {
+    price: 2500,
     description: [
       '“가시화”라는 주제를 바탕으로 보이지 않는 감정과 내면의 형태를 그래픽으로 표현한 스티커입니다.',
       '날카롭고 유기적인 이미지들을 활용해 감정의 흐름과 에너지를 시각적으로 드러내고자 했습니다.',
@@ -21,6 +23,7 @@ const storeProductDetails = {
     ],
   },
   'ASCII T-SHIRT': {
+    price: 15000,
     description: [
       '“가시 : 화 (花)”라는 주제를 바탕으로, 가시의 형상을 아스키 패턴으로 재해석한 티셔츠를 디자인했습니다.',
       '컬렉션의 컨셉과 팀원 각자의 진솔한 이야기를 텍스트로 풀어내어 하나의 패턴으로 완성하였고, 이를 실크스크린 기법으로 담아냈습니다.',
@@ -30,7 +33,7 @@ const storeProductDetails = {
     optionLabel: '사이즈',
     options: [
       { label: 'M (95)', value: 'M (95)' },
-      { label: 'XL (105)', value: 'XL (105)' },
+      { label: 'XL (105)', value: 'XL (105)', soldOut: true },
     ],
     details: [
       { label: 'SIZE', value: 'M (95) / XL (105)' },
@@ -38,6 +41,7 @@ const storeProductDetails = {
     ],
   },
   'Acrylic KEYRING': {
+    price: 8000,
     description: [
       '“가시화”와 관련된 주제와 이미지를 바탕으로, 구조적인 모양의 아크릴 키링 속에 팀의 무드를 담은 일러스트를 넣었습니다.',
       '가시화의 “화”, 즉 꽃을 암시하는 참 장식과 대표 색상인 버건디 가죽끈을 함께 구성했습니다.',
@@ -50,9 +54,45 @@ const storeProductDetails = {
 };
 
 export const getStoreProductDetail = (item) => {
-  if (!item?.name) {
+  const productName = item?.name || item?.itemName;
+
+  if (!productName) {
     return {};
   }
 
-  return storeProductDetails[item.name] || {};
+  return storeProductDetails[productName] || {};
+};
+
+export const getStoreProductPrice = (item) => {
+  const productDetail = getStoreProductDetail(item);
+  return Number(productDetail.price ?? item?.price ?? 0);
+};
+
+export const getStoreProductDisplayItem = (item) => ({
+  ...item,
+  price: getStoreProductPrice(item),
+});
+
+export const isStoreOptionSoldOut = (option) => {
+  return Boolean(option?.soldOut);
+};
+
+export const getStoreOptionMaxQuantity = (option) => {
+  if (isStoreOptionSoldOut(option)) {
+    return 0;
+  }
+
+  return Infinity;
+};
+
+export const isStoreProductSoldOut = (item) => {
+  return Boolean(item?.soldOut);
+};
+
+export const getStoreProductMaxQuantity = (item) => {
+  if (isStoreProductSoldOut(item)) {
+    return 0;
+  }
+
+  return Infinity;
 };

@@ -7,7 +7,6 @@ import { resolveAssetUrl } from '../utils/assets';
 const PortfolioPage = () => {
   const { portfolioUrl } = useParams();
 
-  // 모든 멤버를 하나의 배열로 평탄화
   const allMembers = members.flatMap(team => team.members);
   const member = allMembers.find(m => m.portfolioUrl === portfolioUrl);
 
@@ -19,7 +18,6 @@ const PortfolioPage = () => {
     );
   }
 
-  /* ---------- 미디어 소스 선택 ---------- */
   const mediaItems = member.slides?.length ? member.slides : member.brochureImages?.map(src => ({
     type: 'image',
     src,
@@ -27,7 +25,6 @@ const PortfolioPage = () => {
 
   return (
     <>
-      {/* Mobile */}
       <div className="md:hidden max-w-[1140px] mx-auto px-4 py-8">
         <section className="flex items-start gap-4">
           <div className="w-[150px] flex-shrink-0 pt-1">
@@ -112,7 +109,6 @@ const PortfolioPage = () => {
         </section>
       </div>
 
-      {/* Desktop */}
       <div className="hidden md:block w-full bg-white">
         <div className="w-full pr-6 lg:pr-8">
           <div className="grid grid-cols-[260px_460px_minmax(0,1fr)] gap-6 lg:gap-6 items-start">

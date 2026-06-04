@@ -21,8 +21,6 @@ const ArchivePage = () => {
   return (
     <div className="w-full flex justify-center px-8 md:px-36 py-12 md:py-12">
       <div className="w-full max-w-[1400px] text-left px-2 md:px-4 mx-auto">
-        {/* <h1 className="block w-fit mx-auto border border-black px-5 py-2 text-3xl md:text-[32px] font-normal mb-10 md:mb-16 text-center font-[650]">ARCHIVE</h1> */}
-
         <div
           className="grid justify-items-start gap-x-8 gap-y-12 md:gap-x-12 md:gap-y-16 
                      grid-cols-2 

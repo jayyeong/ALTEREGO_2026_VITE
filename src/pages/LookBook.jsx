@@ -99,7 +99,6 @@ const LookBook = () => {
   return (
     <div className="w-full bg-white">
       <div className="w-full">
-        {/* PC: 좌측 고정 리모콘 + 우측 이미지 */}
         <div className="hidden lg:grid grid-cols-[280px_minmax(0,1fr)]">
           <aside className="bg-white border-r border-black/5">
             <div className="sticky top-0 px-6 py-6 pb-8 flex flex-col">
@@ -128,7 +127,6 @@ const LookBook = () => {
           </section>
         </div>
 
-        {/* Mobile: 기존 이미지만 */}
         <div className="lg:hidden px-4 pb-10">{renderImageGrid(false)}</div>
       </div>
     </div>

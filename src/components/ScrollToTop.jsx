@@ -5,7 +5,7 @@ const ScrollToTop = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0); // 페이지 전환 시 스크롤 맨 위로
+    window.scrollTo(0, 0);
   }, [pathname]);
 
   return null;

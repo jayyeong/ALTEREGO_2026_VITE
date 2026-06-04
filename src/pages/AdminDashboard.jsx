@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { API_URL } from '../config/api';
 import { formatKoreanDateTime } from '../utils/dateFormat';
 
 const EMPTY_SUMMARY = {
@@ -9,11 +10,9 @@ const EMPTY_SUMMARY = {
   totalAmount: 0,
 };
 
-// fetch API를 사용하여 반드시 JSON으로 파싱
 const AdminDashboard = () => {
-  const API_URL = import.meta.env.VITE_API_URL || '';
-
   const [receipts, setReceipts]     = useState([]);
+  const [items, setItems]           = useState([]);
   const [summary, setSummary]       = useState(EMPTY_SUMMARY);
   const [page, setPage]             = useState(0);
   const [totalPages, setTotalPages] = useState(0);
@@ -22,20 +21,22 @@ const AdminDashboard = () => {
   const [endDate, setEndDate]       = useState('');
   const navigate = useNavigate();
 
-  // 주문 목록 가져오기 (fetch + .json())
   useEffect(() => {
     if (!sessionStorage.getItem('adminAuth')) {
       navigate('/admin');
       return;
     }
 
-    const fetchReceipts = async () => {
+    const fetchAdminData = async () => {
       setLoading(true);
       try {
-        const resp = await fetch(
+        const [resp, itemsResp] = await Promise.all([
+          fetch(
           `${API_URL}/api/admin/receipts?page=${page}&size=20`,
           { headers: { Accept: 'application/json' } }
-        );
+          ),
+          fetch(`${API_URL}/api/admin/items`, { headers: { Accept: 'application/json' } }),
+        ]);
 
         if (!resp.ok) throw new Error(resp.statusText);
         const data = await resp.json();
@@ -43,6 +44,10 @@ const AdminDashboard = () => {
 
         setReceipts(receiptContent);
         setTotalPages(typeof data.totalPages === 'number' ? data.totalPages : 1);
+
+        if (!itemsResp.ok) throw new Error(itemsResp.statusText);
+        const itemsData = await itemsResp.json();
+        setItems(Array.isArray(itemsData) ? itemsData.sort((a, b) => a.id - b.id) : []);
 
         try {
           const summaryResp = await fetch(
@@ -66,6 +71,7 @@ const AdminDashboard = () => {
       } catch (err) {
         console.error('fetch error:', err);
         setReceipts([]);
+        setItems([]);
         setSummary(EMPTY_SUMMARY);
         setTotalPages(0);
       } finally {
@@ -73,10 +79,9 @@ const AdminDashboard = () => {
       }
     };
 
-    fetchReceipts();
+    fetchAdminData();
   }, [API_URL, page, navigate]);
 
-  // 상태 토글 함수
   const handleToggleStatus = async (receiptId) => {
     try {
       const response = await fetch(`${API_URL}/api/admin/receipts/${receiptId}/toggle-status`, {
@@ -91,7 +96,6 @@ const AdminDashboard = () => {
       const updatedReceipt = await response.json();
       const targetReceipt = receipts.find(receipt => receipt.id === receiptId);
       
-      // 로컬 상태 업데이트
       setReceipts(prevReceipts => 
         prevReceipts.map(receipt => 
           receipt.id === receiptId 
@@ -117,7 +121,6 @@ const AdminDashboard = () => {
     }
   };
 
-  // 주문 삭제 함수
   const handleDeleteReceipt = async (receiptId) => {
     if (!window.confirm('정말로 이 주문을 삭제하시겠습니까?')) return;
 
@@ -132,7 +135,6 @@ const AdminDashboard = () => {
       if (!response.ok) throw new Error('삭제에 실패했습니다.');
       const deletedReceipt = receipts.find(receipt => receipt.id === receiptId);
 
-      // 로컬 상태에서 해당 주문 제거
       setReceipts(prevReceipts => 
         prevReceipts.filter(receipt => receipt.id !== receiptId)
       );
@@ -158,7 +160,29 @@ const AdminDashboard = () => {
     }
   };
 
-  // 엑셀 내보내기
+  const handleToggleItemSoldOut = async (itemId) => {
+    try {
+      const response = await fetch(`${API_URL}/api/admin/items/${itemId}/toggle-sold-out`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!response.ok) throw new Error('상품 품절 상태 변경에 실패했습니다.');
+
+      const updatedItem = await response.json();
+      setItems(prevItems =>
+        prevItems.map(item =>
+          item.id === itemId ? { ...item, soldOut: updatedItem.soldOut } : item
+        )
+      );
+    } catch (err) {
+      console.error('toggle item sold out error:', err);
+      alert('상품 품절 상태 변경 중 오류가 발생했습니다.');
+    }
+  };
+
   const handleExport = async () => {
     try {
       const res = await fetch(
@@ -184,7 +208,6 @@ const AdminDashboard = () => {
     navigate('/admin');
   };
 
-  // 상태별 스타일 반환
   const getStatusStyle = (status) => {
     switch (status) {
       case 'PENDING_PAYMENT':
@@ -196,7 +219,6 @@ const AdminDashboard = () => {
     }
   };
 
-  // 상태 토글 버튼 스타일
   const getToggleButtonStyle = (status) => {
     return status === 'PENDING_PAYMENT' 
       ? 'bg-yellow-500 hover:bg-yellow-600' 
@@ -219,7 +241,6 @@ const AdminDashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-7xl mx-auto">
-        {/* 헤더 */}
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-2xl font-bold">주문 관리</h1>
           <button
@@ -230,7 +251,6 @@ const AdminDashboard = () => {
           </button>
         </div>
 
-        {/* 주문 요약 */}
         <div className="grid grid-cols-1 gap-4 mb-8 sm:grid-cols-2 lg:grid-cols-4">
           {summaryCards.map(card => (
             <div key={card.label} className="bg-white rounded shadow p-5">
@@ -240,7 +260,6 @@ const AdminDashboard = () => {
           ))}
         </div>
 
-        {/* 엑셀 내보내기 */}
         <div className="bg-white rounded shadow p-6 mb-8">
           <h2 className="text-lg font-semibold mb-4">엑셀 내보내기</h2>
           <div className="flex gap-4 items-end">
@@ -271,7 +290,39 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        {/* 주문 목록 테이블 */}
+        <div className="bg-white rounded shadow p-6 mb-8">
+          <h2 className="text-lg font-semibold mb-4">상품 판매 상태</h2>
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
+            {items.map(item => (
+              <div key={item.id} className="border border-gray-200 rounded p-4">
+                <div className="mb-3">
+                  <p className="font-medium text-sm text-gray-900">{item.name}</p>
+                  <p className="text-xs text-gray-500">{Number(item.price).toLocaleString()} ₩</p>
+                </div>
+                <div className="flex items-center justify-between gap-3">
+                  <span className={`px-2 py-1 text-xs rounded border ${
+                    item.soldOut
+                      ? 'border-red-300 bg-red-50 text-red-700'
+                      : 'border-green-300 bg-green-50 text-green-700'
+                  }`}>
+                    {item.soldOut ? '품절' : '판매중'}
+                  </span>
+                  <button
+                    onClick={() => handleToggleItemSoldOut(item.id)}
+                    className={`px-3 py-1 text-xs text-white rounded ${
+                      item.soldOut
+                        ? 'bg-green-600 hover:bg-green-700'
+                        : 'bg-red-500 hover:bg-red-600'
+                    }`}
+                  >
+                    {item.soldOut ? '판매중 처리' : '품절 처리'}
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="bg-white rounded shadow overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-200">
             <thead className="bg-gray-50">
@@ -302,7 +353,6 @@ const AdminDashboard = () => {
                     <td className="px-6 py-4 text-sm">{Number(r.totalAmount).toLocaleString()} ₩</td>
                     <td className="px-6 py-4 text-sm">
                       <div className="flex gap-2">
-                        {/* 상태 토글 버튼 */}
                         <button
                           onClick={() => handleToggleStatus(r.id)}
                           className={`px-3 py-1 text-xs text-white rounded hover:opacity-80 ${getToggleButtonStyle(r.status)}`}
@@ -311,7 +361,6 @@ const AdminDashboard = () => {
                           {r.status === 'PENDING_PAYMENT' ? '완료' : '대기'}
                         </button>
                         
-                        {/* 삭제 버튼 */}
                         <button
                           onClick={() => handleDeleteReceipt(r.id)}
                           className="px-3 py-1 text-xs bg-red-500 text-white rounded hover:bg-red-600"
@@ -320,7 +369,6 @@ const AdminDashboard = () => {
                           삭제
                         </button>
                         
-                        {/* 상세보기 링크 */}
                         <Link 
                           to={`/admin/receipt/${r.id}`} 
                           className="px-3 py-1 text-xs bg-indigo-500 text-white rounded hover:bg-indigo-600"
@@ -338,7 +386,6 @@ const AdminDashboard = () => {
           </table>
         </div>
 
-        {/* 페이지네이션 */}
         {totalPages > 1 && (
           <div className="mt-6 flex justify-center">
             <button onClick={() => setPage(p => p - 1)} disabled={page===0} className="px-3 py-1 mx-1 border rounded disabled:opacity-50">이전</button>

@@ -1,5 +1,16 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
+import Home from "./pages/Home";
+import ShowInfo from "./pages/ShowInfo";
+import MainTheme from "./pages/MainTheme";
+import TeamPage from "./pages/TeamPage";
+import LookBook from "./pages/LookBook";
+import Runway from "./pages/Runway";
+import PortfolioPage from "./pages/PortfolioPage";
+import BehindShow from "./pages/BehindShow";
+import BehindBrochure from "./pages/BehindBrochure";
+import BehindMaking from "./pages/BehindMaking";
+import ArchivePage from "./pages/ArchivePage";
 
 import StorePage from "./pages/StorePage";
 import StoreDetailPage from "./pages/StoreDetailPage";
@@ -12,10 +23,12 @@ import AdminReceiptDetail from './pages/AdminReceiptDetail';
 import ScrollToTop from './components/ScrollToTop';
 
 import ComingSoon from "./pages/ComingSoon";
+import { STORE_ONLY_MODE } from "./config/siteMode";
 
 function App() {
   const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
   const blockedPage = <Navigate to="/opening-soon" replace />;
+  const gatePage = (page) => (STORE_ONLY_MODE ? blockedPage : page);
 
   return (
     <BrowserRouter basename={basePath}>
@@ -23,26 +36,15 @@ function App() {
       <div className="min-h-screen-dvh bg-white">
         <Header />
         <Routes>
-          <Route path="/" element={blockedPage} />
+          <Route path="/" element={gatePage(<Home />)} />
           <Route path="/opening-soon" element={<ComingSoon />} />
-          {/* PROJECT 카테고리 경로 */}
+          <Route path="/show-info" element={gatePage(<ShowInfo />)} />
+          <Route path="/project/" element={gatePage(<MainTheme />)} />
+          <Route path="/team/:teamId" element={gatePage(<TeamPage />)} />
+          <Route path="/project/look-book" element={gatePage(<LookBook />)} />
+          <Route path="/project/runway" element={gatePage(<Runway />)} />
+          <Route path="/portfolio/:portfolioUrl" element={gatePage(<PortfolioPage />)} />
 
-          {/* 쇼 인포 */}
-          <Route path="/show-info" element={blockedPage} />
-          
-          {/* 메인 테마 */}
-          <Route path="/project/" element={blockedPage} />
- 
-          {/* 팀 페이지 */}
-          <Route path="/team/:teamId" element={blockedPage} />
-          {/* 룩북 */}
-          <Route path="/project/look-book" element={blockedPage} />
-          {/* 런웨이 */}
-          <Route path="/project/runway" element={blockedPage} />
-          {/* 기존 경로 */}
-          <Route path="/portfolio/:portfolioUrl" element={blockedPage} />
-
-          {/* 스토어 관련 경로 - teamName 대신 teamId 사용 */}
           <Route path="/store" element={<Navigate to="/store/all" />} />
           <Route path="/store/all" element={<StorePage />} />
           <Route path="/store/team/:teamId" element={<StorePage />} />
@@ -53,16 +55,12 @@ function App() {
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/receipt/:id" element={<AdminReceiptDetail />} />
 
-          {/* 비하인드 */}
-          <Route path="/behind/" element={blockedPage} />
-          <Route path="/behind/show" element={blockedPage} />
-          <Route path="/behind/brochure" element={blockedPage} />
-          <Route path="/behind/making" element={blockedPage} />
-          
-          {/* archive */}
-          <Route path="/archive" element={blockedPage} />
+          <Route path="/behind/" element={gatePage(<BehindShow />)} />
+          <Route path="/behind/show" element={gatePage(<BehindShow />)} />
+          <Route path="/behind/brochure" element={gatePage(<BehindBrochure />)} />
+          <Route path="/behind/making" element={gatePage(<BehindMaking />)} />
+          <Route path="/archive" element={gatePage(<ArchivePage />)} />
 
-          {/* 스토어 선오픈 기간에는 미공개 경로를 임시 안내 페이지로 보냅니다. */}
           <Route path="*" element={blockedPage} />
         </Routes>
       </div>

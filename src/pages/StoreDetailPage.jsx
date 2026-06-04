@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { resolveAssetUrl } from '../utils/assets';
-import { getStoreProductDetail } from '../data/storeProductDetails';
+import { API_URL } from '../config/api';
+import { getStoreImageSrc, setStoreImageFallback } from '../utils/storeImages';
+import {
+  getStoreOptionMaxQuantity,
+  getStoreProductDetail,
+  getStoreProductDisplayItem,
+  getStoreProductMaxQuantity,
+  isStoreOptionSoldOut,
+  isStoreProductSoldOut
+} from '../data/storeProductDetails';
 
-// 환경 변수에서 API URL 가져오기
-const API_URL = import.meta.env.VITE_API_URL || '';
 const StoreDetailPage = () => {
   const { itemId } = useParams();
   const [item, setItem] = useState(null);
@@ -21,9 +27,8 @@ const StoreDetailPage = () => {
       try {
         setLoading(true);
 
-        // 상품 상세 정보 가져오기
         const itemResponse = await axios.get(`${API_URL}/api/store/items/${itemId}`);
-        setItem(itemResponse.data);
+        setItem(getStoreProductDisplayItem(itemResponse.data));
         setOptionQuantities({});
         setOptionError('');
 
@@ -39,29 +44,17 @@ const StoreDetailPage = () => {
     fetchData();
   }, [itemId]);
 
-  // 이미지 경로 처리 함수
-  const getImageSrc = (imagePath) => {
-    try {
-      // assets/ 경로로 시작하는 경우 require로 가져오기
-      if (imagePath && imagePath.startsWith('assets/')) {
-        return resolveAssetUrl(imagePath);
-      }
-      return imagePath || 'https://via.placeholder.com/300x300?text=No+Image';
-    } catch (error) {
-      console.error('Error loading image:', error);
-      return 'https://via.placeholder.com/300x300?text=Error+Loading+Image';
-    }
-  };
-
   const handleQuantityChange = (e) => {
+    const maxQuantity = getStoreProductMaxQuantity(item);
     const newQuantity = parseInt(e.target.value);
     if (newQuantity > 0) {
-      setQuantity(newQuantity);
+      setQuantity(Math.min(newQuantity, maxQuantity));
     }
   };
 
   const incrementQuantity = () => {
-    setQuantity(quantity + 1);
+    const maxQuantity = getStoreProductMaxQuantity(item);
+    setQuantity(Math.min(quantity + 1, maxQuantity));
   };
 
   const decrementQuantity = () => {
@@ -71,7 +64,10 @@ const StoreDetailPage = () => {
   };
 
   const updateOptionQuantity = (optionValue, nextQuantity) => {
-    const normalizedQuantity = Math.max(0, Number(nextQuantity) || 0);
+    const productDetail = getStoreProductDetail(item);
+    const option = productDetail.options?.find((currentOption) => currentOption.value === optionValue);
+    const maxQuantity = getStoreOptionMaxQuantity(option);
+    const normalizedQuantity = Math.min(Math.max(0, Number(nextQuantity) || 0), maxQuantity);
     setOptionQuantities((prev) => ({
       ...prev,
       [optionValue]: normalizedQuantity
@@ -80,9 +76,12 @@ const StoreDetailPage = () => {
   };
 
   const incrementOptionQuantity = (optionValue) => {
+    const productDetail = getStoreProductDetail(item);
+    const option = productDetail.options?.find((currentOption) => currentOption.value === optionValue);
+    const maxQuantity = getStoreOptionMaxQuantity(option);
     setOptionQuantities((prev) => ({
       ...prev,
-      [optionValue]: (prev[optionValue] || 0) + 1
+      [optionValue]: Math.min((prev[optionValue] || 0) + 1, maxQuantity)
     }));
     setOptionError('');
   };
@@ -98,6 +97,11 @@ const StoreDetailPage = () => {
     const productDetail = getStoreProductDetail(item);
     const hasOptions = productDetail.options?.length > 0;
 
+    if (isStoreProductSoldOut(item)) {
+      setOptionError('현재 품절된 상품입니다.');
+      return;
+    }
+
     const baseCheckoutItem = {
       id: item.id,
       name: item.name,
@@ -112,7 +116,7 @@ const StoreDetailPage = () => {
       const checkoutItems = productDetail.options
         .map((option) => ({
           ...baseCheckoutItem,
-          quantity: optionQuantities[option.value] || 0,
+          quantity: Math.min(optionQuantities[option.value] || 0, getStoreOptionMaxQuantity(option)),
           optionName: option.value
         }))
         .filter((checkoutItem) => checkoutItem.quantity > 0);
@@ -127,9 +131,11 @@ const StoreDetailPage = () => {
       return;
     }
 
+    const maxQuantity = getStoreProductMaxQuantity(item);
+
     localStorage.setItem('directOrderItems', JSON.stringify([{
       ...baseCheckoutItem,
-      quantity: quantity,
+      quantity: Math.min(quantity, maxQuantity),
       optionName: ''
     }]));
 
@@ -169,32 +175,25 @@ const StoreDetailPage = () => {
     : 0;
   const estimatedQuantity = hasOptions ? optionTotalQuantity : quantity;
   const estimatedTotalPrice = Number(item.price) * estimatedQuantity;
+  const isSoldOut = isStoreProductSoldOut(item);
 
   return (
     <div className="store-page" style={{ backgroundColor: 'white', minHeight: 'calc(100vh - 150px)' }}>
-      {/* Spacer preserves the former breadcrumb/category vertical rhythm. */}
       <div className="px-4 py-6 md:py-7" aria-hidden="true" />
 
-      {/* Product Detail Content */}
       <div className="mx-auto w-full max-w-7xl px-4 py-5 md:py-8">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-[minmax(0,1fr)_minmax(300px,430px)] md:gap-10 lg:gap-14">
-          {/* Main Product Image */}
           <div className="w-full md:col-start-1 md:row-start-1">
             <div className="w-full overflow-hidden bg-gray-100">
               <img
-                src={getImageSrc(item.itemImagePath)}
+                src={getStoreImageSrc(item.itemImagePath)}
                 alt={item.name}
                 className="block w-full h-auto object-cover"
-                onError={(e) => {
-                  console.error('Image failed to load:', item.itemImagePath);
-                  e.target.onerror = null;
-                  e.target.src = 'https://via.placeholder.com/500x500?text=No+Image';
-                }}
+                onError={(e) => setStoreImageFallback(e)}
               />
             </div>
           </div>
 
-          {/* Product Info */}
           <aside className="w-full md:col-start-2 md:row-start-1 md:sticky md:top-20 md:self-start">
             <div className="bg-white">
               <h1 className="mb-1.5 text-2xl font-medium leading-tight text-black md:text-[22px]">{item.name}</h1>
@@ -226,40 +225,56 @@ const StoreDetailPage = () => {
                 <div className="mb-3">
                   <p className="mb-1.5 text-xs text-gray-700">{productDetail.optionLabel || '옵션'}별 수량</p>
                   <div className="space-y-1.5">
-                    {productDetail.options.map((option) => (
+                    {productDetail.options.map((option) => {
+                      const optionSoldOut = isSoldOut || isStoreOptionSoldOut(option);
+                      const optionQuantity = optionQuantities[option.value] || 0;
+
+                      return (
                       <div
                         key={option.value}
-                        className="flex items-center justify-between border border-gray-200 px-3 py-2"
+                        className={`flex items-center justify-between border px-3 py-2 ${
+                          optionSoldOut ? 'border-gray-100 bg-gray-50 text-gray-400' : 'border-gray-200'
+                        }`}
                       >
-                        <span className="text-xs font-medium text-black">{option.label}</span>
+                        <div>
+                          <span className={`text-xs font-medium ${optionSoldOut ? 'text-gray-400' : 'text-black'}`}>
+                            {option.label}
+                          </span>
+                          {optionSoldOut && <span className="ml-2 text-[11px] text-red-500">품절</span>}
+                        </div>
                         <div className="inline-flex h-8 overflow-hidden rounded-full border border-gray-300 bg-white">
                           <button
                             type="button"
-                            className="flex w-8 items-center justify-center text-sm leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
+                            className="flex w-8 items-center justify-center text-sm leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black disabled:cursor-not-allowed disabled:text-gray-300"
                             onClick={() => decrementOptionQuantity(option.value)}
+                            disabled={optionSoldOut || optionQuantity <= 0}
                             aria-label={`${option.label} 수량 감소`}
                           >
                             -
                           </button>
                           <input
                             type="number"
-                            value={optionQuantities[option.value] || 0}
+                            value={optionQuantity}
                             onChange={(e) => updateOptionQuantity(option.value, e.target.value)}
-                            className="h-full w-10 border-x border-gray-200 text-center text-xs text-black outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+                            className="h-full w-10 border-x border-gray-200 text-center text-xs text-black outline-none [appearance:textfield] disabled:bg-gray-50 disabled:text-gray-300 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                             min="0"
+                            max={getStoreOptionMaxQuantity(option)}
+                            disabled={optionSoldOut}
                             aria-label={`${option.label} 수량`}
                           />
                           <button
                             type="button"
-                            className="flex w-8 items-center justify-center text-sm leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
+                            className="flex w-8 items-center justify-center text-sm leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black disabled:cursor-not-allowed disabled:text-gray-300"
                             onClick={() => incrementOptionQuantity(option.value)}
+                            disabled={optionSoldOut || optionQuantity >= getStoreOptionMaxQuantity(option)}
                             aria-label={`${option.label} 수량 증가`}
                           >
                             +
                           </button>
                         </div>
                       </div>
-                    ))}
+                      );
+                    })}
                   </div>
                   {optionError && <p className="mt-1.5 text-xs text-red-500">{optionError}</p>}
                 </div>
@@ -273,6 +288,7 @@ const StoreDetailPage = () => {
                       type="button"
                       className="flex w-9 items-center justify-center text-base leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
                       onClick={decrementQuantity}
+                      disabled={isSoldOut || quantity <= 1}
                       aria-label="수량 감소"
                     >
                       -
@@ -283,12 +299,15 @@ const StoreDetailPage = () => {
                       onChange={handleQuantityChange}
                       className="h-full w-12 border-x border-gray-200 text-center text-xs text-black outline-none [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
                       min="1"
+                      max={getStoreProductMaxQuantity(item)}
+                      disabled={isSoldOut}
                       aria-label="수량"
                     />
                     <button
                       type="button"
                       className="flex w-9 items-center justify-center text-base leading-none text-gray-600 transition-colors hover:bg-gray-100 hover:text-black"
                       onClick={incrementQuantity}
+                      disabled={isSoldOut || quantity >= getStoreProductMaxQuantity(item)}
                       aria-label="수량 증가"
                     >
                       +
@@ -304,12 +323,16 @@ const StoreDetailPage = () => {
                 </span>
               </div>
 
-              {/* Action Buttons */}
               <button
-                className="w-full bg-indigo-600 py-2.5 text-sm font-medium text-white transition-colors hover:bg-indigo-700"
+                className={`w-full py-2.5 text-sm font-medium text-white transition-colors ${
+                  isSoldOut
+                    ? 'cursor-not-allowed bg-gray-400'
+                    : 'bg-indigo-600 hover:bg-indigo-700'
+                }`}
                 onClick={handleDirectCheckout}
+                disabled={isSoldOut}
               >
-                BUY NOW
+                {isSoldOut ? 'SOLD OUT' : 'BUY NOW'}
               </button>
             </div>
           </aside>
@@ -317,7 +340,7 @@ const StoreDetailPage = () => {
           {item.descriptionImagePath && (
             <div className="w-full md:col-start-1 md:row-start-2">
               <img
-                src={getImageSrc(item.descriptionImagePath)}
+                src={getStoreImageSrc(item.descriptionImagePath)}
                 alt={`${item.name} 상세 설명`}
                 className="block w-full h-auto"
                 onError={(e) => {

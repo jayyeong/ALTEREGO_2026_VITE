@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { resolveAssetUrl } from '../utils/assets';
-
-// 환경 변수에서 API URL 가져오기
-const API_URL = import.meta.env.VITE_API_URL || '';
+import { API_URL } from '../config/api';
+import { getStoreImageSrc, setStoreImageFallback } from '../utils/storeImages';
+import {
+  getStoreProductDisplayItem,
+  isStoreProductSoldOut
+} from '../data/storeProductDetails';
 
 const StorePage = () => {
   const [items, setItems] = useState([]);
@@ -16,13 +18,12 @@ const StorePage = () => {
       try {
         setLoading(true);
         
-        // 상품 목록 가져오기
         const itemsUrl = `${API_URL}/api/store/items`;
         
         const itemsResponse = await axios.get(itemsUrl);
         const sortedItems = [...itemsResponse.data].sort((a, b) => {
           return a.id - b.id;
-        });
+        }).map(getStoreProductDisplayItem);
         setItems(sortedItems);
         
         setLoading(false);
@@ -37,26 +38,10 @@ const StorePage = () => {
     fetchData();
   }, []);
 
-  // 이미지 경로 처리 함수
-  const getImageSrc = (imagePath) => {
-    try {
-      // assets/ 경로로 시작하는 경우 require로 가져오기
-      if (imagePath && imagePath.startsWith('assets/')) {
-        return resolveAssetUrl(imagePath);
-      }
-      return imagePath || 'https://via.placeholder.com/300x300?text=No+Image';
-    } catch (error) {
-      console.error('Error loading image:', error);
-      return 'https://via.placeholder.com/300x300?text=Error+Loading+Image';
-    }
-  };
-
   return (
     <div className="store-page" style={{ backgroundColor: 'white', minHeight: 'calc(100vh - 150px)' }}>
-      {/* Spacer preserves the former breadcrumb/category vertical rhythm. */}
       <div className="px-4 py-8" aria-hidden="true" />
       
-      {/* Items Grid with white background */}
       <div className="items-grid bg-white py-8">
         <div className="mx-auto w-full max-w-7xl px-4">
           {loading ? (
@@ -72,17 +57,20 @@ const StorePage = () => {
               {items.map(item => (
                 <div key={item.id} className="item-card text-center">
                   <Link to={`/store/item/${item.id}`}>
-                    <div className="w-full aspect-square overflow-hidden mb-3 bg-gray-100">
+                    <div className="relative w-full aspect-square overflow-hidden mb-3 bg-gray-100">
                       <img 
-                        src={getImageSrc(item.itemImagePath)}
+                        src={getStoreImageSrc(item.itemImagePath)}
                         alt={item.name}
                         className="w-full h-full object-cover object-center"
-                        onError={(e) => {
-                          console.error('Image failed to load:', item.itemImagePath);
-                          e.target.onerror = null;
-                          e.target.src = 'https://via.placeholder.com/300x300?text=Error+Loading+Image';
-                        }}
+                        onError={(e) => setStoreImageFallback(e)}
                       />
+                      {isStoreProductSoldOut(item) && (
+                        <div className="absolute inset-0 flex items-center justify-center bg-white/70">
+                          <span className="border border-black bg-white px-3 py-1 text-xs font-semibold tracking-[0.16em] text-black">
+                            SOLD OUT
+                          </span>
+                        </div>
+                      )}
                     </div>
                     <h3 className="text-base md:text-lg font-medium text-black truncate text-center">{item.name}</h3>
                   </Link>

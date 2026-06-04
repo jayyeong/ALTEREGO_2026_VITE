@@ -5,7 +5,6 @@
   font-style: normal;
   font-display: swap;
 
-  /* 한글 범위 + 한글 호환 자모/확장 */
   unicode-range:
     U+AC00-D7A3, /* Hangul Syllables */
     U+1100-11FF, /* Hangul Jamo */
@@ -14,7 +13,6 @@
     U+D7B0-D7FF; /* Hangul Jamo Extended-B */
 }
 
-/* 2) 영문/숫자/기본 기호는 OpenSans */
 @font-face {
   font-family: "AppFont";
   src: url("./fonts/OpenSans-VariableFont_wght.ttf") format("truetype");
@@ -22,7 +20,6 @@
   font-style: normal;
   font-display: swap;
 
-  /* 라틴(영문) + 숫자/기본기호 포함 범위 */
   unicode-range:
     U+0000-00FF, /* Basic Latin + Latin-1 Supplement */
     U+0100-024F, /* Latin Extended-A/B */
@@ -40,16 +37,6 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-/* 영문에 대해 OpenSans 적용
-:lang(en) {
-  font-family: 'OpenSans', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-한글에 대해 Pretendard 적용
-:lang(ko) {
-  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont , sans-serif;
-} */
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

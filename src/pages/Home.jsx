@@ -79,29 +79,6 @@ export default function Home() {
         setCurrentIndex(safe);
     };
 
-    // const enterFullscreen = () => {
-    //     const v = videoRef.current;
-    //     if (!v) return;
-
-    //     // iOS Safari (특히 iPhone)
-    //     if (typeof v.webkitEnterFullscreen === "function") {
-    //         v.webkitEnterFullscreen();
-    //         return;
-    //     }
-
-    //     // 표준 Fullscreen API (Chrome/Android/데스크탑 Safari 일부)
-    //     if (typeof v.requestFullscreen === "function") {
-    //         v.requestFullscreen();
-    //         return;
-    //     }
-
-    //     // 구형 웹킷
-    //     const anyV = v;
-    //     if (typeof anyV.webkitRequestFullscreen === "function") {
-    //         anyV.webkitRequestFullscreen();
-    //     }
-    // };
-
     const handlePrev = () => goTo(currentIndex - 1);
     const handleNext = () => goTo(currentIndex + 1);
     const handleEnded = () => setCurrentIndex((prev) => (prev + 1) % videoList.length);
@@ -122,42 +99,8 @@ export default function Home() {
             <div className="min-h-[calc(100dvh-88px)] lg:h-[calc(100dvh-88px)]">
                 <div className="mx-auto px-6 lg:px-6 py-10 lg:py-8 lg:h-full">
                     <div className="h-full flex flex-col lg:flex-row gap-10 lg:gap-2 justify-between">
-
-                        {/* LEFT */}
-                        {/* <aside
-              className="
-                lg:w-[15dvh]
-                flex flex-col
-                lg:h-[75dvh]
-              "
-            >
-              <div className="pt-6">
-                <p className="text-[14px] font-semibold">{current.title}</p>
-
-                <div className="mt-5 space-y-2">
-                  {videoList.map((v, idx) => (
-                    <button
-                      key={v.title}
-                      onClick={() => goTo(idx)}
-                      className={`block text-left text-[13px] w-full transition-colors ${
-                        idx === currentIndex
-                          ? "text-black font-semibold"
-                          : "text-gray-500 hover:text-black"
-                      }`}
-                    >
-                      {v.title}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            </aside> */}
-
-                        {/* RIGHT (영상 박스) */}
                         <section className="flex-1 min-w-0 flex justify-end items-center">
-                            {/* ✅ 영상 왼쪽에 캡션을 붙이기 위해 flex-row */}
                             <div className="w-full flex flex-col lg:flex-row lg:items-end justify-end gap-2 lg:gap-12">
-
-                                {/* ✅ 영상 바로 왼쪽 캡션 (검은 글씨) */}
                                 <div className="order-2 lg:order-1 lg:w-[220px] flex-shrink-0 text-left">
                                     <p className="text-[14px] font-semibold text-black">
                                         {current.captionTitle}
@@ -172,7 +115,6 @@ export default function Home() {
                                     </div>
                                 </div>
 
-                                {/* ✅ 영상 박스 */}
                                 <div
                                     className="
                                                 order-1 lg:order-2
@@ -194,11 +136,7 @@ export default function Home() {
                                         playsInline
                                         loop={false}
                                         onEnded={handleEnded}
-                                        // onClick={() => {
-                                        //     // 모바일에서만 전체화면
-                                        //     if (window.innerWidth < 1024) enterFullscreen();
-                                        // }}
-                                        controls={window.innerWidth < 1024}  // 모바일은 컨트롤 보이게(원하면 제거)
+                                        controls={window.innerWidth < 1024}
                                         className="w-full h-full object-cover cursor-pointer"
                                     />
 

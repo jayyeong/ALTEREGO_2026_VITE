@@ -1,17 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { resolveAssetUrl } from '../utils/assets';
+import { API_URL } from '../config/api';
 import { formatStoreContacts, getDepositAccountForItems } from '../data/depositAccounts';
-
-// 환경 변수에서 API URL 가져오기
-const API_URL = import.meta.env.VITE_API_URL || '';
+import {
+  getStoreOptionMaxQuantity,
+  getStoreProductDetail,
+  getStoreProductDisplayItem,
+  getStoreProductMaxQuantity,
+  isStoreOptionSoldOut,
+  isStoreProductSoldOut
+} from '../data/storeProductDetails';
+import { getStoreImageSrc, setStoreImageFallback } from '../utils/storeImages';
 
 const CheckoutPage = () => {
   const [orderItems, setOrderItems] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);
   const [orderName, setOrderName] = useState('');
-  const [bankName, setBankName] = useState('');  // 은행명 상태 추가
+  const [bankName, setBankName] = useState('');
   const [accountNumber, setAccountNumber] = useState('');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -37,9 +43,42 @@ const CheckoutPage = () => {
           return;
         }
 
-        setOrderItems(parsedItems);
+        const availableItems = parsedItems
+          .map((item) => {
+            const displayItem = getStoreProductDisplayItem(item);
+            const productDetail = getStoreProductDetail(displayItem);
+            const option = productDetail.options?.find((currentOption) => currentOption.value === item.optionName);
 
-        const total = parsedItems.reduce((sum, item) => {
+            if (productDetail.options?.length > 0 && !option) {
+              return null;
+            }
+
+            const maxQuantity = option
+              ? getStoreOptionMaxQuantity(option)
+              : getStoreProductMaxQuantity(displayItem);
+            const quantity = Math.min(Number(item.quantity) || 0, maxQuantity);
+
+            if (quantity <= 0 || isStoreProductSoldOut(displayItem) || (option && isStoreOptionSoldOut(option))) {
+              return null;
+            }
+
+            return {
+              ...displayItem,
+              quantity,
+              optionName: item.optionName || ''
+            };
+          })
+          .filter(Boolean);
+
+        if (availableItems.length === 0) {
+          localStorage.removeItem('directOrderItems');
+          navigate('/store/all');
+          return;
+        }
+
+        setOrderItems(availableItems);
+
+        const total = availableItems.reduce((sum, item) => {
           return sum + (Number(item.price) * item.quantity);
         }, 0);
 
@@ -99,7 +138,6 @@ const CheckoutPage = () => {
       setIsSubmitting(true);
       setError('');
 
-      // 백엔드에 보낼 주문 데이터 구성
       const orderData = {
         accountHolder: trimmedOrderName,
         bankName: trimmedBankName,
@@ -126,23 +164,8 @@ const CheckoutPage = () => {
     }
   };
 
-  // 이미지 경로 처리 함수
-  const getImageSrc = (imagePath) => {
-    try {
-      // assets/ 경로로 시작하는 경우 require로 가져오기
-      if (imagePath && imagePath.startsWith('assets/')) {
-        return resolveAssetUrl(imagePath);
-      }
-      return imagePath || 'https://via.placeholder.com/80x80?text=No+Image';
-    } catch (error) {
-      console.error('Error loading image:', error);
-      return 'https://via.placeholder.com/80x80?text=Error+Loading+Image';
-    }
-  };
-
   return (
     <div className="store-page" style={{ backgroundColor: 'white', minHeight: 'calc(100vh - 150px)' }}>
-      {/* Breadcrumb Navigation */}
       <div className="breadcrumb border-t border-b border-gray-300 py-2 px-4">
         <div className="mx-auto w-full max-w-7xl px-4">
           <nav className="text-sm text-black">
@@ -163,7 +186,6 @@ const CheckoutPage = () => {
         )}
 
         <div className="flex flex-col md:flex-row md:flex-wrap">
-          {/* 모바일: 주문 상품 목록 먼저 표시 */}
           <div className="w-full md:hidden mb-6">
             <div className="border-t border-gray-300 pt-4">
               <h2 className="text-lg font-semibold mb-3">주문 상품</h2>
@@ -171,13 +193,10 @@ const CheckoutPage = () => {
                 <div key={`${item.id}-${item.optionName || 'default'}`} className="flex items-center py-2 border-b border-gray-200">
                   <div className="w-[50px] h-[50px] mr-3 overflow-hidden">
                     <img
-                      src={getImageSrc(item.imagePath)}
+                      src={getStoreImageSrc(item.imagePath)}
                       alt={item.name}
                       className="w-full h-full object-cover"
-                      onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = 'https://via.placeholder.com/50x50?text=Error';
-                      }}
+                      onError={(e) => setStoreImageFallback(e)}
                     />
                   </div>
                   <div className="flex-1 mr-2">
@@ -197,26 +216,25 @@ const CheckoutPage = () => {
             </div>
           </div>
 
-          {/* 입금 정보 */}
           <div className="w-full md:w-1/2 md:pr-4 mb-6 md:mb-0">
             <div className="mb-6">
-                <h2 className="text-lg md:text-xl font-semibold mb-3">입금 계좌 정보:</h2>
-                <div className="space-y-1 md:space-y-2 text-sm md:text-base">
-                  <p><span className="font-medium">은행명:</span> {depositAccount.bankName}</p>
-                  <div className="flex flex-wrap items-center gap-2">
-                    <p><span className="font-medium">계좌번호:</span> {depositAccount.accountNumber}</p>
-                    <button
-                      type="button"
-                      onClick={handleCopyAccountNumber}
-                      className="px-2 py-1 text-xs border border-gray-300 rounded hover:bg-gray-100 transition-colors"
-                    >
-                      복사하기
-                    </button>
-                  </div>
-                  {copyMessage && <p className="text-xs text-gray-600">{copyMessage}</p>}
-                  <p><span className="font-medium">예금주:</span> {depositAccount.holder}</p>
+              <h2 className="text-lg md:text-xl font-semibold mb-3">입금 계좌 정보:</h2>
+              <div className="space-y-1 md:space-y-2 text-sm md:text-base">
+                <p><span className="font-medium">은행명:</span> {depositAccount.bankName}</p>
+                <div className="flex flex-wrap items-center gap-2">
+                  <p><span className="font-medium">계좌번호:</span> {depositAccount.accountNumber}</p>
+                  <button
+                    type="button"
+                    onClick={handleCopyAccountNumber}
+                    className="px-2 py-1 text-xs border border-gray-300 rounded hover:bg-gray-100 transition-colors"
+                  >
+                    복사하기
+                  </button>
                 </div>
+                {copyMessage && <p className="text-xs text-gray-600">{copyMessage}</p>}
+                <p><span className="font-medium">예금주:</span> {depositAccount.holder}</p>
               </div>
+            </div>
 
             <div className="mb-6">
               <h2 className="text-lg md:text-xl font-semibold mb-3">입금 방법:</h2>
@@ -237,7 +255,6 @@ const CheckoutPage = () => {
             </div>
           </div>
 
-          {/* 주문자 정보 및 제품 목록 */}
           <div className="w-full md:w-1/2 md:pl-4">
             <form onSubmit={handleOrderSubmit}>
               <div className="mb-4 md:mb-6">
@@ -291,20 +308,16 @@ const CheckoutPage = () => {
                 />
               </div>
 
-              {/* 주문 상품 목록 - 데스크톱 */}
               <div className="hidden md:block mb-6 border-t border-gray-300 pt-4">
                 <h2 className="text-xl font-semibold mb-4">주문 상품</h2>
                 {orderItems.map(item => (
                   <div key={`${item.id}-${item.optionName || 'default'}`} className="flex items-center py-2 border-b border-gray-200">
                     <div className="w-[50px] h-[50px] mr-3 overflow-hidden">
                       <img
-                        src={getImageSrc(item.imagePath)}
+                        src={getStoreImageSrc(item.imagePath)}
                         alt={item.name}
                         className="w-full h-full object-cover"
-                        onError={(e) => {
-                          e.target.onerror = null;
-                          e.target.src = 'https://via.placeholder.com/50x50?text=Error';
-                        }}
+                        onError={(e) => setStoreImageFallback(e)}
                       />
                     </div>
                     <div className="flex-1 mr-3">
@@ -320,21 +333,20 @@ const CheckoutPage = () => {
               </div>
 
               <div className="border-t border-gray-300 pt-4 md:pt-6">
-                {/* 총 입금액 - 데스크톱 */}
                 <div className="hidden md:flex justify-between items-center mb-6">
                   <span className="text-lg font-semibold">총 입금액</span>
                   <span className="text-xl font-bold">{totalPrice.toLocaleString()} ₩</span>
                 </div>
 
                 <button
-	                  type="submit"
-	                  className={`w-full py-3 text-white font-medium transition-colors ${
-	                    isSubmitting
-	                      ? 'bg-gray-400 cursor-not-allowed'
-	                      : 'bg-indigo-600 hover:bg-indigo-700'
-	                  }`}
-	                  disabled={isSubmitting}
-	                >
+                  type="submit"
+                  className={`w-full py-3 text-white font-medium transition-colors ${
+                    isSubmitting
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-indigo-600 hover:bg-indigo-700'
+                  }`}
+                  disabled={isSubmitting}
+                >
                   {isSubmitting ? '처리 중...' : '예약 주문하기'}
                 </button>
               </div>

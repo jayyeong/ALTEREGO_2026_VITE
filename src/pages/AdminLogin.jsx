@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
-const API_URL = import.meta.env.VITE_API_URL || '';
+import { API_URL } from '../config/api';
 
 const AdminLogin = () => {
   const [password, setPassword] = useState('');
@@ -16,7 +15,6 @@ const AdminLogin = () => {
       const response = await axios.post(`${API_URL}/api/admin/login`, { password });
       
       if (response.data.success) {
-        // 간단한 인증 토큰 설정 (실제로는 더 안전한 방법 사용)
         sessionStorage.setItem('adminAuth', 'true');
         navigate('/admin/dashboard');
       }

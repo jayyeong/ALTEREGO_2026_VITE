@@ -42,7 +42,6 @@ const ShowBehindPage = () => {
 
   return (
     <div className="max-w-[1140px] mx-auto px-4 py-10 space-y-12">
-      {/* video */}
       <div className="w-full max-w-[860px] mx-auto aspect-video">
         <iframe
           src="https://www.youtube.com/embed/Si8vAV6KxEM"
@@ -52,14 +51,12 @@ const ShowBehindPage = () => {
         />
       </div>
 
-      {/* center text */}
       <div className="w-full flex justify-center">
         <p className="text-center text-sm md:text-base text-black/80 whitespace-pre-line">
           {sectionMessage}
         </p>
       </div>
 
-      {/* images grid (scroll) */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         {imagePaths.map((src, idx) => (
           <div key={idx} className="w-full">
