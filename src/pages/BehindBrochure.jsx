@@ -28,7 +28,6 @@ const imagePaths = [
 export default function BehindBrochure() {
   return (
     <div className="max-w-[1140px] mx-auto px-4 py-10 space-y-12">
-      {/* video (하나만) */}
       <div className="w-full max-w-[860px] mx-auto aspect-video">
         <iframe
           src="https://www.youtube.com/embed/7Kgi3zzsTj0"
@@ -38,7 +37,6 @@ export default function BehindBrochure() {
         />
       </div>
 
-      {/* images grid (scroll) */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
         {imagePaths.map((src, idx) => (
           <div key={idx} className="w-full">

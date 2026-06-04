@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import { API_URL } from '../config/api';
 import { formatKoreanDateTime } from '../utils/dateFormat';
-
-const API_URL = import.meta.env.VITE_API_URL || '';
+import { getStoreProductPrice } from '../data/storeProductDetails';
 
 const AdminReceiptDetail = () => {
   const { id } = useParams();
@@ -24,7 +24,6 @@ const AdminReceiptDetail = () => {
   }, [id]);
 
   useEffect(() => {
-    // 인증 체크
     const isAuth = sessionStorage.getItem('adminAuth');
     if (!isAuth) {
       navigate('/admin');
@@ -54,6 +53,17 @@ const AdminReceiptDetail = () => {
     );
   }
 
+  const displayOrders = (receipt.orders || []).map((order) => {
+    const price = getStoreProductPrice(order);
+
+    return {
+      ...order,
+      price,
+      totalPrice: price * Number(order.quantity || 0)
+    };
+  });
+  const displayTotalAmount = displayOrders.reduce((sum, order) => sum + Number(order.totalPrice || 0), 0);
+
   return (
     <div className="min-h-screen bg-gray-50 p-4">
       <div className="max-w-4xl mx-auto">
@@ -67,7 +77,6 @@ const AdminReceiptDetail = () => {
           </Link>
         </div>
 
-        {/* 기본 정보 */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
           <h2 className="text-lg font-semibold mb-4">기본 정보</h2>
           <div className="grid grid-cols-2 gap-4">
@@ -76,12 +85,11 @@ const AdminReceiptDetail = () => {
               <p><span className="font-medium">주문일시:</span> {formatKoreanDateTime(receipt.createdAt)}</p>
             </div>
             <div>
-              <p><span className="font-medium">총 주문금액:</span> {Number(receipt.totalAmount).toLocaleString()} ₩</p>
+              <p><span className="font-medium">총 주문금액:</span> {displayTotalAmount.toLocaleString()} ₩</p>
             </div>
           </div>
         </div>
 
-        {/* 입금자 정보 */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
           <h2 className="text-lg font-semibold mb-4">입금자 정보</h2>
           <div className="grid grid-cols-2 gap-4">
@@ -96,7 +104,6 @@ const AdminReceiptDetail = () => {
           </div>
         </div>
 
-        {/* 주문 상품 목록 */}
         <div className="bg-white rounded-lg shadow-md p-6">
           <h2 className="text-lg font-semibold mb-4">주문 상품</h2>
           <table className="w-full">
@@ -110,7 +117,7 @@ const AdminReceiptDetail = () => {
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {receipt.orders && receipt.orders.map((order) => (
+              {displayOrders.map((order) => (
                 <tr key={order.id}>
                   <td className="px-4 py-3">
                     <p>{order.itemName}</p>
@@ -127,7 +134,7 @@ const AdminReceiptDetail = () => {
               <tr className="border-t">
                 <td colSpan="4" className="px-4 py-3 text-right font-semibold">총 금액:</td>
                 <td className="px-4 py-3 font-semibold">
-                  {Number(receipt.totalAmount).toLocaleString()} ₩
+                  {displayTotalAmount.toLocaleString()} ₩
                 </td>
               </tr>
             </tfoot>

@@ -24,7 +24,6 @@ const ShowInfo = () => {
 
   return (
     <div className="w-full bg-white py-10 md:py-14 px-4">
-      {/* Main Theme */}
       <section className="w-full max-w-[1040px] mb-8 md:mb-8 mx-auto">
         <div className="border border-black/5 bg-white/90 shadow-[0_4px_14px_rgba(0,0,0,0.04)] p-5 md:p-8">
 
@@ -58,8 +57,6 @@ const ShowInfo = () => {
       </section>
 
       <section className="w-full max-w-[1040px] mx-auto">
-
-        {/* PC */}
         <div className="hidden md:flex w-full flex-col items-center gap-8">
           {desktopImages.map((image) => (
             <div
@@ -76,7 +73,6 @@ const ShowInfo = () => {
           ))}
         </div>
 
-        {/* Mobile */}
         <div className="md:hidden w-full flex flex-col items-center gap-5">
           {mobileImages.map((image) => (
             <div

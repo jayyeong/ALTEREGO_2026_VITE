@@ -6,19 +6,13 @@ import {
   X
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-
-const STORE_ONLY_MODE = true;
+import { STORE_ONLY_MODE } from '../config/siteMode';
 
 const Header = () => {
   const navigate = useNavigate();
 
-  // 모바일 상태
   const [isMobileOpen, setIsMobileOpen] = useState(false);
-
-  // 모바일 아코디언: 현재 펼쳐진 1차 메뉴 라벨
   const [expandedMobile, setExpandedMobile] = useState(null);
-
-  // 데스크탑 드롭다운 상태
   const [hoveredMenu, setHoveredMenu] = useState(null);
   const [dropdownPos, setDropdownPos] = useState({ left: 0, width: 0 });
 
@@ -30,9 +24,6 @@ const Header = () => {
     setExpandedMobile(null);
   };
 
-  /**
-   * ✅ 최종 메뉴 구조 (PC/모바일 공통)
-   */
   const menus = useMemo(
     () => [
       { label: 'INFO', path: '/show-info' },
@@ -60,9 +51,6 @@ const Header = () => {
     []
   );
 
-  // =========================
-  // ✅ PC 드롭다운
-  // =========================
   const openDropdown = (menuLabel) => {
     const target = menus.find(m => m.label === menuLabel);
     if (STORE_ONLY_MODE && target?.label !== 'STORE') {
@@ -92,9 +80,6 @@ const Header = () => {
 
   const closeDropdown = () => setHoveredMenu(null);
 
-  // =========================
-  // ✅ Mobile: 클릭 시 아코디언 펼치기
-  // =========================
   const onMobileTopClick = (menu) => {
     if (STORE_ONLY_MODE && menu.label !== 'STORE') {
       setExpandedMobile(null);
@@ -102,7 +87,6 @@ const Header = () => {
     }
 
     if (menu.subItems?.length) {
-      // 같은 메뉴를 다시 누르면 접기
       setExpandedMobile(prev => (prev === menu.label ? null : menu.label));
       return;
     }
@@ -117,12 +101,8 @@ const Header = () => {
 
   return (
     <div className="relative">
-      {/* =======================
-          ✅ DESKTOP (lg 이상)
-      ======================= */}
       <header className="hidden lg:block w-full bg-white">
         <div className="w-full px-8 py-6 flex items-start justify-between">
-          {/* 🔹 왼쪽 영역 */}
           <div className="flex items-start gap-6">
             <div className="leading-tight">
               <div
@@ -159,7 +139,6 @@ const Header = () => {
             )}
           </div>
 
-          {/* 🔹 오른쪽 메뉴 */}
           <nav
             aria-label="Primary"
             ref={navWrapRef}
@@ -197,26 +176,25 @@ const Header = () => {
               ))}
             </ul>
 
-            {/* ✅ 2차 메뉴 (세로) */}
-	            {hoveredMenu && menus.find(m => m.label === hoveredMenu)?.subItems?.length > 0 && (
-	              <div className="absolute left-0 top-full w-full z-50">
-	                <div className="relative mt-3">
-	                  <div
-	                    className="absolute top-0 min-w-[140px] rounded-md border border-black/15 bg-white/95 backdrop-blur-sm shadow-lg px-4 py-3"
-	                    style={{ left: dropdownPos.left }}
-	                    onMouseEnter={() => setHoveredMenu(hoveredMenu)}
-	                  >
-	                    <ul className="flex flex-col w-full divide-y divide-black/10">
-	                      {menus
-	                        .find(m => m.label === hoveredMenu)
-	                        ?.subItems.map((sub) => (
-	                          <li key={sub.name} className="w-full">
-	                            <Link
-	                              to={sub.path}
-	                              className="block w-full py-2 text-sm font-semibold text-black hover:text-black/60 transition"
-	                              style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
-	                              onClick={() => setHoveredMenu(null)}
-	                            >
+            {hoveredMenu && menus.find(m => m.label === hoveredMenu)?.subItems?.length > 0 && (
+              <div className="absolute left-0 top-full w-full z-50">
+                <div className="relative mt-3">
+                  <div
+                    className="absolute top-0 min-w-[140px] rounded-md border border-black/15 bg-white/95 backdrop-blur-sm shadow-lg px-4 py-3"
+                    style={{ left: dropdownPos.left }}
+                    onMouseEnter={() => setHoveredMenu(hoveredMenu)}
+                  >
+                    <ul className="flex flex-col w-full divide-y divide-black/10">
+                      {menus
+                        .find(m => m.label === hoveredMenu)
+                        ?.subItems.map((sub) => (
+                          <li key={sub.name} className="w-full">
+                            <Link
+                              to={sub.path}
+                              className="block w-full py-2 text-sm font-semibold text-black hover:text-black/60 transition"
+                              style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
+                              onClick={() => setHoveredMenu(null)}
+                            >
                               {sub.name}
                             </Link>
                           </li>
@@ -230,14 +208,9 @@ const Header = () => {
         </div>
       </header>
 
-      {/* =======================
-          ✅ MOBILE (lg 미만)
-          ✅ 이미지처럼: 1차 클릭 → 같은 패널에서 2차가 아래로 펼쳐짐
-      ======================= */}
       <div className="lg:hidden">
         <div className="sticky top-0 left-0 right-0 z-50 bg-white">
           <div className="relative px-4 py-4">
-            {/* 가운데 타이틀 */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               {STORE_ONLY_MODE ? (
                 <button
@@ -260,7 +233,6 @@ const Header = () => {
             </div>
 
             <div className="flex items-center justify-between">
-              {/* 좌측 작은 텍스트 */}
               <div className="leading-tight">
                 <div
                   className="text-xs font-semibold text-black"
@@ -276,7 +248,6 @@ const Header = () => {
                 </div>
               </div>
 
-              {/* 우측 버튼 */}
               <div className="flex items-center gap-3">
                 <button onClick={() => { setIsMobileOpen(o => !o); setExpandedMobile(null); }}>
                   {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
@@ -286,12 +257,10 @@ const Header = () => {
           </div>
         </div>
 
-        {/* 백드롭 */}
         {isMobileOpen && (
           <div className="fixed inset-0 bg-black bg-opacity-30 z-40" onClick={closeMobile} />
         )}
 
-        {/* ✅ 모바일 메뉴 패널 */}
         <div
           className={`
             fixed top-0 right-0 bottom-0 w-[280px] bg-white z-50 border-b border-black/20
@@ -312,7 +281,6 @@ const Header = () => {
 
                 return (
                   <li key={menu.label}>
-                    {/* 1차 */}
                     <button
                       className={`w-full text-left text-2xl font-semibold uppercase ${
                         isLocked ? 'text-black/35 cursor-not-allowed' : 'text-black'
@@ -324,7 +292,6 @@ const Header = () => {
                       {menu.label}
                     </button>
 
-                    {/* ✅ 2차 (아코디언) */}
                     {hasSub && (
                       <div
                         className={`
@@ -355,7 +322,6 @@ const Header = () => {
               })}
             </ul>
 
-            {/* 하단 SNS 링크 (원하면 유지) */}
             <div className="absolute bottom-6 left-6 flex space-x-4">
               <a href="https://www.instagram.com/kuad_archive/" target="_blank" rel="noopener noreferrer">
                 <Instagram className="w-6 h-6" />

@@ -1,4 +1,3 @@
-// src/pages/TeamPage.jsx
 import React from "react";
 import { useParams, Link } from "react-router-dom";
 import teams from "../data/teams.json";
@@ -22,9 +21,7 @@ const TeamPage = () => {
 
   return (
     <>
-      {/* Mobile */}
       <div className="md:hidden w-full px-4 py-10">
-        {/* 1) 포스터 + 팀명/설명 */}
         <section className="flex flex-col gap-6">
           <div className="w-full max-w-[290px] mx-auto">
             <div className="w-full aspect-[3/4] bg-white overflow-hidden">
@@ -45,7 +42,6 @@ const TeamPage = () => {
           </div>
         </section>
 
-        {/* 2) 티저 영상 */}
         <section className="mt-14">
           <div className="w-full max-w-[340px] mx-auto aspect-video border border-black/20 bg-black">
             <iframe
@@ -58,7 +54,6 @@ const TeamPage = () => {
           </div>
         </section>
 
-        {/* 3) 팀 구성원 */}
         <section className="mt-14">
           <div className="w-full max-w-[340px] mx-auto">
             <h3 className="text-base font-semibold mb-6">TEAM {team.name}</h3>
@@ -92,7 +87,6 @@ const TeamPage = () => {
         </section>
       </div>
 
-      {/* Desktop */}
       <div className="hidden md:block w-full bg-white">
         <div className="grid grid-cols-[260px_minmax(0,1fr)] items-start">
           <aside className="sticky top-0 self-start bg-[#fafafa] min-h-[100dvh]">
@@ -106,7 +100,6 @@ const TeamPage = () => {
 
           <div className="px-8 lg:px-12 py-10">
             <div className="w-[min(78vw,1320px)] ml-auto pr-4 lg:pr-8 xl:pr-10 overflow-x-hidden">
-              {/* 1) 포스터 + 팀명/설명 */}
               <section className="flex flex-col lg:flex-row lg:justify-end lg:items-end gap-6 lg:gap-0">
                 <div className="order-2 lg:order-1 w-full max-w-[300px] lg:max-w-[340px] lg:mr-8 lg:flex-shrink-0">
                   <h2 className="text-base text-left lg:text-right font-medium mb-3">{team.name}</h2>
@@ -127,7 +120,6 @@ const TeamPage = () => {
                 </div>
               </section>
 
-              {/* 2) 티저 영상 */}
               <section className="mt-20">
                 <div className="w-full max-w-[1040px] ml-auto aspect-video border border-black/20 bg-black">
                   <iframe
@@ -140,7 +132,6 @@ const TeamPage = () => {
                 </div>
               </section>
 
-              {/* 3) 팀 구성원 */}
               <section className="pt-20">
                 <div className="w-fit ml-auto">
                   <h3 className="text-[20px] text-base font-semibold mb-6 text-left">TEAM {team.name}</h3>
