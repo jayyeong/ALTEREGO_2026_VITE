@@ -1,6 +1,7 @@
 # KUAD 2026 ALTEREGO (Vite)
 
-이 프로젝트는 React + Vite 기반으로 동작합니다.
+건국대학교 패션디자인과 졸업전시 아카이빙 웹페이지
+이 프로젝트는 React + Vite 기반으로 동작
 
 ## 실행
 
@@ -17,15 +18,4 @@ npm run dev
 npm run build
 ```
 
-배포 베이스 경로는 `vite.config.mjs`의 `base: '/2026/'` 로 설정되어 있습니다.
-
-## 환경 변수
-
-- 개발: `.env.development`
-- 배포: `.env.production`
-
-사용 키:
-
-```env
-VITE_API_URL=...
-```
+배포 베이스 경로는 `vite.config.mjs`의 `base: '/2026/'` 로 설정
