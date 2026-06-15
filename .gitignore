@@ -9,6 +9,7 @@
 # production
 /build
 /dist
+/.private-backups
 
 # misc
 .DS_Store

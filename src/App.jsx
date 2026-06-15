@@ -12,14 +12,6 @@ import BehindBrochure from "./pages/BehindBrochure";
 import BehindMaking from "./pages/BehindMaking";
 import ArchivePage from "./pages/ArchivePage";
 
-import StorePage from "./pages/StorePage";
-import StoreDetailPage from "./pages/StoreDetailPage";
-import CheckoutPage from "./pages/CheckoutPage";
-import OrderCompletePage from "./pages/OrderCompletePage";
-import AdminLogin from './pages/AdminLogin';
-import AdminDashboard from './pages/AdminDashboard';
-import AdminReceiptDetail from './pages/AdminReceiptDetail';
-
 import ScrollToTop from './components/ScrollToTop';
 
 import ComingSoon from "./pages/ComingSoon";
@@ -45,15 +37,15 @@ function App() {
           <Route path="/project/runway" element={gatePage(<Runway />)} />
           <Route path="/portfolio/:portfolioUrl" element={gatePage(<PortfolioPage />)} />
 
-          <Route path="/store" element={<Navigate to="/store/all" />} />
-          <Route path="/store/all" element={<StorePage />} />
-          <Route path="/store/team/:teamId" element={<StorePage />} />
-          <Route path="/store/item/:itemId" element={<StoreDetailPage />} />
-          <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/order-complete/:receiptId" element={<OrderCompletePage />} />
-          <Route path="/admin" element={<AdminLogin />} />
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
-          <Route path="/admin/receipt/:id" element={<AdminReceiptDetail />} />
+          <Route path="/store" element={blockedPage} />
+          <Route path="/store/all" element={blockedPage} />
+          <Route path="/store/team/:teamId" element={blockedPage} />
+          <Route path="/store/item/:itemId" element={blockedPage} />
+          <Route path="/checkout" element={blockedPage} />
+          <Route path="/order-complete/:receiptId" element={blockedPage} />
+          <Route path="/admin" element={blockedPage} />
+          <Route path="/admin/dashboard" element={blockedPage} />
+          <Route path="/admin/receipt/:id" element={blockedPage} />
 
           <Route path="/behind/" element={gatePage(<BehindShow />)} />
           <Route path="/behind/show" element={gatePage(<BehindShow />)} />
