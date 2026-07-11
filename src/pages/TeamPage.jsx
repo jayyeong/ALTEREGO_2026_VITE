@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, Link } from "react-router-dom";
 import teams from "../data/teams.json";
 import membersData from "../data/members.json";
+import teamSideText from "../data/teamSideText.json";
 import { resolveAssetUrl } from "../utils/assets";
 
 const TeamPage = () => {
@@ -16,6 +17,7 @@ const TeamPage = () => {
     (t) => t.teamPageUrl.toLowerCase() === teamId
   );
   const members = teamMembersEntry ? teamMembersEntry.members : [];
+  const sideText = teamSideText[teamId];
 
   const calculatePaddingTop = () => (3500 / 2333) * 100;
 
@@ -90,11 +92,27 @@ const TeamPage = () => {
       <div className="hidden md:block w-full bg-white">
         <div className="grid grid-cols-[260px_minmax(0,1fr)] items-start">
           <aside className="sticky top-0 self-start bg-[#fafafa] min-h-[100dvh]">
-            <div className="p-5">
-              <h3 className="mt-3 text-lg font-semibold">{team.name}</h3>
-              <p className="mt-4 text-sm leading-relaxed text-black/70 whitespace-pre-line">
-                text 등등
-              </p>
+            <div className="px-5 pb-8 pt-10 text-left">
+              {sideText && (
+                <>
+                  <p className="text-[11pt] leading-relaxed">
+                    {sideText.intro}
+                  </p>
+                  <h3 className="mt-5 text-[11pt] font-bold leading-relaxed">
+                    {sideText.teamName}
+                  </h3>
+                  <ul className="mt-8 space-y-3">
+                    {sideText.members.map((memberName) => (
+                      <li
+                        key={memberName}
+                        className="text-[10pt] leading-relaxed"
+                      >
+                        {memberName}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              )}
             </div>
           </aside>
 
