@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { API_URL } from '../config/api';
 import { formatKoreanDateTime } from '../utils/dateFormat';
+import { STORE_ONLY_MODE, setPageAccessUnlocked, useSiteLocked } from '../config/siteMode';
 
 const EMPTY_SUMMARY = {
   totalCount: 0,
@@ -20,6 +21,8 @@ const AdminDashboard = () => {
   const [startDate, setStartDate]   = useState('');
   const [endDate, setEndDate]       = useState('');
   const navigate = useNavigate();
+  const siteLocked = useSiteLocked();
+  const pageAccessUnlocked = !siteLocked;
 
   useEffect(() => {
     if (!sessionStorage.getItem('adminAuth')) {
@@ -208,6 +211,10 @@ const AdminDashboard = () => {
     navigate('/admin');
   };
 
+  const handleTogglePageAccess = () => {
+    setPageAccessUnlocked(siteLocked);
+  };
+
   const getStatusStyle = (status) => {
     switch (status) {
       case 'PENDING_PAYMENT':
@@ -250,6 +257,30 @@ const AdminDashboard = () => {
             로그아웃
           </button>
         </div>
+
+        {STORE_ONLY_MODE && (
+          <div className="bg-white rounded shadow p-6 mb-8">
+            <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+              <div>
+                <h2 className="text-lg font-semibold">페이지 공개 설정</h2>
+                <p className="mt-1 text-sm text-gray-600">
+                  현재 상태: {pageAccessUnlocked ? '전체 페이지 접근 가능' : '공개 전 페이지 접근 차단'}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={handleTogglePageAccess}
+                className={`px-4 py-2 text-white rounded ${
+                  pageAccessUnlocked
+                    ? 'bg-gray-700 hover:bg-gray-800'
+                    : 'bg-indigo-600 hover:bg-indigo-700'
+                }`}
+              >
+                {pageAccessUnlocked ? '다시 막기' : '전체 페이지 열기'}
+              </button>
+            </div>
+          </div>
+        )}
 
         <div className="grid grid-cols-1 gap-4 mb-8 sm:grid-cols-2 lg:grid-cols-4">
           {summaryCards.map(card => (

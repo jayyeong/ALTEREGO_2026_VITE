@@ -6,10 +6,11 @@ import {
   X
 } from 'lucide-react';
 import { Link, useNavigate } from 'react-router-dom';
-import { STORE_ONLY_MODE } from '../config/siteMode';
+import { useSiteLocked } from '../config/siteMode';
 
 const Header = () => {
   const navigate = useNavigate();
+  const siteLocked = useSiteLocked();
 
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [expandedMobile, setExpandedMobile] = useState(null);
@@ -53,7 +54,7 @@ const Header = () => {
 
   const openDropdown = (menuLabel) => {
     const target = menus.find(m => m.label === menuLabel);
-    if (STORE_ONLY_MODE && target?.label !== 'STORE') {
+    if (siteLocked && target?.label !== 'STORE') {
       setHoveredMenu(null);
       return;
     }
@@ -81,7 +82,7 @@ const Header = () => {
   const closeDropdown = () => setHoveredMenu(null);
 
   const onMobileTopClick = (menu) => {
-    if (STORE_ONLY_MODE && menu.label !== 'STORE') {
+    if (siteLocked && menu.label !== 'STORE') {
       setExpandedMobile(null);
       return;
     }
@@ -119,7 +120,7 @@ const Header = () => {
               </div>
             </div>
 
-            {STORE_ONLY_MODE ? (
+            {siteLocked ? (
               <button
                 type="button"
                 className="text-3xl font-bold tracking-tight text-black cursor-default"
@@ -153,7 +154,7 @@ const Header = () => {
                   className="relative"
                   onMouseEnter={() => openDropdown(menu.label)}
                 >
-                  {STORE_ONLY_MODE && menu.label !== 'STORE' ? (
+                  {siteLocked && menu.label !== 'STORE' ? (
                     <button
                       type="button"
                       className="text-lg font-semibold text-black/35 cursor-not-allowed transition"
@@ -212,7 +213,7 @@ const Header = () => {
         <div className="sticky top-0 left-0 right-0 z-50 bg-white">
           <div className="relative px-4 py-4">
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              {STORE_ONLY_MODE ? (
+              {siteLocked ? (
                 <button
                   type="button"
                   className="text-xl font-bold text-black cursor-default"
@@ -277,7 +278,7 @@ const Header = () => {
               {menus.map((menu) => {
                 const isOpen = expandedMobile === menu.label;
                 const hasSub = !!menu.subItems?.length;
-                const isLocked = STORE_ONLY_MODE && menu.label !== 'STORE';
+                const isLocked = siteLocked && menu.label !== 'STORE';
 
                 return (
                   <li key={menu.label}>

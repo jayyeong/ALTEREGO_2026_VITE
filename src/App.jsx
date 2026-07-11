@@ -23,12 +23,13 @@ import AdminReceiptDetail from './pages/AdminReceiptDetail';
 import ScrollToTop from './components/ScrollToTop';
 
 import ComingSoon from "./pages/ComingSoon";
-import { STORE_ONLY_MODE } from "./config/siteMode";
+import { useSiteLocked } from "./config/siteMode";
 
 function App() {
   const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
+  const siteLocked = useSiteLocked();
   const blockedPage = <Navigate to="/opening-soon" replace />;
-  const gatePage = (page) => (STORE_ONLY_MODE ? blockedPage : page);
+  const gatePage = (page) => (siteLocked ? blockedPage : page);
 
   return (
     <BrowserRouter basename={basePath}>
@@ -51,9 +52,9 @@ function App() {
           <Route path="/store/item/:itemId" element={gatePage(<StoreDetailPage />)} />
           <Route path="/checkout" element={gatePage(<CheckoutPage />)} />
           <Route path="/order-complete/:receiptId" element={gatePage(<OrderCompletePage />)} />
-          <Route path="/admin" element={gatePage(<AdminLogin />)} />
-          <Route path="/admin/dashboard" element={gatePage(<AdminDashboard />)} />
-          <Route path="/admin/receipt/:id" element={gatePage(<AdminReceiptDetail />)} />
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          <Route path="/admin/receipt/:id" element={<AdminReceiptDetail />} />
 
           <Route path="/behind/" element={gatePage(<BehindShow />)} />
           <Route path="/behind/show" element={gatePage(<BehindShow />)} />
