@@ -47,7 +47,7 @@ const LookBook = () => {
     () =>
       Array.from({ length: LOOKBOOK_PAGE_COUNT }, (_, i) => {
         const pageNumber = String(i + 1).padStart(3, "0");
-        return `${LOOKBOOK_BASE_PATH}lookbook-${pageNumber}.webp`;
+        return `${LOOKBOOK_BASE_PATH}p${pageNumber}.webp`;
       }),
     []
   );

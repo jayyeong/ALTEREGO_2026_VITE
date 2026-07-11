@@ -3,11 +3,17 @@ import { useParams } from 'react-router-dom';
 import members from '../data/members.json';
 import { Mail, Instagram } from 'lucide-react';
 import { resolveAssetUrl } from '../utils/assets';
+import { getRunwayImageUrls } from '../utils/runway';
 
 const PortfolioPage = () => {
   const { portfolioUrl } = useParams();
 
-  const allMembers = members.flatMap(team => team.members);
+  const allMembers = members.flatMap(team =>
+    team.members.map(member => ({
+      ...member,
+      teamPageUrl: team.teamPageUrl,
+    }))
+  );
   const member = allMembers.find(m => m.portfolioUrl === portfolioUrl);
 
   if (!member) {
@@ -22,6 +28,12 @@ const PortfolioPage = () => {
     type: 'image',
     src,
   })) || [];
+  const runwayItems = getRunwayImageUrls(member.teamPageUrl, member.portfolioUrl).map(src => ({
+    type: 'image',
+    src,
+    category: 'runway',
+  }));
+  const portfolioItems = [...mediaItems, ...runwayItems];
 
   return (
     <>
@@ -78,13 +90,16 @@ const PortfolioPage = () => {
         </section>
 
         <section className="mt-8 space-y-3">
-          {mediaItems.length ? (
-            mediaItems.map((item, idx) => (
+          {portfolioItems.map((item, idx) => (
               <div key={`${item.type}-${idx}`} className="w-full">
                 {item.type === 'image' ? (
                   <img
                     src={resolveAssetUrl(item.src)}
-                    alt={`작품 이미지 ${idx + 1}`}
+                    alt={
+                      item.category === 'runway'
+                        ? `${member.name} 런웨이 ${runwayItems.indexOf(item) + 1}`
+                        : `작품 이미지 ${idx + 1}`
+                    }
                     className="w-full h-auto object-contain"
                     loading="lazy"
                   />
@@ -102,10 +117,7 @@ const PortfolioPage = () => {
                   </div>
                 )}
               </div>
-            ))
-          ) : (
-            <p className="text-sm text-black/70">표시할 작품 이미지가 없습니다.</p>
-          )}
+            ))}
         </section>
       </div>
 
@@ -170,15 +182,18 @@ const PortfolioPage = () => {
             </section>
 
             <section className="pt-2 pr-6">
-              {mediaItems.length ? (
-                <div className="grid grid-cols-1 gap-4">
-                  {mediaItems.map((item, idx) => (
+              <div className="grid grid-cols-1 gap-4">
+                  {portfolioItems.map((item, idx) => (
                     <div key={`${item.type}-${idx}`} className="w-full">
                       {item.type === "image" ? (
                         <div className="w-full aspect-[3/4] overflow-hidden bg-white">
                           <img
                             src={resolveAssetUrl(item.src)}
-                            alt={`작품 이미지 ${idx + 1}`}
+                            alt={
+                              item.category === 'runway'
+                                ? `${member.name} 런웨이 ${runwayItems.indexOf(item) + 1}`
+                                : `작품 이미지 ${idx + 1}`
+                            }
                             className="w-full h-full object-cover"
                             loading="lazy"
                           />
@@ -199,9 +214,6 @@ const PortfolioPage = () => {
                     </div>
                   ))}
                 </div>
-              ) : (
-                <p className="text-sm text-black/70">표시할 작품 이미지가 없습니다.</p>
-              )}
             </section>
           </div>
         </div>

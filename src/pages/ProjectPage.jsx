@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const teams = [
   { name: "Limbo", image: "/2026/poster/Limbo_poster.webp", url: "limbo" },
   { name: "(Un)skinned", image: "/2026/poster/unskinned_poster.webp", url: "unskinned" },
-  { name: "Dreamscape", image: "/2026/poster/REI_poster.webp", url: "dreamscape" },
+  { name: "Dreamscape", image: "/2026/poster/Dreamscape_poster.webp", url: "dreamscape" },
   { name: 'Tiny Lodge', image: "/2026/poster/TinyLodge_poster.webp", url: "tiny-lodge" },
   { name: "11:11", image: "/2026/poster/11_11_poster.webp", url: "eleven-eleven" },
   { name: "가시:화(花)", image: "/2026/poster/thronbloom_poster.webp", url: "thorn-bloom" },
