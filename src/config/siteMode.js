@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 export const STORE_ONLY_MODE =
-  import.meta.env.PROD && import.meta.env.VITE_STORE_ONLY_MODE !== 'false';
+  import.meta.env.PROD && import.meta.env.VITE_STORE_ONLY_MODE === 'true';
 
 export const PAGE_ACCESS_OVERRIDE_KEY = 'alteregoPageAccessUnlocked';
 const PAGE_ACCESS_CHANGE_EVENT = 'alterego-page-access-change';
