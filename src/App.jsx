@@ -12,10 +12,6 @@ import BehindBrochure from "./pages/BehindBrochure";
 import BehindMaking from "./pages/BehindMaking";
 import ArchivePage from "./pages/ArchivePage";
 
-import StorePage from "./pages/StorePage";
-import StoreDetailPage from "./pages/StoreDetailPage";
-import CheckoutPage from "./pages/CheckoutPage";
-import OrderCompletePage from "./pages/OrderCompletePage";
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminReceiptDetail from './pages/AdminReceiptDetail';
@@ -30,6 +26,7 @@ function App() {
   const siteLocked = useSiteLocked();
   const blockedPage = <Navigate to="/opening-soon" replace />;
   const gatePage = (page) => (siteLocked ? blockedPage : page);
+  const storeClosedPage = <ComingSoon />;
 
   return (
     <BrowserRouter basename={basePath}>
@@ -46,12 +43,12 @@ function App() {
           <Route path="/project/runway" element={gatePage(<Runway />)} />
           <Route path="/portfolio/:portfolioUrl" element={gatePage(<PortfolioPage />)} />
 
-          <Route path="/store" element={gatePage(<Navigate to="/store/all" replace />)} />
-          <Route path="/store/all" element={gatePage(<StorePage />)} />
-          <Route path="/store/team/:teamId" element={gatePage(<StorePage />)} />
-          <Route path="/store/item/:itemId" element={gatePage(<StoreDetailPage />)} />
-          <Route path="/checkout" element={gatePage(<CheckoutPage />)} />
-          <Route path="/order-complete/:receiptId" element={gatePage(<OrderCompletePage />)} />
+          <Route path="/store" element={storeClosedPage} />
+          <Route path="/store/all" element={storeClosedPage} />
+          <Route path="/store/team/:teamId" element={storeClosedPage} />
+          <Route path="/store/item/:itemId" element={storeClosedPage} />
+          <Route path="/checkout" element={storeClosedPage} />
+          <Route path="/order-complete/:receiptId" element={storeClosedPage} />
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/receipt/:id" element={<AdminReceiptDetail />} />
