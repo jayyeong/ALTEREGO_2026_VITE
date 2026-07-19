@@ -12,7 +12,11 @@
         "instagram": "iamwineon",
         "profileImageUrl": "assets/limbo/profile/limbo_sungeon-chae_profile.webp",
         "slides": [],
-        "portfolioUrl": "sungeon-chae"
+        "portfolioUrl": "sungeon-chae",
+        "brochureImages": [
+          "assets/limbo/brochure/limbo_sungeon-chae_1.webp",
+          "assets/limbo/brochure/limbo_sungeon-chae_2.webp"
+        ]
       },
       {
         "name": "최은수",
@@ -23,7 +27,11 @@
         "instagram": "choieunsoo",
         "profileImageUrl": "assets/limbo/profile/limbo_eunsoo-choi_profile.webp",
         "slides": [],
-        "portfolioUrl": "eunsoo-choi"
+        "portfolioUrl": "eunsoo-choi",
+        "brochureImages": [
+          "assets/limbo/brochure/limbo_eunsoo-choi_1.webp",
+          "assets/limbo/brochure/limbo_eunsoo-choi_2.webp"
+        ]
       },
       {
         "name": "김우탁",
@@ -34,7 +42,11 @@
         "instagram": "wootk_",
         "profileImageUrl": "assets/limbo/profile/limbo_wootak-kim_profile.webp",
         "slides": [],
-        "portfolioUrl": "wootak-kim"
+        "portfolioUrl": "wootak-kim",
+        "brochureImages": [
+          "assets/limbo/brochure/limbo_wootak-kim_1.webp",
+          "assets/limbo/brochure/limbo_wootak-kim_2.webp"
+        ]
       },
       {
         "name": "김준휘",
@@ -45,7 +57,11 @@
         "instagram": "kimjunwhe",
         "profileImageUrl": "assets/limbo/profile/limbo_junhui-kim_profile.webp",
         "slides": [],
-        "portfolioUrl": "junhui-kim"
+        "portfolioUrl": "junhui-kim",
+        "brochureImages": [
+          "assets/limbo/brochure/limbo_junhui-kim_1.webp",
+          "assets/limbo/brochure/limbo_junhui-kim_2.webp"
+        ]
       },
       {
         "name": "서재표",
@@ -56,7 +72,11 @@
         "instagram": "01ss_seo",
         "profileImageUrl": "assets/limbo/profile/limbo_jaepyo-seo_profile.webp",
         "slides": [],
-        "portfolioUrl": "jaepyo-seo"
+        "portfolioUrl": "jaepyo-seo",
+        "brochureImages": [
+          "assets/limbo/brochure/limbo_jaepyo-seo_1.webp",
+          "assets/limbo/brochure/limbo_jaepyo-seo_2.webp"
+        ]
       },
       {
         "name": "송서연",
@@ -67,7 +87,11 @@
         "instagram": "seoxnn",
         "profileImageUrl": "assets/limbo/profile/limbo_seoyeon-song_profile.webp",
         "slides": [],
-        "portfolioUrl": "seoyeon-song"
+        "portfolioUrl": "seoyeon-song",
+        "brochureImages": [
+          "assets/limbo/brochure/limbo_seoyeon-song_1.webp",
+          "assets/limbo/brochure/limbo_seoyeon-song_2.webp"
+        ]
       },
       {
         "name": "심희주",
@@ -78,7 +102,11 @@
         "instagram": "ximhju",
         "profileImageUrl": "assets/limbo/profile/limbo_heeju-xim_profile.webp",
         "slides": [],
-        "portfolioUrl": "heeju-xim"
+        "portfolioUrl": "heeju-xim",
+        "brochureImages": [
+          "assets/limbo/brochure/limbo_heeju-xim_1.webp",
+          "assets/limbo/brochure/limbo_heeju-xim_2.webp"
+        ]
       },
       {
         "name": "이이학",
@@ -89,7 +117,11 @@
         "instagram": "dldgkr",
         "profileImageUrl": "assets/limbo/profile/limbo_ihak-lee_profile.webp",
         "slides": [],
-        "portfolioUrl": "ihak-lee"
+        "portfolioUrl": "ihak-lee",
+        "brochureImages": [
+          "assets/limbo/brochure/limbo_ihak-lee_1.webp",
+          "assets/limbo/brochure/limbo_ihak-lee_2.webp"
+        ]
       },
       {
         "name": "임다현",
@@ -100,7 +132,11 @@
         "instagram": "dahhyy0",
         "profileImageUrl": "assets/limbo/profile/limbo_dahyun-lim_profile.webp",
         "slides": [],
-        "portfolioUrl": "dahyun-lim"
+        "portfolioUrl": "dahyun-lim",
+        "brochureImages": [
+          "assets/limbo/brochure/limbo_dahyun-lim_1.webp",
+          "assets/limbo/brochure/limbo_dahyun-lim_2.webp"
+        ]
       },
       {
         "name": "조현민",
@@ -111,7 +147,11 @@
         "instagram": "h_o_n__y_o",
         "profileImageUrl": "assets/limbo/profile/limbo_hyunmin-cho_profile.webp",
         "slides": [],
-        "portfolioUrl": "hyunmin-cho"
+        "portfolioUrl": "hyunmin-cho",
+        "brochureImages": [
+          "assets/limbo/brochure/limbo_hyunmin-cho_1.webp",
+          "assets/limbo/brochure/limbo_hyunmin-cho_2.webp"
+        ]
       },
       {
         "name": "황대진",
@@ -122,7 +162,11 @@
         "instagram": "daixalos",
         "profileImageUrl": "assets/limbo/profile/limbo_daejin-hwang_profile.webp",
         "slides": [],
-        "portfolioUrl": "daejin-hwang"
+        "portfolioUrl": "daejin-hwang",
+        "brochureImages": [
+          "assets/limbo/brochure/limbo_daejin-hwang_1.webp",
+          "assets/limbo/brochure/limbo_daejin-hwang_2.webp"
+        ]
       }
     ]
   },
@@ -139,7 +183,11 @@
         "instagram": "Kimpopalt",
         "profileImageUrl": "assets/unskinned/profile/unskinned_youngseo-kim_profile.webp",
         "slides": [],
-        "portfolioUrl": "youngseo-kim"
+        "portfolioUrl": "youngseo-kim",
+        "brochureImages": [
+          "assets/unskinned/brochure/unskinned_youngseo-kim_1.webp",
+          "assets/unskinned/brochure/unskinned_youngseo-kim_2.webp"
+        ]
       },
       {
         "name": "박예진",
@@ -150,7 +198,11 @@
         "instagram": "nijeyx",
         "profileImageUrl": "assets/unskinned/profile/unskinned_yejin-park_profile.webp",
         "slides": [],
-        "portfolioUrl": "yejin-park"
+        "portfolioUrl": "yejin-park",
+        "brochureImages": [
+          "assets/unskinned/brochure/unskinned_yejin-park_1.webp",
+          "assets/unskinned/brochure/unskinned_yejin-park_2.webp"
+        ]
       },
       {
         "name": "김예올",
@@ -161,7 +213,11 @@
         "instagram": "yeolkeem",
         "profileImageUrl": "assets/unskinned/profile/unskinned_ye-ol-kim_profile.webp",
         "slides": [],
-        "portfolioUrl": "ye-ol-kim"
+        "portfolioUrl": "ye-ol-kim",
+        "brochureImages": [
+          "assets/unskinned/brochure/unskinned_ye-ol-kim_1.webp",
+          "assets/unskinned/brochure/unskinned_ye-ol-kim_2.webp"
+        ]
       },
       {
         "name": "김유나",
@@ -172,7 +228,11 @@
         "instagram": "I_won_2_d",
         "profileImageUrl": "assets/unskinned/profile/unskinned_yuna-kim_profile.webp",
         "slides": [],
-        "portfolioUrl": "yuna-kim"
+        "portfolioUrl": "yuna-kim",
+        "brochureImages": [
+          "assets/unskinned/brochure/unskinned_yuna-kim_1.webp",
+          "assets/unskinned/brochure/unskinned_yuna-kim_2.webp"
+        ]
       },
       {
         "name": "이진재",
@@ -183,7 +243,11 @@
         "instagram": "wlswolee",
         "profileImageUrl": "assets/unskinned/profile/unskinned_jin-jae-lee_profile.webp",
         "slides": [],
-        "portfolioUrl": "jin-jae-lee"
+        "portfolioUrl": "jin-jae-lee",
+        "brochureImages": [
+          "assets/unskinned/brochure/unskinned_jin-jae-lee_1.webp",
+          "assets/unskinned/brochure/unskinned_jin-jae-lee_2.webp"
+        ]
       },
       {
         "name": "조아라",
@@ -194,7 +258,11 @@
         "instagram": "skxauyvr",
         "profileImageUrl": "assets/unskinned/profile/unskinned_ara-cho_profile.webp",
         "slides": [],
-        "portfolioUrl": "ara-cho"
+        "portfolioUrl": "ara-cho",
+        "brochureImages": [
+          "assets/unskinned/brochure/unskinned_ara-cho_1.webp",
+          "assets/unskinned/brochure/unskinned_ara-cho_2.webp"
+        ]
       },
       {
         "name": "조우진",
@@ -205,7 +273,11 @@
         "instagram": "wu._.genie",
         "profileImageUrl": "assets/unskinned/profile/unskinned_woojin-cho_profile.webp",
         "slides": [],
-        "portfolioUrl": "woojin-cho"
+        "portfolioUrl": "woojin-cho",
+        "brochureImages": [
+          "assets/unskinned/brochure/unskinned_woojin-cho_1.webp",
+          "assets/unskinned/brochure/unskinned_woojin-cho_2.webp"
+        ]
       },
       {
         "name": "표정호",
@@ -216,7 +288,11 @@
         "instagram": "pyori_budong",
         "profileImageUrl": "assets/unskinned/profile/unskinned_jeongho-pyo_profile.webp",
         "slides": [],
-        "portfolioUrl": "jeongho-pyo"
+        "portfolioUrl": "jeongho-pyo",
+        "brochureImages": [
+          "assets/unskinned/brochure/unskinned_jeongho-pyo_1.webp",
+          "assets/unskinned/brochure/unskinned_jeongho-pyo_2.webp"
+        ]
       }
     ]
   },
@@ -233,7 +309,11 @@
         "instagram": "inaroooooom",
         "profileImageUrl": "assets/dreamscape/profile/dreamscape_jin-huiling_profile.webp",
         "slides": [],
-        "portfolioUrl": "jin-huiling"
+        "portfolioUrl": "jin-huiling",
+        "brochureImages": [
+          "assets/dreamscape/brochure/dreamscape_jin-huiling_1.webp",
+          "assets/dreamscape/brochure/dreamscape_jin-huiling_2.webp"
+        ]
       },
       {
         "name": "수닌윗뭄",
@@ -244,7 +324,11 @@
         "instagram": "estella18reveuse",
         "profileImageUrl": "assets/dreamscape/profile/dreamscape_su-hnin-wutt-hmone_profile.webp",
         "slides": [],
-        "portfolioUrl": "su-hnin-wutt-hmone"
+        "portfolioUrl": "su-hnin-wutt-hmone",
+        "brochureImages": [
+          "assets/dreamscape/brochure/dreamscape_su-hnin-wutt-hmone_1.webp",
+          "assets/dreamscape/brochure/dreamscape_su-hnin-wutt-hmone_2.webp"
+        ]
       },
       {
         "name": "왕가루",
@@ -255,7 +339,11 @@
         "instagram": "020828isabelle",
         "profileImageUrl": "assets/dreamscape/profile/dreamscape_wang-jialu_profile.webp",
         "slides": [],
-        "portfolioUrl": "wang-jialu"
+        "portfolioUrl": "wang-jialu",
+        "brochureImages": [
+          "assets/dreamscape/brochure/dreamscape_wang-jialu_1.webp",
+          "assets/dreamscape/brochure/dreamscape_wang-jialu_2.webp"
+        ]
       },
       {
         "name": "나타샤",
@@ -266,7 +354,11 @@
         "instagram": "cloverblossomm",
         "profileImageUrl": "assets/dreamscape/profile/dreamscape_natasha_profile.webp",
         "slides": [],
-        "portfolioUrl": "natasha"
+        "portfolioUrl": "natasha",
+        "brochureImages": [
+          "assets/dreamscape/brochure/dreamscape_natasha_1.webp",
+          "assets/dreamscape/brochure/dreamscape_natasha_2.webp"
+        ]
       },
       {
         "name": "아나세라노 고메스",
@@ -277,7 +369,11 @@
         "instagram": "a_messyg",
         "profileImageUrl": "assets/dreamscape/profile/dreamscape_ana_profile.webp",
         "slides": [],
-        "portfolioUrl": "ana"
+        "portfolioUrl": "ana",
+        "brochureImages": [
+          "assets/dreamscape/brochure/dreamscape_ana_1.webp",
+          "assets/dreamscape/brochure/dreamscape_ana_2.webp"
+        ]
       },
       {
         "name": "왕가인",
@@ -288,7 +384,11 @@
         "instagram": "wik_1317kk",
         "profileImageUrl": "assets/dreamscape/profile/dreamscape_wang-keer_profile.webp",
         "slides": [],
-        "portfolioUrl": "wang-keer"
+        "portfolioUrl": "wang-keer",
+        "brochureImages": [
+          "assets/dreamscape/brochure/dreamscape_wang-keer_1.webp",
+          "assets/dreamscape/brochure/dreamscape_wang-keer_2.webp"
+        ]
       },
       {
         "name": "이샤니아",
@@ -299,7 +399,11 @@
         "instagram": "shanniameidy_",
         "profileImageUrl": "assets/dreamscape/profile/dreamscape_shannia_profile.webp",
         "slides": [],
-        "portfolioUrl": "shannia"
+        "portfolioUrl": "shannia",
+        "brochureImages": [
+          "assets/dreamscape/brochure/dreamscape_shannia_1.webp",
+          "assets/dreamscape/brochure/dreamscape_shannia_2.webp"
+        ]
       },
       {
         "name": "조영기",
@@ -310,7 +414,11 @@
         "instagram": "timi9142",
         "profileImageUrl": "assets/dreamscape/profile/dreamscape_zhao-yongqi_profile.webp",
         "slides": [],
-        "portfolioUrl": "zhao-yongqi"
+        "portfolioUrl": "zhao-yongqi",
+        "brochureImages": [
+          "assets/dreamscape/brochure/dreamscape_zhao-yongqi_1.webp",
+          "assets/dreamscape/brochure/dreamscape_zhao-yongqi_2.webp"
+        ]
       },
       {
         "name": "첼시",
@@ -321,7 +429,11 @@
         "instagram": "sefaniachellsy_",
         "profileImageUrl": "assets/dreamscape/profile/dreamscape_chellsy_profile.webp",
         "slides": [],
-        "portfolioUrl": "chellsy"
+        "portfolioUrl": "chellsy",
+        "brochureImages": [
+          "assets/dreamscape/brochure/dreamscape_chellsy_1.webp",
+          "assets/dreamscape/brochure/dreamscape_chellsy_2.webp"
+        ]
       }
     ]
   },
@@ -338,7 +450,11 @@
         "instagram": "ssh.5157",
         "profileImageUrl": "assets/tiny-lodge/profile/tiny-lodge_seunghee-seo_profile.webp",
         "slides": [],
-        "portfolioUrl": "seunghee-seo"
+        "portfolioUrl": "seunghee-seo",
+        "brochureImages": [
+          "assets/tiny-lodge/brochure/tiny-lodge_seunghee-seo_1.webp",
+          "assets/tiny-lodge/brochure/tiny-lodge_seunghee-seo_2.webp"
+        ]
       },
       {
         "name": "이주선",
@@ -349,7 +465,11 @@
         "instagram": "_jusunny",
         "profileImageUrl": "assets/tiny-lodge/profile/tiny-lodge_jusun-lee_profile.webp",
         "slides": [],
-        "portfolioUrl": "jusun-lee"
+        "portfolioUrl": "jusun-lee",
+        "brochureImages": [
+          "assets/tiny-lodge/brochure/tiny-lodge_jusun-lee_1.webp",
+          "assets/tiny-lodge/brochure/tiny-lodge_jusun-lee_2.webp"
+        ]
       },
       {
         "name": "고은지",
@@ -360,7 +480,11 @@
         "instagram": "ejingko",
         "profileImageUrl": "assets/tiny-lodge/profile/tiny-lodge_eunji-ko_profile.webp",
         "slides": [],
-        "portfolioUrl": "eunji-ko"
+        "portfolioUrl": "eunji-ko",
+        "brochureImages": [
+          "assets/tiny-lodge/brochure/tiny-lodge_eunji-ko_1.webp",
+          "assets/tiny-lodge/brochure/tiny-lodge_eunji-ko_2.webp"
+        ]
       },
       {
         "name": "정무진",
@@ -371,7 +495,11 @@
         "instagram": "jungmoojin",
         "profileImageUrl": "assets/tiny-lodge/profile/tiny-lodge_moojin-jung_profile.webp",
         "slides": [],
-        "portfolioUrl": "moojin-jung"
+        "portfolioUrl": "moojin-jung",
+        "brochureImages": [
+          "assets/tiny-lodge/brochure/tiny-lodge_moojin-jung_1.webp",
+          "assets/tiny-lodge/brochure/tiny-lodge_moojin-jung_2.webp"
+        ]
       },
       {
         "name": "송채원",
@@ -382,7 +510,11 @@
         "instagram": "cbcbcp",
         "profileImageUrl": "assets/tiny-lodge/profile/tiny-lodge_chaewon-song_profile.webp",
         "slides": [],
-        "portfolioUrl": "chaewon-song"
+        "portfolioUrl": "chaewon-song",
+        "brochureImages": [
+          "assets/tiny-lodge/brochure/tiny-lodge_chaewon-song_1.webp",
+          "assets/tiny-lodge/brochure/tiny-lodge_chaewon-song_2.webp"
+        ]
       },
       {
         "name": "박준우",
@@ -393,7 +525,11 @@
         "instagram": "6.m_woo",
         "profileImageUrl": "assets/tiny-lodge/profile/tiny-lodge_joonwoo-park_profile.webp",
         "slides": [],
-        "portfolioUrl": "joonwoo-park"
+        "portfolioUrl": "joonwoo-park",
+        "brochureImages": [
+          "assets/tiny-lodge/brochure/tiny-lodge_joonwoo-park_1.webp",
+          "assets/tiny-lodge/brochure/tiny-lodge_joonwoo-park_2.webp"
+        ]
       },
       {
         "name": "신재민",
@@ -404,7 +540,11 @@
         "instagram": "_shin.jm",
         "profileImageUrl": "assets/tiny-lodge/profile/tiny-lodge_jaemin-shin_profile.webp",
         "slides": [],
-        "portfolioUrl": "jaemin-shin"
+        "portfolioUrl": "jaemin-shin",
+        "brochureImages": [
+          "assets/tiny-lodge/brochure/tiny-lodge_jaemin-shin_1.webp",
+          "assets/tiny-lodge/brochure/tiny-lodge_jaemin-shin_2.webp"
+        ]
       },
       {
         "name": "이다현",
@@ -415,7 +555,11 @@
         "instagram": "daahyunlee",
         "profileImageUrl": "assets/tiny-lodge/profile/tiny-lodge_dahyun-lee_profile.webp",
         "slides": [],
-        "portfolioUrl": "dahyun-lee"
+        "portfolioUrl": "dahyun-lee",
+        "brochureImages": [
+          "assets/tiny-lodge/brochure/tiny-lodge_dahyun-lee_1.webp",
+          "assets/tiny-lodge/brochure/tiny-lodge_dahyun-lee_2.webp"
+        ]
       }
     ]
   },
@@ -432,7 +576,11 @@
         "instagram": "itscalled.language",
         "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_kim-ji-hoon_profile.webp",
         "slides": [],
-        "portfolioUrl": "kim-ji-hoon"
+        "portfolioUrl": "kim-ji-hoon",
+        "brochureImages": [
+          "assets/eleven-eleven/brochure/eleven-eleven_kim-ji-hoon_1.webp",
+          "assets/eleven-eleven/brochure/eleven-eleven_kim-ji-hoon_2.webp"
+        ]
       },
       {
         "name": "주예원",
@@ -443,7 +591,11 @@
         "instagram": "yewonju",
         "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_ju-yewon_profile.webp",
         "slides": [],
-        "portfolioUrl": "ju-yewon"
+        "portfolioUrl": "ju-yewon",
+        "brochureImages": [
+          "assets/eleven-eleven/brochure/eleven-eleven_ju-yewon_1.webp",
+          "assets/eleven-eleven/brochure/eleven-eleven_ju-yewon_2.webp"
+        ]
       },
       {
         "name": "양연홍",
@@ -454,7 +606,10 @@
         "instagram": "_yyh_77",
         "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_yang-yan-hong_profile.webp",
         "slides": [],
-        "portfolioUrl": "yang-yan-hong"
+        "portfolioUrl": "yang-yan-hong",
+        "brochureImages": [
+          "assets/eleven-eleven/brochure/eleven-eleven_yang-yan-hong_1.webp"
+        ]
       },
       {
         "name": "장완영",
@@ -465,7 +620,11 @@
         "instagram": "zblessyou",
         "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_zhang-wanying_profile.webp",
         "slides": [],
-        "portfolioUrl": "zhang-wanying"
+        "portfolioUrl": "zhang-wanying",
+        "brochureImages": [
+          "assets/eleven-eleven/brochure/eleven-eleven_zhang-wanying_1.webp",
+          "assets/eleven-eleven/brochure/eleven-eleven_zhang-wanying_2.webp"
+        ]
       },
       {
         "name": "주가진",
@@ -476,7 +635,11 @@
         "instagram": "kajin_choo",
         "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_zhou-kechen_profile.webp",
         "slides": [],
-        "portfolioUrl": "zhou-kechen"
+        "portfolioUrl": "zhou-kechen",
+        "brochureImages": [
+          "assets/eleven-eleven/brochure/eleven-eleven_zhou-kechen_1.webp",
+          "assets/eleven-eleven/brochure/eleven-eleven_zhou-kechen_2.webp"
+        ]
       },
       {
         "name": "애슐리",
@@ -487,7 +650,11 @@
         "instagram": "",
         "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_ashley_profile.webp",
         "slides": [],
-        "portfolioUrl": "ashley"
+        "portfolioUrl": "ashley",
+        "brochureImages": [
+          "assets/eleven-eleven/brochure/eleven-eleven_ashley_1.webp",
+          "assets/eleven-eleven/brochure/eleven-eleven_ashley_2.webp"
+        ]
       },
       {
         "name": "한지희",
@@ -498,7 +665,11 @@
         "instagram": "heehnn",
         "profileImageUrl": "assets/eleven-eleven/profile/eleven-eleven_han-ji-hee_profile.webp",
         "slides": [],
-        "portfolioUrl": "han-ji-hee"
+        "portfolioUrl": "han-ji-hee",
+        "brochureImages": [
+          "assets/eleven-eleven/brochure/eleven-eleven_han-ji-hee_1.webp",
+          "assets/eleven-eleven/brochure/eleven-eleven_han-ji-hee_2.webp"
+        ]
       }
     ]
   },
@@ -515,7 +686,11 @@
         "instagram": "2shyeony",
         "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_lee-seunghyeon_profile.webp",
         "slides": [],
-        "portfolioUrl": "lee-seunghyeon"
+        "portfolioUrl": "lee-seunghyeon",
+        "brochureImages": [
+          "assets/thorn-bloom/brochure/thorn-bloom_lee-seunghyeon_1.webp",
+          "assets/thorn-bloom/brochure/thorn-bloom_lee-seunghyeon_2.webp"
+        ]
       },
       {
         "name": "김지우",
@@ -526,7 +701,11 @@
         "instagram": "juu.xe",
         "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_kim-jiwoo_profile.webp",
         "slides": [],
-        "portfolioUrl": "kim-jiwoo"
+        "portfolioUrl": "kim-jiwoo",
+        "brochureImages": [
+          "assets/thorn-bloom/brochure/thorn-bloom_kim-jiwoo_1.webp",
+          "assets/thorn-bloom/brochure/thorn-bloom_kim-jiwoo_2.webp"
+        ]
       },
       {
         "name": "이가은",
@@ -537,7 +716,11 @@
         "instagram": "deary_gani",
         "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_lee-gaeun_profile.webp",
         "slides": [],
-        "portfolioUrl": "lee-gaeun"
+        "portfolioUrl": "lee-gaeun",
+        "brochureImages": [
+          "assets/thorn-bloom/brochure/thorn-bloom_lee-gaeun_1.webp",
+          "assets/thorn-bloom/brochure/thorn-bloom_lee-gaeun_2.webp"
+        ]
       },
       {
         "name": "복은지",
@@ -548,7 +731,11 @@
         "instagram": "bokk_ndi",
         "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_bok-eunji_profile.webp",
         "slides": [],
-        "portfolioUrl": "bok-eunji"
+        "portfolioUrl": "bok-eunji",
+        "brochureImages": [
+          "assets/thorn-bloom/brochure/thorn-bloom_bok-eunji_1.webp",
+          "assets/thorn-bloom/brochure/thorn-bloom_bok-eunji_2.webp"
+        ]
       },
       {
         "name": "이소민",
@@ -559,7 +746,11 @@
         "instagram": "ddddd312737",
         "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_lee-somin_profile.webp",
         "slides": [],
-        "portfolioUrl": "lee-somin"
+        "portfolioUrl": "lee-somin",
+        "brochureImages": [
+          "assets/thorn-bloom/brochure/thorn-bloom_lee-somin_1.webp",
+          "assets/thorn-bloom/brochure/thorn-bloom_lee-somin_2.webp"
+        ]
       },
       {
         "name": "임이안",
@@ -570,7 +761,11 @@
         "instagram": "ianlim_0913",
         "profileImageUrl": "assets/thorn-bloom/profile/thorn-bloom_lim-ian_profile.webp",
         "slides": [],
-        "portfolioUrl": "lim-ian"
+        "portfolioUrl": "lim-ian",
+        "brochureImages": [
+          "assets/thorn-bloom/brochure/thorn-bloom_lim-ian_1.webp",
+          "assets/thorn-bloom/brochure/thorn-bloom_lim-ian_2.webp"
+        ]
       }
     ]
   },
@@ -587,7 +782,11 @@
         "instagram": "asydawn",
         "profileImageUrl": "assets/rei/profile/rei_shinyeong-an_profile.webp",
         "slides": [],
-        "portfolioUrl": "shinyeong-an"
+        "portfolioUrl": "shinyeong-an",
+        "brochureImages": [
+          "assets/rei/brochure/rei_shinyeong-an_1.webp",
+          "assets/rei/brochure/rei_shinyeong-an_2.webp"
+        ]
       },
       {
         "name": "신영록",
@@ -598,7 +797,11 @@
         "instagram": "ss0rok",
         "profileImageUrl": "assets/rei/profile/rei_youngrok-shin_profile.webp",
         "slides": [],
-        "portfolioUrl": "youngrok-shin"
+        "portfolioUrl": "youngrok-shin",
+        "brochureImages": [
+          "assets/rei/brochure/rei_youngrok-shin_1.webp",
+          "assets/rei/brochure/rei_youngrok-shin_2.webp"
+        ]
       },
       {
         "name": "곽세진",
@@ -609,7 +812,11 @@
         "instagram": "sxziin",
         "profileImageUrl": "assets/rei/profile/rei_sejin-kwak_profile.webp",
         "slides": [],
-        "portfolioUrl": "sejin-kwak"
+        "portfolioUrl": "sejin-kwak",
+        "brochureImages": [
+          "assets/rei/brochure/rei_sejin-kwak_1.webp",
+          "assets/rei/brochure/rei_sejin-kwak_2.webp"
+        ]
       },
       {
         "name": "노경민",
@@ -620,7 +827,11 @@
         "instagram": "kkmixxiz",
         "profileImageUrl": "assets/rei/profile/rei_kyeongmin-roh_profile.webp",
         "slides": [],
-        "portfolioUrl": "kyeongmin-roh"
+        "portfolioUrl": "kyeongmin-roh",
+        "brochureImages": [
+          "assets/rei/brochure/rei_kyeongmin-roh_1.webp",
+          "assets/rei/brochure/rei_kyeongmin-roh_2.webp"
+        ]
       },
       {
         "name": "박정민",
@@ -631,7 +842,11 @@
         "instagram": "x_strxth",
         "profileImageUrl": "assets/rei/profile/rei_jeongmin-park_profile.webp",
         "slides": [],
-        "portfolioUrl": "jeongmin-park"
+        "portfolioUrl": "jeongmin-park",
+        "brochureImages": [
+          "assets/rei/brochure/rei_jeongmin-park_1.webp",
+          "assets/rei/brochure/rei_jeongmin-park_2.webp"
+        ]
       },
       {
         "name": "윤혜빈",
@@ -642,7 +857,11 @@
         "instagram": "ynhybn",
         "profileImageUrl": "assets/rei/profile/rei_hyebeen-yoon_profile.webp",
         "slides": [],
-        "portfolioUrl": "hyebeen-yoon"
+        "portfolioUrl": "hyebeen-yoon",
+        "brochureImages": [
+          "assets/rei/brochure/rei_hyebeen-yoon_1.webp",
+          "assets/rei/brochure/rei_hyebeen-yoon_2.webp"
+        ]
       },
       {
         "name": "이나은",
@@ -653,7 +872,11 @@
         "instagram": "naeunzzi",
         "profileImageUrl": "assets/rei/profile/rei_naeun-lee_profile.webp",
         "slides": [],
-        "portfolioUrl": "naeun-lee"
+        "portfolioUrl": "naeun-lee",
+        "brochureImages": [
+          "assets/rei/brochure/rei_naeun-lee_1.webp",
+          "assets/rei/brochure/rei_naeun-lee_2.webp"
+        ]
       },
       {
         "name": "이승기",
@@ -664,7 +887,11 @@
         "instagram": "olzlo7l",
         "profileImageUrl": "assets/rei/profile/rei_seungki-lee_profile.webp",
         "slides": [],
-        "portfolioUrl": "seungki-lee"
+        "portfolioUrl": "seungki-lee",
+        "brochureImages": [
+          "assets/rei/brochure/rei_seungki-lee_1.webp",
+          "assets/rei/brochure/rei_seungki-lee_2.webp"
+        ]
       },
       {
         "name": "이혁",
@@ -675,7 +902,11 @@
         "instagram": "2._.van",
         "profileImageUrl": "assets/rei/profile/rei_hyeok-lee_profile.webp",
         "slides": [],
-        "portfolioUrl": "hyeok-lee"
+        "portfolioUrl": "hyeok-lee",
+        "brochureImages": [
+          "assets/rei/brochure/rei_hyeok-lee_1.webp",
+          "assets/rei/brochure/rei_hyeok-lee_2.webp"
+        ]
       },
       {
         "name": "쿠로시마 루리카",
@@ -686,7 +917,11 @@
         "instagram": "ruuhe.e0",
         "profileImageUrl": "assets/rei/profile/rei_rurika-kuroshima_profile.webp",
         "slides": [],
-        "portfolioUrl": "rurika-kuroshima"
+        "portfolioUrl": "rurika-kuroshima",
+        "brochureImages": [
+          "assets/rei/brochure/rei_rurika-kuroshima_1.webp",
+          "assets/rei/brochure/rei_rurika-kuroshima_2.webp"
+        ]
       }
     ]
   }
