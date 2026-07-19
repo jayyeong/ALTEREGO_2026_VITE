@@ -182,7 +182,7 @@ const PortfolioPage = () => {
             </section>
 
             <section className="pt-2 pr-6">
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 gap-4 w-full max-w-[680px]">
                   {portfolioItems.map((item, idx) => (
                     <div key={`${item.type}-${idx}`} className="w-full">
                       {item.type === "image" ? (
