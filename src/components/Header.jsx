@@ -38,15 +38,7 @@ const Header = () => {
         ]
       },
       { label: 'STORE', path: '/store/all' },
-      {
-        label: 'BEHIND',
-        path: '/behind/show',
-        subItems: [
-          { name: 'SHOW', path: '/behind/show' },
-          { name: 'BROCHURE', path: '/behind/brochure' },
-          { name: 'MAKING', path: '/behind/making' }
-        ]
-      },
+      { label: 'BEHIND', path: '/behind/' },
       { label: 'ARCHIVE', path: '/archive' }
     ],
     []

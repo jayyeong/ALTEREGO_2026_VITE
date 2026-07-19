@@ -8,8 +8,6 @@ import LookBook from "./pages/LookBook";
 import Runway from "./pages/Runway";
 import PortfolioPage from "./pages/PortfolioPage";
 import BehindShow from "./pages/BehindShow";
-import BehindBrochure from "./pages/BehindBrochure";
-import BehindMaking from "./pages/BehindMaking";
 import ArchivePage from "./pages/ArchivePage";
 
 import AdminLogin from './pages/AdminLogin';
@@ -55,9 +53,9 @@ function App() {
           <Route path="/admin/receipt/:id" element={<AdminReceiptDetail />} />
 
           <Route path="/behind/" element={gatePage(<BehindShow />)} />
-          <Route path="/behind/show" element={gatePage(<BehindShow />)} />
-          <Route path="/behind/brochure" element={gatePage(<BehindBrochure />)} />
-          <Route path="/behind/making" element={gatePage(<BehindMaking />)} />
+          <Route path="/behind/show" element={<Navigate to="/behind/" replace />} />
+          <Route path="/behind/brochure" element={<Navigate to="/behind/" replace />} />
+          <Route path="/behind/making" element={<Navigate to="/behind/" replace />} />
           <Route path="/archive" element={gatePage(<ArchivePage />)} />
 
           <Route path="*" element={blockedPage} />
