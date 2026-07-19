@@ -18,15 +18,15 @@ import AdminReceiptDetail from './pages/AdminReceiptDetail';
 
 import ScrollToTop from './components/ScrollToTop';
 
-import ComingSoon from "./pages/ComingSoon";
+import StoreClosed from "./pages/StoreClosed";
 import { useSiteLocked } from "./config/siteMode";
 
 function App() {
   const basePath = import.meta.env.BASE_URL.replace(/\/$/, '');
   const siteLocked = useSiteLocked();
-  const blockedPage = <Navigate to="/opening-soon" replace />;
+  const blockedPage = <Navigate to="/store-closed" replace />;
   const gatePage = (page) => (siteLocked ? blockedPage : page);
-  const storeClosedPage = <ComingSoon />;
+  const storeClosedPage = <StoreClosed />;
 
   return (
     <BrowserRouter basename={basePath}>
@@ -35,7 +35,8 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={gatePage(<Home />)} />
-          <Route path="/opening-soon" element={<ComingSoon />} />
+          <Route path="/opening-soon" element={<Navigate to="/store-closed" replace />} />
+          <Route path="/store-closed" element={storeClosedPage} />
           <Route path="/show-info" element={gatePage(<ShowInfo />)} />
           <Route path="/project/" element={gatePage(<ProjectPage />)} />
           <Route path="/team/:teamId" element={gatePage(<TeamPage />)} />
