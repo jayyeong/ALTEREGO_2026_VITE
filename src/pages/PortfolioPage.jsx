@@ -168,7 +168,7 @@ const PortfolioPage = () => {
               </div>
             </aside>
 
-            <section className="pt-2 ml-24">
+            <section className="pt-2 ml-auto w-full max-w-[320px]">
               {member.projectTitle && (
                 <h2 className="text-xl font-bold leading-[1.2] break-words text-right">
                   {member.projectTitle}
