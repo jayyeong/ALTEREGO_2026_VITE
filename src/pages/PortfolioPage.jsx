@@ -123,7 +123,7 @@ const PortfolioPage = () => {
 
       <div className="hidden md:block w-full bg-white">
         <div className="w-full pr-6 lg:pr-8">
-          <div className="grid grid-cols-[260px_460px_minmax(0,1fr)] gap-6 lg:gap-6 items-start">
+          <div className="grid grid-cols-[200px_minmax(220px,280px)_minmax(0,1fr)] gap-4 lg:grid-cols-[220px_minmax(260px,1fr)_minmax(0,560px)] xl:grid-cols-[260px_minmax(320px,1fr)_minmax(0,680px)] xl:gap-6 items-start">
             <aside className="sticky top-0 self-start bg-[#fafafa] min-h-[100dvh]">
               <div className="p-5">
                 <div className="w-full max-w-[180px] mr-auto">
@@ -181,8 +181,8 @@ const PortfolioPage = () => {
               )}
             </section>
 
-            <section className="pt-2 pr-6">
-              <div className="grid grid-cols-1 gap-4 w-full max-w-[680px]">
+            <section className="pt-2">
+              <div className="grid grid-cols-1 gap-4 w-full">
                   {portfolioItems.map((item, idx) => (
                     <div key={`${item.type}-${idx}`} className="w-full">
                       {item.type === "image" ? (
