@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ComingSoon = () => {
+const StoreClosed = () => {
   return (
     <div className="flex h-[calc(100dvh-52px)] flex-col items-center justify-center bg-white px-4 text-center lg:h-[calc(100dvh-190px)]">
       <p className="mb-3 text-xs font-semibold tracking-[0.24em] text-gray-500">ALTER EGO 2026</p>
@@ -14,4 +14,4 @@ const ComingSoon = () => {
   );
 };
 
-export default ComingSoon;
+export default StoreClosed;
