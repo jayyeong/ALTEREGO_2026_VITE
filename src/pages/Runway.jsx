@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import membersData from "../data/members.json";
 import { getRunwayImageUrls } from "../utils/runway";
 
 export default function Runway() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedIndex, setSelectedIndex] = useState(null);
 
   const teamSections = membersData.map((team) => {
     const members = team.members.map((member) => {
@@ -20,6 +22,15 @@ export default function Runway() {
       members,
     };
   });
+
+  const allRunwayImages = teamSections.flatMap((team) =>
+    team.members.flatMap((member) =>
+      member.images.map((src, idx) => ({
+        src,
+        alt: `${member.name} runway ${idx + 1}`,
+      }))
+    )
+  );
 
   return (
     <>
@@ -48,13 +59,17 @@ export default function Runway() {
                         <button
                           type="button"
                           key={`${member.name}-${idx}`}
-                          onClick={() => setSelectedImage({ src, name: member.name, idx })}
-                          className="block w-full"
+                          onClick={() => setSelectedIndex(
+                            allRunwayImages.findIndex((image) => image.src === src)
+                          )}
+                          className="block w-full cursor-zoom-in"
+                          aria-label={`${member.name} runway ${idx + 1} 크게 보기`}
                         >
                           <img
-                            src={src}
+                            src={src.replace("/runway/", "/runway-thumbnails/")}
                             alt={`${member.name} runway ${idx + 1}`}
                             loading="lazy"
+                            decoding="async"
                             className="w-full h-auto object-cover"
                           />
                         </button>
@@ -74,48 +89,97 @@ export default function Runway() {
         </div>
       </div>
 
-      {selectedImage && (
+      {selectedIndex !== null && (
         <RunwayImageModal
-          src={selectedImage.src}
-          alt={`${selectedImage.name} runway ${selectedImage.idx + 1}`}
-          onClose={() => setSelectedImage(null)}
+          images={allRunwayImages}
+          selectedIndex={selectedIndex}
+          onSelect={setSelectedIndex}
+          onClose={() => setSelectedIndex(null)}
         />
       )}
     </>
   );
 }
 
-function RunwayImageModal({ src, alt, onClose }) {
+function RunwayImageModal({ images, selectedIndex, onSelect, onClose }) {
   useEffect(() => {
     const onKeyDown = (e) => {
       if (e.key === "Escape") onClose();
+      if (e.key === "ArrowLeft") {
+        onSelect((selectedIndex - 1 + images.length) % images.length);
+      }
+      if (e.key === "ArrowRight") {
+        onSelect((selectedIndex + 1) % images.length);
+      }
     };
-    window.addEventListener("keydown", onKeyDown);
-    return () => window.removeEventListener("keydown", onKeyDown);
-  }, [onClose]);
 
-  return (
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKeyDown);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [images.length, onClose, onSelect, selectedIndex]);
+
+  const selectedImage = images[selectedIndex];
+
+  return createPortal(
     <div
-      className="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 p-4 md:p-8"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
+      aria-label={`${selectedImage.alt} 이미지 보기`}
     >
       <button
         type="button"
-        className="absolute top-5 right-5 text-white text-3xl leading-none"
+        className="absolute right-4 top-4 z-10 flex h-11 w-11 items-center justify-center text-white transition-opacity hover:opacity-70 md:right-6 md:top-6"
         onClick={onClose}
-        aria-label="닫기"
+        aria-label="이미지 닫기"
+        title="닫기"
       >
-        ×
+        <X size={30} strokeWidth={1.5} />
+      </button>
+
+      <button
+        type="button"
+        onClick={(event) => {
+          event.stopPropagation();
+          onSelect((selectedIndex - 1 + images.length) % images.length);
+        }}
+        className="absolute left-1 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-white transition-opacity hover:opacity-70 md:left-5"
+        aria-label="이전 이미지"
+        title="이전 이미지"
+      >
+        <ChevronLeft size={38} strokeWidth={1.25} />
       </button>
 
       <img
-        src={src}
-        alt={alt}
-        className="max-w-[92vw] max-h-[88vh] object-contain"
+        src={selectedImage.src}
+        alt={selectedImage.alt}
+        className="max-h-[calc(100vh-2rem)] max-w-[calc(100vw-2rem)] object-contain md:max-h-[calc(100vh-4rem)] md:max-w-[calc(100vw-8rem)]"
         onClick={(e) => e.stopPropagation()}
       />
-    </div>
+
+      <button
+        type="button"
+        onClick={(event) => {
+          event.stopPropagation();
+          onSelect((selectedIndex + 1) % images.length);
+        }}
+        className="absolute right-1 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center text-white transition-opacity hover:opacity-70 md:right-5"
+        aria-label="다음 이미지"
+        title="다음 이미지"
+      >
+        <ChevronRight size={38} strokeWidth={1.25} />
+      </button>
+
+      <span className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-white/70 md:bottom-6">
+        {selectedIndex + 1} / {images.length}
+      </span>
+    </div>,
+    document.body
   );
 }
