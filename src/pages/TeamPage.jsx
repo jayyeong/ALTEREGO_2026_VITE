@@ -45,9 +45,9 @@ const TeamPage = () => {
         </section>
 
         <section className="mt-14">
-          <div className="w-full max-w-[340px] mx-auto aspect-video border border-black/20 bg-black">
+          <div className="w-full max-w-[340px] mx-auto aspect-video bg-black">
             <iframe
-              className="w-full h-full"
+              className="block w-full h-full border-0"
               src={`https://www.youtube.com/embed/${team.youtubeId}`}
               title={`${team.name} Teaser`}
               frameBorder="0"
@@ -139,9 +139,9 @@ const TeamPage = () => {
               </section>
 
               <section className="mt-20">
-                <div className="w-full max-w-[1040px] ml-auto aspect-video border border-black/20 bg-black">
+                <div className="w-full max-w-[1040px] ml-auto aspect-video bg-black">
                   <iframe
-                    className="w-full h-full"
+                    className="block w-full h-full border-0"
                     src={`https://www.youtube.com/embed/${team.youtubeId}`}
                     title={`${team.name} Teaser`}
                     frameBorder="0"
