@@ -37,7 +37,7 @@ export default function Runway() {
       <div className="max-w-[1140px] mx-auto px-4 py-10 pt-20">
         <div className="w-full max-w-[860px] mx-auto aspect-video mb-12 md:mb-14">
           <iframe
-            src="https://www.youtube.com/embed/I6ZhuIJTGug"
+            src="https://www.youtube.com/embed/84yT0OsbuQQ"
             title="RUNWAY"
             className="w-full h-full"
             allowFullScreen
