@@ -5,6 +5,29 @@ import { Mail, Instagram } from 'lucide-react';
 import { resolveAssetUrl } from '../utils/assets';
 import { getRunwayImageUrls } from '../utils/runway';
 
+const ProfileTextSection = ({ member, className = '', descriptionClassName = '', lookClassName = '' }) => (
+  <div className={className}>
+    {member.description && (
+      <p className={`whitespace-pre-line break-keep leading-relaxed text-black/85 ${descriptionClassName}`}>
+        {member.description}
+      </p>
+    )}
+
+    {member.lookDescriptions?.length > 0 && (
+      <div className="mt-6 space-y-5">
+        {member.lookDescriptions.map((look) => (
+          <section key={look.label}>
+            <h3 className="text-[11px] font-semibold tracking-normal text-black">{look.label}</h3>
+            <p className={`mt-2 whitespace-pre-line break-keep leading-relaxed text-black/80 ${lookClassName}`}>
+              {look.text}
+            </p>
+          </section>
+        ))}
+      </div>
+    )}
+  </div>
+);
+
 const PortfolioPage = () => {
   const { portfolioUrl } = useParams();
 
@@ -82,11 +105,12 @@ const PortfolioPage = () => {
           {member.projectTitle && (
             <h2 className="text-lg font-bold leading-snug break-words">{member.projectTitle}</h2>
           )}
-          {member.description && (
-            <p className="mt-3 text-sm whitespace-pre-line leading-relaxed text-black/85 text-right">
-              {member.description}
-            </p>
-          )}
+          <ProfileTextSection
+            member={member}
+            className="mt-3 text-right"
+            descriptionClassName="text-sm"
+            lookClassName="text-sm"
+          />
         </section>
 
         <section className="mt-8 space-y-3">
@@ -168,17 +192,18 @@ const PortfolioPage = () => {
               </div>
             </aside>
 
-            <section className="pt-2 ml-auto w-full max-w-[320px]">
+            <section className="pt-2 ml-auto w-full max-w-[360px]">
               {member.projectTitle && (
                 <h2 className="text-xl font-bold leading-[1.2] break-words text-right">
                   {member.projectTitle}
                 </h2>
               )}
-              {member.description && (
-                <p className="mt-5 text-xs leading-relaxed whitespace-pre-line text-black/85 text-right">
-                  {member.description}
-                </p>
-              )}
+              <ProfileTextSection
+                member={member}
+                className="mt-5 text-right"
+                descriptionClassName="text-xs"
+                lookClassName="text-xs"
+              />
             </section>
 
             <section className="pt-2">
