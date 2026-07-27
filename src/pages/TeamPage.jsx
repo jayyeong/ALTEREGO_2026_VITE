@@ -118,7 +118,7 @@ const TeamPage = () => {
 
           <div className="py-10 pl-8 lg:pl-12">
             <div className="ml-auto w-full max-w-[1320px] overflow-x-hidden pr-4 lg:pr-8">
-              <section className="flex flex-col lg:flex-row lg:justify-end lg:items-end gap-6 lg:gap-0">
+              <section className="ml-auto flex w-[86%] flex-col gap-6 lg:flex-row lg:items-end lg:justify-end lg:gap-0">
                 <div className="order-2 lg:order-1 w-full max-w-[300px] lg:max-w-[340px] lg:mr-8 lg:flex-shrink-0">
                   <h2 className="text-base text-left lg:text-right font-medium mb-3">{team.name}</h2>
                   <p className="whitespace-pre-line text-sm leading-relaxed text-black/80 text-left">
@@ -139,7 +139,7 @@ const TeamPage = () => {
               </section>
 
               <section className="mt-20">
-                <div className="w-full max-w-[1040px] ml-auto aspect-video bg-black">
+                <div className="ml-auto aspect-video w-[86%] bg-black">
                   <iframe
                     className="block w-full h-full border-0"
                     src={`https://www.youtube.com/embed/${team.youtubeId}`}
@@ -151,15 +151,15 @@ const TeamPage = () => {
               </section>
 
               <section className="pt-20">
-                <div className="w-fit ml-auto">
+                <div className="ml-auto w-[86%]">
                   <h3 className="text-[20px] text-base font-semibold mb-6 text-left">TEAM {team.name}</h3>
 
-                  <div className="grid grid-cols-2 gap-x-9 gap-y-8 xl:grid-cols-3">
+                  <div className="grid grid-cols-2 gap-x-9 gap-y-8 lg:grid-cols-3">
                     {members.map((member) => (
                       <Link
                         key={member.name}
                         to={`/portfolio/${member.portfolioUrl}`}
-                        className="block group w-[clamp(195px,16.2vw,324px)]"
+                        className="block w-full group"
                       >
                         <div className="relative aspect-[2/3] overflow-hidden bg-white">
                           <img
