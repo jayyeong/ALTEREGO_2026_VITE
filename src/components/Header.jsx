@@ -95,8 +95,8 @@ const Header = () => {
   return (
     <div className="relative">
       <header className="hidden lg:block w-full bg-white">
-        <div className="w-full px-8 py-6 flex items-start justify-between">
-          <div className="flex items-start gap-6">
+        <div className="flex w-full items-center justify-between px-8 py-5">
+          <div className="flex items-center gap-6">
             <div className="leading-tight">
               <div
                 className="text-sm font-semibold text-black"
@@ -149,7 +149,7 @@ const Header = () => {
                   {siteLocked && menu.label !== 'STORE' ? (
                     <button
                       type="button"
-                      className="text-lg font-semibold text-black/35 cursor-not-allowed transition"
+                      className="text-base font-semibold text-black/35 cursor-not-allowed transition"
                       style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
                       aria-disabled="true"
                       title="Coming soon"
@@ -159,7 +159,7 @@ const Header = () => {
                   ) : (
                     <Link
                       to={menu.path}
-                      className="text-lg font-semibold text-black hover:text-black/60 transition"
+                      className="text-base font-semibold text-black hover:text-black/60 transition"
                       style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
                     >
                       {menu.label}
@@ -275,7 +275,7 @@ const Header = () => {
                 return (
                   <li key={menu.label}>
                     <button
-                      className={`w-full text-left text-2xl font-semibold uppercase ${
+                      className={`w-full text-left text-[22px] font-semibold uppercase ${
                         isLocked ? 'text-black/35 cursor-not-allowed' : 'text-black'
                       }`}
                       onClick={() => onMobileTopClick(menu)}

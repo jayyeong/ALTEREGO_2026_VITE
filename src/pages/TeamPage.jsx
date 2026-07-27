@@ -19,11 +19,9 @@ const TeamPage = () => {
   const members = teamMembersEntry ? teamMembersEntry.members : [];
   const sideText = teamSideText[teamId];
 
-  const calculatePaddingTop = () => (3500 / 2333) * 100;
-
   return (
     <>
-      <div className="md:hidden w-full px-4 py-10">
+      <div className="w-full overflow-x-hidden px-4 py-10 md:hidden">
         <section className="flex flex-col gap-6">
           <div className="w-full max-w-[290px] mx-auto">
             <div className="w-full aspect-[3/4] bg-white overflow-hidden">
@@ -65,17 +63,14 @@ const TeamPage = () => {
                 <Link
                   key={member.name}
                   to={`/portfolio/${member.portfolioUrl}`}
-                  className="block group w-full max-w-[150px] mx-auto"
+                  className="block group w-full max-w-[135px] mx-auto"
                 >
-                  <div
-                    className="bg-white relative overflow-hidden"
-                    style={{ paddingTop: `${calculatePaddingTop()}%` }}
-                  >
+                  <div className="relative aspect-[2/3] overflow-hidden bg-white">
                     <img
-                      src={resolveAssetUrl(member.profileImageUrl)}
-                      alt={member.name}
+                      src={resolveAssetUrl(member.brochureImages?.[0] || member.profileImageUrl)}
+                      alt={`${member.name} 브로슈어`}
                       loading="lazy"
-                      className="absolute top-0 left-0 w-full h-full object-contain"
+                      className="absolute inset-0 h-full w-full object-cover"
                     />
                   </div>
 
@@ -89,10 +84,10 @@ const TeamPage = () => {
         </section>
       </div>
 
-      <div className="hidden md:block w-full bg-white">
-        <div className="grid grid-cols-[260px_minmax(0,1fr)] items-start">
-          <aside className="sticky top-0 self-start bg-[#fafafa] min-h-[100dvh]">
-            <div className="px-5 pb-8 pt-10 text-left">
+      <div className="hidden w-full overflow-x-clip bg-white md:block">
+        <div className="grid grid-cols-[260px_minmax(0,1fr)] items-stretch">
+          <aside className="self-stretch bg-[#fafafa]">
+            <div className="sticky top-0 min-h-[100dvh] px-5 pb-8 pt-10 text-right">
               {sideText && (
                 <>
                   <p className="text-[11pt] leading-relaxed">
@@ -102,12 +97,17 @@ const TeamPage = () => {
                     {sideText.teamName}
                   </h3>
                   <ul className="mt-8 space-y-3">
-                    {sideText.members.map((memberName) => (
+                    {members.map((member) => (
                       <li
-                        key={memberName}
+                        key={member.portfolioUrl}
                         className="text-[10pt] leading-relaxed"
                       >
-                        {memberName}
+                        <Link
+                          to={`/portfolio/${member.portfolioUrl}`}
+                          className="transition-opacity hover:opacity-60"
+                        >
+                          {member.name}
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -116,8 +116,8 @@ const TeamPage = () => {
             </div>
           </aside>
 
-          <div className="px-8 lg:px-12 py-10">
-            <div className="w-[min(78vw,1320px)] ml-auto pr-4 lg:pr-8 xl:pr-10 overflow-x-hidden">
+          <div className="py-10 pl-8 lg:pl-12">
+            <div className="ml-auto w-full max-w-[1320px] overflow-x-hidden pr-4 lg:pr-8">
               <section className="flex flex-col lg:flex-row lg:justify-end lg:items-end gap-6 lg:gap-0">
                 <div className="order-2 lg:order-1 w-full max-w-[300px] lg:max-w-[340px] lg:mr-8 lg:flex-shrink-0">
                   <h2 className="text-base text-left lg:text-right font-medium mb-3">{team.name}</h2>
@@ -154,22 +154,19 @@ const TeamPage = () => {
                 <div className="w-fit ml-auto">
                   <h3 className="text-[20px] text-base font-semibold mb-6 text-left">TEAM {team.name}</h3>
 
-                  <div className="grid grid-cols-3 gap-x-10 gap-y-8">
+                  <div className="grid grid-cols-2 gap-x-9 gap-y-8 xl:grid-cols-3">
                     {members.map((member) => (
                       <Link
                         key={member.name}
                         to={`/portfolio/${member.portfolioUrl}`}
-                        className="block group w-[clamp(260px,18vw,360px)]"
+                        className="block group w-[clamp(195px,16.2vw,324px)]"
                       >
-                        <div
-                          className="bg-white relative overflow-hidden"
-                          style={{ paddingTop: `${calculatePaddingTop()}%` }}
-                        >
+                        <div className="relative aspect-[2/3] overflow-hidden bg-white">
                           <img
-                            src={resolveAssetUrl(member.profileImageUrl)}
-                            alt={member.name}
+                            src={resolveAssetUrl(member.brochureImages?.[0] || member.profileImageUrl)}
+                            alt={`${member.name} 브로슈어`}
                             loading="lazy"
-                            className="absolute top-0 left-0 w-full h-full object-contain"
+                            className="absolute inset-0 h-full w-full object-cover"
                           />
                         </div>
 

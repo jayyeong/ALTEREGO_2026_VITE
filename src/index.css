@@ -31,6 +31,20 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --site-header-height: 56px;
+  --project-vertical-reserve: 112px;
+  --store-closed-height-offset: 52px;
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --site-header-height: 76px;
+    --project-vertical-reserve: 152px;
+    --store-closed-height-offset: 182px;
+  }
+}
+
 html, body {
   margin: 0;
   font-family: "AppFont", -apple-system, BlinkMacSystemFont, sans-serif;

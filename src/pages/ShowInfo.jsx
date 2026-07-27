@@ -19,10 +19,10 @@ const ShowInfo = () => {
   ];
 
   return (
-    <div className="w-full bg-white px-4 py-10 md:py-14">
-      <section className="mx-auto mb-12 w-full max-w-[1120px] md:mb-16">
-        <div className="grid items-center gap-8 md:grid-cols-[minmax(300px,0.8fr)_minmax(320px,1fr)] md:gap-14">
-            <div className="w-full max-w-[420px] mx-auto">
+    <div className="w-full bg-white px-4 py-9 md:py-12">
+      <section className="mx-auto mb-11 w-full max-w-[980px] md:mb-14">
+        <div className="grid items-center gap-7 md:grid-cols-[minmax(280px,0.8fr)_minmax(300px,1fr)] md:gap-12">
+            <div className="w-full max-w-[370px] mx-auto">
               <div className="aspect-[1/1.414] bg-white overflow-hidden">
                 <img
                   src={POSTER_PATH}
@@ -32,18 +32,18 @@ const ShowInfo = () => {
               </div>
             </div>
 
-            <div className="w-full max-w-[500px] mx-auto text-left">
+            <div className="w-full max-w-[440px] mx-auto text-left">
               <p className="mb-3 text-xs font-medium tracking-[0.16em] text-black/50">
                 31ST GRADUATE FASHION SHOW
               </p>
-              <h1 className="mb-5 text-3xl font-semibold tracking-tight md:text-5xl">
+              <h1 className="mb-4 text-3xl font-semibold tracking-tight md:text-[42px]">
                 ALTER EGO
               </h1>
               <div className="space-y-3 md:space-y-4">
                 {mainThemeDescription.map((line, index) => (
                   <p
                     key={index}
-                    className="text-sm md:text-[15px] leading-relaxed text-black/85 whitespace-pre-line"
+                    className="text-sm leading-relaxed text-black/85 whitespace-pre-line"
                   >
                     {line}
                   </p>
@@ -53,9 +53,9 @@ const ShowInfo = () => {
         </div>
       </section>
 
-      <section className="mx-auto mb-14 w-full max-w-[1120px] md:mb-20">
-        <div className="mb-6 border-b border-black/15 pb-3">
-          <h2 className="text-lg font-semibold tracking-[0.08em] md:text-xl">SHOW INFO</h2>
+      <section className="mx-auto mb-12 w-full max-w-[980px] md:mb-16">
+        <div className="mb-5 border-b border-black/15 pb-3">
+          <h2 className="text-lg font-semibold tracking-[0.08em]">SHOW INFO</h2>
         </div>
         <div className="grid gap-5 md:grid-cols-2 md:gap-7">
           {venueImages.map((image) => (
@@ -74,9 +74,9 @@ const ShowInfo = () => {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-[1120px]">
-        <div className="mb-6 border-b border-black/15 pb-3">
-          <h2 className="text-lg font-semibold tracking-[0.08em] md:text-xl">CREDIT</h2>
+      <section className="mx-auto w-full max-w-[980px]">
+        <div className="mb-5 border-b border-black/15 pb-3">
+          <h2 className="text-lg font-semibold tracking-[0.08em]">CREDIT</h2>
         </div>
         <div className="grid gap-5 md:grid-cols-3 md:gap-6">
           {creditImages.map((image) => (

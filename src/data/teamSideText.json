@@ -1,6 +1,6 @@
 {
   "limbo": {
-    "intro": "ALTER EGO의 1번째 팀",
+    "intro": "ALTER EGO, 첫 번째 팀",
     "teamName": "\"LIMBO\"",
     "members": [
       "이이학",
@@ -17,7 +17,7 @@
     ]
   },
   "unskinned": {
-    "intro": "ALTER EGO의 2번째 팀",
+    "intro": "ALTER EGO, 두 번째 팀",
     "teamName": "\"(UN)SKINNED\"",
     "members": [
       "김유나",
@@ -31,7 +31,7 @@
     ]
   },
   "dreamscape": {
-    "intro": "ALTER EGO의 3번째 팀",
+    "intro": "ALTER EGO, 세 번째 팀",
     "teamName": "\"DREAMESCAPE\"",
     "members": [
       "나타샤",
@@ -46,7 +46,7 @@
     ]
   },
   "tiny-lodge": {
-    "intro": "ALTER EGO의 4번째 팀",
+    "intro": "ALTER EGO, 네 번째 팀",
     "teamName": "\"Tiny Lodge\"",
     "members": [
       "박준우",
@@ -60,7 +60,7 @@
     ]
   },
   "eleven-eleven": {
-    "intro": "ALTER EGO의 5번째 팀",
+    "intro": "ALTER EGO, 다섯 번째 팀",
     "teamName": "\"11:11\"",
     "members": [
       "로이스데비나 애슐리",
@@ -73,7 +73,7 @@
     ]
   },
   "thorn-bloom": {
-    "intro": "ALTER EGO의 6번째 팀",
+    "intro": "ALTER EGO, 여섯 번째 팀",
     "teamName": "\"가시:화\"",
     "members": [
       "김지우",
@@ -85,7 +85,7 @@
     ]
   },
   "rei": {
-    "intro": "ALTER EGO의 7번째 팀",
+    "intro": "ALTER EGO, 일곱 번째 팀",
     "teamName": "\"RE:I\"",
     "members": [
       "곽세진",
