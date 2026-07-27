@@ -14,7 +14,7 @@ const ProfileTextSection = ({ member, className = '', descriptionClassName = '',
     )}
 
     {member.lookDescriptions?.length > 0 && (
-      <div className="mt-6 space-y-5">
+      <div className="mt-9 space-y-9">
         {member.lookDescriptions.map((look) => (
           <section key={look.label}>
             <h3 className="text-[11px] font-semibold tracking-normal text-black">{look.label}</h3>
@@ -63,10 +63,10 @@ const PortfolioPage = () => {
       <div className="md:hidden max-w-[1140px] mx-auto px-4 py-8">
         <section className="flex items-start gap-4">
           <div className="w-[150px] flex-shrink-0 pt-1">
-            <h1 className="text-base font-semibold leading-tight">{member.name}</h1>
-            <p className="text-sm text-black/80 mt-1">{member.englishName}</p>
+            <h1 className="text-sm font-semibold leading-tight">{member.name}</h1>
+            <p className="mt-1 text-xs text-black/80">{member.englishName}</p>
             {(member.email || member.instagram) && (
-              <div className="mt-4 space-y-2 text-xs">
+              <div className="mt-4 space-y-2 text-[10px]">
                 {member.email && (
                   <a href={`mailto:${member.email}`} className="flex items-start gap-2 text-black hover:no-underline">
                     <Mail size={16} strokeWidth={1.5} className="mt-0.5 shrink-0" />
@@ -89,7 +89,7 @@ const PortfolioPage = () => {
           </div>
 
           <div className="flex-1 min-w-0 flex justify-start">
-            <div className="w-full max-w-[180px] mr-auto">
+            <div className="w-full max-w-[171px] mr-auto">
               <div className="aspect-[3/4] bg-white">
                 <img
                   src={resolveAssetUrl(member.profileImageUrl)}
@@ -124,7 +124,7 @@ const PortfolioPage = () => {
                         ? `${member.name} 런웨이 ${runwayItems.indexOf(item) + 1}`
                         : `작품 이미지 ${idx + 1}`
                     }
-                    className="w-full h-auto object-contain"
+                    className="ml-auto block h-auto max-h-[calc(100dvh-4rem)] w-auto max-w-full object-contain object-right"
                     loading="lazy"
                   />
                 ) : (
@@ -147,10 +147,10 @@ const PortfolioPage = () => {
 
       <div className="hidden md:block w-full bg-white">
         <div className="w-full pr-6 lg:pr-8">
-          <div className="grid grid-cols-[200px_minmax(220px,280px)_minmax(0,1fr)] gap-4 lg:grid-cols-[220px_minmax(260px,1fr)_minmax(0,560px)] xl:grid-cols-[260px_minmax(320px,1fr)_minmax(0,680px)] xl:gap-6 items-start">
+          <div className="grid grid-cols-[200px_minmax(0,1fr)] items-start gap-4 lg:grid-cols-[220px_minmax(0,1fr)] xl:grid-cols-[260px_minmax(0,1fr)] xl:gap-6">
             <aside className="sticky top-0 self-start bg-[#fafafa] min-h-[100dvh]">
-              <div className="p-5">
-                <div className="w-full max-w-[180px] mr-auto">
+              <div className="p-4">
+                <div className="w-full max-w-[171px] mx-auto">
                   <div className="bg-white overflow-hidden">
                     <img
                       src={resolveAssetUrl(member.profileImageUrl)}
@@ -161,12 +161,12 @@ const PortfolioPage = () => {
                 </div>
 
                 <div className="mt-6 space-y-3 text-black">
-                  <p className="text-xl font-semibold leading-none">{member.name}</p>
-                  <p className="text-base text-black/80">{member.englishName}</p>
+                  <p className="text-lg font-semibold leading-none">{member.name}</p>
+                  <p className="text-sm text-black/80">{member.englishName}</p>
                 </div>
 
                 {(member.email || member.instagram) && (
-                  <div className="mt-8 space-y-2 text-base leading-tight">
+                  <div className="mt-8 space-y-2 text-sm leading-tight">
                     {member.instagram && (
                       <a
                         href={`https://instagram.com/${member.instagram.replace('@', '')}`}
@@ -192,26 +192,27 @@ const PortfolioPage = () => {
               </div>
             </aside>
 
-            <section className="pt-2 ml-auto w-full max-w-[360px]">
-              {member.projectTitle && (
-                <h2 className="text-xl font-bold leading-[1.2] break-words text-right">
-                  {member.projectTitle}
-                </h2>
-              )}
-              <ProfileTextSection
-                member={member}
-                className="mt-5 text-right"
-                descriptionClassName="text-xs"
-                lookClassName="text-xs"
-              />
-            </section>
+            <div className="flex min-w-0 items-start justify-end gap-4 xl:gap-6">
+              <section className="sticky top-4 w-[clamp(220px,24vw,360px)] shrink-0 self-start pt-2">
+                {member.projectTitle && (
+                  <h2 className="text-xl font-bold leading-[1.2] break-words text-right">
+                    {member.projectTitle}
+                  </h2>
+                )}
+                <ProfileTextSection
+                  member={member}
+                  className="mt-5 text-right"
+                  descriptionClassName="text-xs"
+                  lookClassName="text-xs"
+                />
+              </section>
 
-            <section className="pt-2">
-              <div className="grid grid-cols-1 gap-4 w-full">
+              <section className="w-[min(280px,calc((100dvh-var(--site-header-height))*0.666667))] shrink-0 lg:w-[min(560px,calc((100dvh-var(--site-header-height))*0.666667))] xl:w-[min(680px,calc((100dvh-var(--site-header-height))*0.666667))]">
+                <div className="grid w-full grid-cols-1 gap-4">
                   {portfolioItems.map((item, idx) => (
                     <div key={`${item.type}-${idx}`} className="w-full">
                       {item.type === "image" ? (
-                        <div className="w-full aspect-[3/4] overflow-hidden bg-white">
+                        <div className="flex w-full justify-end overflow-hidden bg-white">
                           <img
                             src={resolveAssetUrl(item.src)}
                             alt={
@@ -219,7 +220,7 @@ const PortfolioPage = () => {
                                 ? `${member.name} 런웨이 ${runwayItems.indexOf(item) + 1}`
                                 : `작품 이미지 ${idx + 1}`
                             }
-                            className="w-full h-full object-cover"
+                            className="h-auto max-h-[calc(100dvh-var(--site-header-height))] w-auto max-w-full object-contain object-right"
                             loading="lazy"
                           />
                         </div>
@@ -239,7 +240,8 @@ const PortfolioPage = () => {
                     </div>
                   ))}
                 </div>
-            </section>
+              </section>
+            </div>
           </div>
         </div>
       </div>

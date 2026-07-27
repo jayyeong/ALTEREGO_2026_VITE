@@ -33,7 +33,7 @@ const ShowBehindPage = () => {
   }, [selectedIndex, imagePaths.length]);
 
   return (
-    <div className="max-w-[1140px] mx-auto px-4 py-10 space-y-12 md:py-14">
+    <div className="mx-auto max-w-[1140px] space-y-[72px] px-4 py-10 md:space-y-[88px] md:py-14">
       <div className="w-full max-w-[860px] mx-auto aspect-video">
         <iframe
           src="https://www.youtube.com/embed/sMeZQnVp-hg"
@@ -57,7 +57,7 @@ const ShowBehindPage = () => {
         </p>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4 lg:gap-6">
+      <div className="grid grid-cols-2 gap-7 md:grid-cols-3 md:gap-9 lg:grid-cols-4">
         {imagePaths.map((src, idx) => (
           <button
             key={src}

@@ -96,7 +96,7 @@ export default function Home() {
 
     return (
         <div className="bg-white text-black overflow-x-hidden">
-            <div className="min-h-[calc(100dvh-88px)] lg:h-[calc(100dvh-88px)]">
+            <div className="min-h-[calc(100dvh-var(--site-header-height))] lg:h-[calc(100dvh-var(--site-header-height))]">
                 <div className="mx-auto px-6 lg:px-6 py-10 lg:py-8 lg:h-full">
                     <div className="h-full flex flex-col lg:flex-row gap-10 lg:gap-2 justify-between">
                         <section className="flex-1 min-w-0 flex justify-end items-center">
