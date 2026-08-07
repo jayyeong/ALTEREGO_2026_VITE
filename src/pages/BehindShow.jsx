@@ -33,7 +33,7 @@ const ShowBehindPage = () => {
   }, [selectedIndex, imagePaths.length]);
 
   return (
-    <div className="mx-auto max-w-[1140px] space-y-[72px] px-4 py-10 md:space-y-[88px] md:py-14">
+    <div className="mx-auto max-w-[1140px] space-y-[92px] px-4 py-10 md:space-y-[112px] md:py-14">
       <div className="w-full max-w-[860px] mx-auto aspect-video">
         <iframe
           src="https://www.youtube.com/embed/sMeZQnVp-hg"
