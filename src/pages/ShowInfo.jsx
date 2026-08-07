@@ -20,9 +20,9 @@ const ShowInfo = () => {
 
   return (
     <div className="w-full bg-white px-4 py-9 md:py-12">
-      <section className="mx-auto mb-11 w-full md:mb-14 lg:w-[78vw] lg:max-w-[1800px]">
+      <section className="mx-auto mb-11 w-full md:mb-14 lg:w-[74vw] lg:max-w-[1680px]">
         <div className="grid items-center gap-7 md:grid-cols-[minmax(280px,0.8fr)_minmax(300px,1fr)] md:gap-12 xl:gap-16">
-            <div className="w-full max-w-[370px] mx-auto lg:max-w-[460px] 2xl:max-w-[520px]">
+            <div className="w-full max-w-[350px] mx-auto lg:max-w-[430px] 2xl:max-w-[490px]">
               <div className="aspect-[1/1.414] bg-white overflow-hidden">
                 <img
                   src={POSTER_PATH}
@@ -32,7 +32,7 @@ const ShowInfo = () => {
               </div>
             </div>
 
-            <div className="w-full max-w-[440px] mx-auto text-left lg:max-w-[540px] 2xl:max-w-[620px]">
+            <div className="w-full max-w-[420px] mx-auto text-left lg:max-w-[510px] 2xl:max-w-[590px]">
               <p className="mb-3 text-xs font-medium tracking-[0.16em] text-black/50">
                 31ST GRADUATE FASHION SHOW
               </p>
@@ -53,7 +53,7 @@ const ShowInfo = () => {
         </div>
       </section>
 
-      <section className="mx-auto mb-12 w-full md:mb-16 lg:w-[78vw] lg:max-w-[1800px]">
+      <section className="mx-auto mb-12 w-full md:mb-16 lg:w-[74vw] lg:max-w-[1680px]">
         <div className="mb-5 border-b border-black/15 pb-3">
           <h2 className="text-lg font-semibold tracking-[0.08em]">SHOW INFO</h2>
         </div>
@@ -74,7 +74,7 @@ const ShowInfo = () => {
         </div>
       </section>
 
-      <section className="mx-auto w-full lg:w-[78vw] lg:max-w-[1800px]">
+      <section className="mx-auto w-full lg:w-[74vw] lg:max-w-[1680px]">
         <div className="mb-5 border-b border-black/15 pb-3">
           <h2 className="text-lg font-semibold tracking-[0.08em]">CREDIT</h2>
         </div>
