@@ -8,14 +8,14 @@ const ShowInfo = () => {
   ];
 
   const venueImages = [
-    { src: `${IMAGE_BASE_PATH}/info-venue-map.jpg`, alt: "노천극장 오시는 길" },
-    { src: `${IMAGE_BASE_PATH}/info-seating-guide.jpg`, alt: "노천극장 좌석 안내" },
+    { src: `${IMAGE_BASE_PATH}/info-venue-map.webp`, alt: "노천극장 오시는 길" },
+    { src: `${IMAGE_BASE_PATH}/info-seating-guide.webp`, alt: "노천극장 좌석 안내" },
   ];
 
   const creditImages = [
-    { src: `${IMAGE_BASE_PATH}/info-credit-1.jpg`, alt: "졸업준비위원회 및 후원 크레딧" },
-    { src: `${IMAGE_BASE_PATH}/info-credit-2.jpg`, alt: "쇼 디렉팅 및 모델 크레딧" },
-    { src: `${IMAGE_BASE_PATH}/info-credit-3.jpg`, alt: "포스터, 브로슈어 및 웹사이트 크레딧" },
+    { src: `${IMAGE_BASE_PATH}/info-credit-1.webp`, alt: "졸업준비위원회 및 후원 크레딧" },
+    { src: `${IMAGE_BASE_PATH}/info-credit-2.webp`, alt: "쇼 디렉팅 및 모델 크레딧" },
+    { src: `${IMAGE_BASE_PATH}/info-credit-3.webp`, alt: "포스터, 브로슈어 및 웹사이트 크레딧" },
   ];
 
   return (
