@@ -1,7 +1,25 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { cpSync, existsSync } from 'node:fs';
+import { resolve } from 'node:path';
+
+const copySourceAssets = () => ({
+  name: 'copy-source-assets',
+  closeBundle() {
+    const source = resolve('src/assets');
+    const target = resolve('dist/assets');
+
+    if (existsSync(source)) {
+      cpSync(source, target, { recursive: true });
+    }
+  },
+});
 
 export default defineConfig({
+  optimizeDeps: {
+    noDiscovery: true,
+    include: ['cookie', 'react-dom/client', 'set-cookie-parser'],
+  },
   plugins: [
     react(),
     {
@@ -19,6 +37,7 @@ export default defineConfig({
         });
       },
     },
+    copySourceAssets(),
   ],
   base: '/2026/',
 });

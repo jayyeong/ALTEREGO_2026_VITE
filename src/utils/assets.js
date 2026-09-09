@@ -1,8 +1,3 @@
-const assetModules = import.meta.glob('../assets/**/*', {
-  eager: true,
-  import: 'default',
-});
-
 export const resolveAssetUrl = (assetPath) => {
   if (!assetPath || typeof assetPath !== 'string') {
     return '';
@@ -13,10 +8,17 @@ export const resolveAssetUrl = (assetPath) => {
   }
 
   const normalizedPath = assetPath.replace(/^\.?\//, '');
-  const resolved = assetModules[`../${normalizedPath}`];
 
-  if (resolved) {
-    return resolved;
+  if (normalizedPath.startsWith('assets/')) {
+    const servedPath = import.meta.env.DEV ? `src/${normalizedPath}` : normalizedPath;
+    return `${import.meta.env.BASE_URL}${servedPath}`;
+  }
+
+  if (normalizedPath.startsWith('src/assets/')) {
+    const servedPath = import.meta.env.DEV
+      ? normalizedPath
+      : normalizedPath.replace(/^src\//, '');
+    return `${import.meta.env.BASE_URL}${servedPath}`;
   }
 
   return assetPath;
