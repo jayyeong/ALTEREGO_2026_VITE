@@ -14,15 +14,36 @@
 
 ## 미리보기
 
-운영 중인 웹사이트의 데스크톱 화면입니다. 메인에서는 전시 영상과 주제를, 프로젝트 페이지에서는 팀별 포스터와 작품 소개를 만나볼 수 있습니다.
+운영 웹사이트를 **1600 × 1000 데스크톱 뷰포트(16:10)**에서 촬영했습니다. 이미지를 클릭하면 크게 볼 수 있습니다. 룩북·런웨이·비하인드는 작품과 사진 갤러리가 보이는 구간입니다.
 
-**메인 — 전시 영상과 주제 소개**
+### 메인
 
-![ALTER EGO 데스크톱 메인 화면](docs/screenshots/home.jpg)
+전시 영상과 ALTER EGO의 주제를 소개하는 첫 화면입니다.
 
-**프로젝트 — 일곱 팀의 포스터**
+![ALTER EGO 데스크톱 메인 화면](docs/screenshots/desktop-20260922/01-home.jpg)
 
-![일곱 팀의 포스터를 보여주는 데스크톱 프로젝트 화면](docs/screenshots/projects.jpg)
+### 프로젝트
+
+일곱 팀의 포스터를 한눈에 살펴보고 팀별 이야기로 이동합니다.
+
+![일곱 팀의 포스터가 배치된 데스크톱 프로젝트 목록](docs/screenshots/desktop-20260922/03-projects.jpg)
+
+### 주요 페이지
+
+| 전시 소개 · INFO | 팀 상세 · LIMBO |
+| --- | --- |
+| ![전시 포스터와 ALTER EGO 주제 설명](docs/screenshots/desktop-20260922/02-info.jpg) | ![Limbo 팀 콘셉트와 참여 디자이너 목록](docs/screenshots/desktop-20260922/08-team.jpg) |
+| 전시의 주제와 쇼 정보를 안내합니다. | 팀의 콘셉트와 디자이너의 작품으로 이어집니다. |
+
+| 룩북 · LOOKBOOK | 런웨이 · RUNWAY |
+| --- | --- |
+| ![데스크톱 룩북의 작품 사진과 팀 탐색 메뉴](docs/screenshots/desktop-20260922/04-lookbook.jpg) | ![디자이너별 런웨이 사진 갤러리](docs/screenshots/desktop-20260922/05-runway.jpg) |
+| 의상의 디테일을 룩북으로 감상합니다. | 무대 위 작품을 디자이너별로 살펴봅니다. |
+
+| 비하인드 · BEHIND | 이전 전시 · ARCHIVE |
+| --- | --- |
+| ![전시 준비 과정과 무대 뒤를 담은 사진 갤러리](docs/screenshots/desktop-20260922/06-behind.jpg) | ![2025 SOMA와 2024 Prototype 전시 아카이브](docs/screenshots/desktop-20260922/07-archive.jpg) |
+| 전시를 준비한 사람들과 과정을 기록합니다. | 이전 연도 전시 웹사이트로 연결됩니다. |
 
 *2026년 9월 22일 촬영. 메인 영상은 재생 시점에 따라 다른 장면이 표시됩니다.*
 
