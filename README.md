@@ -14,12 +14,15 @@
 
 ## 미리보기
 
-운영 중인 웹사이트의 모바일 화면입니다. 메인에서는 전시 영상과 주제를, 프로젝트 페이지에서는 팀별 포스터와 작품 소개를 만나볼 수 있습니다.
+운영 중인 웹사이트의 데스크톱 화면입니다. 메인에서는 전시 영상과 주제를, 프로젝트 페이지에서는 팀별 포스터와 작품 소개를 만나볼 수 있습니다.
 
-<p>
-  <img src="docs/screenshots/home.jpg" alt="ALTER EGO 메인 화면: (Un)skinned 팀 영상과 콘셉트 소개" width="300" />
-  <img src="docs/screenshots/projects.jpg" alt="프로젝트 목록 화면: Limbo와 (Un)skinned 팀 포스터" width="300" />
-</p>
+**메인 — 전시 영상과 주제 소개**
+
+![ALTER EGO 데스크톱 메인 화면](docs/screenshots/home.jpg)
+
+**프로젝트 — 일곱 팀의 포스터**
+
+![일곱 팀의 포스터를 보여주는 데스크톱 프로젝트 화면](docs/screenshots/projects.jpg)
 
 *2026년 9월 22일 촬영. 메인 영상은 재생 시점에 따라 다른 장면이 표시됩니다.*
 
