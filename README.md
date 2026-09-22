@@ -1,68 +1,86 @@
-# KUAD 2026 ALTER EGO — Graduation Exhibition & Store
+# KUAD 2026 · ALTER EGO
 
-건국대학교 의상디자인학과 2026 졸업전시 웹사이트의 **React 프론트엔드**입니다. 전시 주제와 팀별 작품, 룩북·런웨이, 이전 연도 아카이브를 제공하며, 굿즈 주문과 관리자 운영 화면의 구현을 포함합니다.
+**건국대학교 의상디자인학과 2026 졸업전시를 담은 웹사이트입니다.**
 
-**[사이트](https://www.kuadarchive.com/2026/) · [런웨이 최적화 PR #27](https://github.com/jayyeong/ALTEREGO_2026_VITE/pull/27) · [배포 워크플로](.github/workflows/deploy.yml)**
+전시장에서 만난 작품을 온라인에서도 이어서 감상할 수 있도록, 일곱 팀의 이야기와 디자이너의 포트폴리오, 룩북과 런웨이, 무대 뒤의 순간들을 한곳에 모았습니다. 이 저장소는 웹사이트의 프론트엔드와 배포 설정을 관리합니다.
 
-> **현재 코드의 동작:** `main`의 스토어·상품 상세·주문·주문 완료 경로는 모두 `StoreClosed` 안내 화면으로 연결됩니다. 주문 관련 컴포넌트는 소스에 남아 있습니다. 전시 페이지의 접근 여부는 공개 모드 설정에 따라 달라집니다. 아래 설명은 저장소 코드 기준이며 실제 배포 상태와는 차이가 있을 수 있습니다.
+[웹사이트 둘러보기 →](https://www.kuadarchive.com/2026/)
 
-## 먼저 볼 구현
+## 전시 소개
 
-| 과제 | 구현 방식 | 코드·기록 |
-| --- | --- | --- |
-| 이미지가 많은 런웨이 갤러리의 로딩 부담 | 목록은 경량 썸네일과 lazy loading, 원본은 모달을 열 때 로딩 | [Runway.jsx](src/pages/Runway.jsx), [PR #27](https://github.com/jayyeong/ALTEREGO_2026_VITE/pull/27) |
-| 이미지 탐색 | 전체 화면 모달, 이전·다음 버튼, 방향키와 ESC 지원 | [Runway.jsx](src/pages/Runway.jsx) |
-| 주문 입력과 API 연동 | 필수 값·연락처 검증, 제출 중 중복 클릭 방지, 성공 후 공개 토큰 경로로 이동 | [CheckoutPage.jsx](src/pages/CheckoutPage.jsx) |
-| 운영자 주문 관리 | 주문 목록·상태 변경·삭제, 상품 품절 관리, 기간별 엑셀 다운로드 | [AdminDashboard.jsx](src/pages/AdminDashboard.jsx) |
-| 연도별 사이트 배포 | `/2026/` base 경로, S3 업로드, HTML과 정적 자산의 캐시 정책 분리, CloudFront 무효화 | [vite.config.mjs](vite.config.mjs), [deploy.yml](.github/workflows/deploy.yml) |
+**ALTER EGO**는 타인의 시선과 비교에서 벗어나, 외면해 왔던 자신의 모습을 마주하는 데서 출발합니다. 각 팀은 이 주제를 서로 다른 시각으로 풀어내고, 의상과 이미지, 영상으로 자신만의 이야기를 전합니다.
 
-PR #27에는 갤러리 이미지 전송 용량을 **약 209MB → 2.1MB**로 줄였다는 기록이 있습니다. 이는 해당 PR에 기록된 수치이며, 전체 사이트 용량이나 페이지 로딩 시간의 측정 결과를 뜻하지 않습니다.
+참여 프로젝트는 **Limbo · (Un)skinned · Dreamscape · Tiny Lodge · 11:11 · 가시:화(花) · RE:I**입니다.
 
-## 구현 범위와 현재 상태
+## 미리보기
 
-- **전시:** 메인, 쇼 정보, 팀·작품 소개, 포트폴리오, 룩북, 런웨이, 비하인드, 2024·2025 아카이브.
-- **스토어·주문:** 상품 목록·옵션 선택·주문서·주문 완료 컴포넌트가 있습니다. 현재 라우터에서는 종료 안내 화면을 보여줍니다.
-- **관리자:** 로그인과 주문 관리 라우트가 있으며, 데이터 조회와 변경에는 별도 백엔드 API가 필요합니다.
-- **공개 모드:** 프로덕션 빌드에서 `VITE_STORE_ONLY_MODE=true`이면 전시 페이지 접근을 제한합니다. 브라우저별 공개 설정 예외도 있습니다.
+운영 중인 웹사이트의 모바일 화면입니다. 메인에서는 전시 영상과 주제를, 프로젝트 페이지에서는 팀별 포스터와 작품 소개를 만나볼 수 있습니다.
 
-라우트의 기준은 [src/App.jsx](src/App.jsx)입니다. 공개 모드 설정을 바꿔도 현재 스토어·주문 경로는 다시 열리지 않습니다.
+<p>
+  <img src="docs/screenshots/home.jpg" alt="ALTER EGO 메인 화면: (Un)skinned 팀 영상과 콘셉트 소개" width="300" />
+  <img src="docs/screenshots/projects.jpg" alt="프로젝트 목록 화면: Limbo와 (Un)skinned 팀 포스터" width="300" />
+</p>
 
-이 저장소에는 프론트엔드와 배포 워크플로가 포함되어 있습니다. 백엔드 서버·DB 구현은 포함되어 있지 않으므로, API 연동 코드와 서버 구현 범위를 구분해서 보아주세요.
+*2026년 9월 22일 촬영. 메인 영상은 재생 시점에 따라 다른 장면이 표시됩니다.*
 
-## 기술 스택
+## 사이트에서 볼 수 있는 것
 
-React 19 · JavaScript · Vite 6 · React Router 7 · Tailwind CSS 3 · Axios  
-AWS S3 · CloudFront · GitHub Actions
+| 메뉴 | 소개 |
+| --- | --- |
+| **HOME · INFO** | 전시의 주제와 영상, 쇼 정보 |
+| **PROJECT** | 일곱 팀의 콘셉트와 작품, 참여 디자이너의 포트폴리오 |
+| **IMAGE** | 룩북과 런웨이 사진을 모은 갤러리 |
+| **BEHIND** | 전시를 준비한 사람들과 무대 뒤의 과정을 담은 영상·사진 |
+| **ARCHIVE** | 2024년과 2025년 전시로 이어지는 기록 |
 
-정확한 의존성은 [package.json](package.json)과 [package-lock.json](package-lock.json)에서 확인할 수 있습니다.
+사진 갤러리는 썸네일로 둘러보고, 이미지를 크게 열어 감상할 수 있습니다. 데스크톱과 모바일 화면에 맞춰 레이아웃이 달라집니다.
 
-## 로컬 실행
+### 스토어와 운영 기능
 
-현재 배포 워크플로와 동일한 Node.js 20 및 npm 환경을 기준으로 합니다.
+전시 굿즈 판매를 위한 상품 목록, 옵션 선택, 주문서 작성, 주문 완료 화면도 구현되어 있습니다. **현재 코드에서는 스토어와 주문 관련 경로가 판매 종료 안내로 연결됩니다.**
+
+관리자 화면에는 주문 조회, 입금 상태 변경, 상품 품절 관리, 기간별 엑셀 다운로드 기능이 있습니다. 이러한 기능은 별도 백엔드 API와 연동되며, 이 저장소에는 서버와 데이터베이스 구현이 포함되어 있지 않습니다.
+
+## 사용한 기술
+
+- **화면:** React 19, JavaScript, React Router 7, Tailwind CSS 3
+- **개발·API 연동:** Vite 6, Axios
+- **배포:** GitHub Actions, AWS S3, CloudFront
+
+런웨이 갤러리는 목록에서 경량 썸네일을 사용하고, 큰 이미지는 모달을 열 때 불러오도록 구성했습니다. 구현 과정은 [런웨이 최적화 PR #27](https://github.com/jayyeong/ALTEREGO_2026_VITE/pull/27)에서 확인할 수 있습니다.
+
+## 로컬에서 실행하기
+
+배포 환경과 동일한 Node.js 20과 npm을 기준으로 합니다.
 
 ```bash
+git clone https://github.com/jayyeong/ALTEREGO_2026_VITE.git
+cd ALTEREGO_2026_VITE
 npm ci
 npm run dev
 ```
 
-개발 서버: [http://localhost:5173/2026/](http://localhost:5173/2026/)  
-포트가 사용 중이면 터미널에 표시된 주소를 사용합니다. 개발 서버의 `/`, `/2026` 요청은 `/2026/`으로 이동합니다.
+실행 후 [http://localhost:5173/2026/](http://localhost:5173/2026/)에 접속합니다. 포트가 사용 중이면 터미널에 표시된 주소를 사용하세요.
 
-### 환경 변수
+이미지와 영상은 `public/`의 정적 리소스를 사용합니다. 일부 폴더를 제외하는 sparse checkout을 사용했다면 해당 리소스도 받아야 화면이 정상적으로 표시됩니다.
 
-기존 환경 파일을 직접 바꾸기보다 로컬 전용 `.env.development.local` 또는 `.env.production.local`에 필요한 값을 설정합니다.
+### 환경 설정
+
+개발 환경은 `.env.development.local`, 운영 빌드는 `.env.production.local`에서 필요한 값을 설정할 수 있습니다.
 
 ```env
 VITE_API_URL=
 VITE_STORE_ONLY_MODE=false
 ```
 
-| 변수 | 코드 기준 동작 |
+| 변수 | 설명 |
 | --- | --- |
-| `VITE_API_URL` | API 서버의 기준 주소. 빈 값이면 현재 origin을 기준으로 요청합니다. 로컬에서 API 기능을 사용하려면 별도 백엔드 연결이 필요합니다. |
-| `VITE_STORE_ONLY_MODE` | **프로덕션 빌드이면서 문자열이 정확히 `true`일 때만** 공개 제한 모드를 켭니다. 개발 서버에서는 이 제한이 적용되지 않습니다. |
+| `VITE_API_URL` | 백엔드 API 주소입니다. 비워 두면 현재 사이트의 origin을 기준으로 요청합니다. |
+| `VITE_STORE_ONLY_MODE` | 프로덕션 빌드에서 값이 정확히 `true`일 때 전시 페이지 접근을 제한합니다. 개발 서버에는 적용되지 않습니다. |
 
-설정 근거: [api.js](src/config/api.js), [siteMode.js](src/config/siteMode.js). `VITE_` 변수는 클라이언트에 노출되므로 비밀 키를 넣지 않습니다. 공개 모드는 화면 표시 제어이며 API 인증·인가를 대신하지 않습니다.
+API 기능을 사용하려면 별도 백엔드 연결이 필요합니다. `VITE_` 환경 변수는 브라우저에 공개되므로 비밀 키를 넣지 않습니다.
+
+공개 모드는 화면 표시를 제어하는 설정이며, 브라우저별 접근 예외가 있습니다. API 인증·인가를 대신하지 않습니다. 이 설정을 바꾸더라도 현재 스토어·주문 경로가 다시 열리지는 않습니다. 자세한 동작은 [라우트 설정](src/App.jsx)과 [공개 모드 설정](src/config/siteMode.js)을 참고하세요.
 
 ### 빌드와 미리보기
 
@@ -71,40 +89,34 @@ npm run build
 npm run preview
 ```
 
-빌드 결과는 `dist/`에 생성됩니다. 미리보기 서버에서 안내하는 주소의 `/2026/` 경로로 접근합니다. API 기능은 백엔드 없이 완전히 실행되지 않습니다.
+빌드 결과는 `dist/`에 생성됩니다. 미리보기 서버가 안내하는 주소의 `/2026/` 경로에서 확인할 수 있습니다.
 
-## 프로젝트 구조
+## 폴더 구성
 
 ```text
 src/
-  components/        헤더, 스크롤 처리 등 공통 컴포넌트
-  config/            API 주소와 페이지 공개 모드
-  data/              팀·멤버·상품 상세 데이터
-  pages/             전시·스토어·관리자 화면
-  utils/             이미지 경로, 날짜 포맷, 팀 순서
-public/              이미지·영상 등 정적 리소스
-.github/workflows/   배포 자동화
+  components/        헤더, 스크롤 처리 등 공통 UI
+  config/            API 주소와 페이지 공개 설정
+  data/              팀, 디자이너, 상품 관련 데이터
+  pages/             전시, 스토어, 관리자 화면
+  utils/             이미지 경로, 날짜 표시 등 공통 함수
+public/              이미지와 영상 등 정적 리소스
+docs/screenshots/    README에 사용하는 웹사이트 화면
+.github/workflows/   배포 자동화 설정
 ```
 
 ## 배포
 
-[deploy.yml](.github/workflows/deploy.yml)은 `main` push 또는 수동 실행으로 동작합니다.
+같은 도메인에서 연도별 전시를 운영하기 위해 `/2026/`을 기본 경로로 사용합니다. `main` 브랜치에 변경사항을 push하거나 워크플로를 수동 실행하면 다음 순서로 배포됩니다.
 
 ```text
-npm ci → npm run build → S3의 2026/ 경로 업로드 → CloudFront 캐시 무효화
+의존성 설치 → Vite 빌드 → S3 업로드 → CloudFront 캐시 갱신
 ```
 
-- 정적 자산에는 장기 캐시를, `index.html`·아이콘·manifest에는 no-cache 정책을 적용합니다.
-- AWS 자격 증명과 CloudFront 배포 ID는 GitHub Actions Secrets를 참조합니다.
-- `main`에 README만 변경해도 현재 워크플로의 배포 조건에 해당합니다.
+정적 자산에는 장기 캐시를 적용하고, HTML·아이콘·manifest는 새 내용을 확인하도록 별도 캐시 정책을 사용합니다. 자세한 설정은 [배포 워크플로](.github/workflows/deploy.yml)에 있습니다. README만 변경해도 현재 워크플로의 배포 조건에 해당합니다.
 
-## 검증 현황과 다음 개선
+## 개발 참고
 
-현재 [package.json](package.json)에는 자동 테스트와 lint 스크립트가 없으며, 배포 워크플로는 의존성 설치와 빌드를 수행합니다. 빌드 성공과 사용자 흐름 검증은 별개입니다.
+현재 자동 테스트와 lint 스크립트는 없으며, 배포 과정에서는 의존성 설치와 빌드를 수행합니다. 주문 입력·오류 처리, 관리자 API 권한, 이미지 모달의 키보드 포커스는 추가 검증 대상으로 남아 있습니다.
 
-다음 개선 대상으로 주문 입력·오류 처리 테스트, 관리자 API 권한 검증, 이미지 모달의 포커스 이동 검증을 남깁니다. 아직 구현된 테스트나 완료된 개선으로 간주하지 않습니다.
-
-## 관련 저장소
-
-- [개발자 프로필](https://github.com/jayyeong)
-- [ALTEREGO_2026](https://github.com/jayyeong/ALTEREGO_2026): Create React App 기반 이전 구현. 현재 프로젝트의 기준은 이 Vite 저장소입니다.
+이전 Create React App 기반 구현은 [ALTEREGO_2026](https://github.com/jayyeong/ALTEREGO_2026)에서 확인할 수 있습니다.
