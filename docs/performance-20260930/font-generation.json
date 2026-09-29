@@ -1,0 +1,130 @@
+{
+  "commonKoreanCharacters": 672,
+  "files": [
+    {
+      "file": "pretendard-content.woff2",
+      "bytes": 117896,
+      "glyphCoverage": 672
+    },
+    {
+      "file": "pretendard-fallback-18.woff2",
+      "bytes": 7120,
+      "glyphCoverage": 53
+    },
+    {
+      "file": "pretendard-fallback-56.woff2",
+      "bytes": 78836,
+      "glyphCoverage": 454
+    },
+    {
+      "file": "pretendard-fallback-57.woff2",
+      "bytes": 103468,
+      "glyphCoverage": 488
+    },
+    {
+      "file": "pretendard-fallback-58.woff2",
+      "bytes": 96444,
+      "glyphCoverage": 480
+    },
+    {
+      "file": "pretendard-fallback-59.woff2",
+      "bytes": 84140,
+      "glyphCoverage": 475
+    },
+    {
+      "file": "pretendard-fallback-5a.woff2",
+      "bytes": 87848,
+      "glyphCoverage": 486
+    },
+    {
+      "file": "pretendard-fallback-5b.woff2",
+      "bytes": 97712,
+      "glyphCoverage": 489
+    },
+    {
+      "file": "pretendard-fallback-5c.woff2",
+      "bytes": 87068,
+      "glyphCoverage": 473
+    },
+    {
+      "file": "pretendard-fallback-5d.woff2",
+      "bytes": 80336,
+      "glyphCoverage": 488
+    },
+    {
+      "file": "pretendard-fallback-5e.woff2",
+      "bytes": 81780,
+      "glyphCoverage": 474
+    },
+    {
+      "file": "pretendard-fallback-5f.woff2",
+      "bytes": 81832,
+      "glyphCoverage": 500
+    },
+    {
+      "file": "pretendard-fallback-60.woff2",
+      "bytes": 93856,
+      "glyphCoverage": 482
+    },
+    {
+      "file": "pretendard-fallback-61.woff2",
+      "bytes": 102324,
+      "glyphCoverage": 488
+    },
+    {
+      "file": "pretendard-fallback-62.woff2",
+      "bytes": 97776,
+      "glyphCoverage": 474
+    },
+    {
+      "file": "pretendard-fallback-63.woff2",
+      "bytes": 95552,
+      "glyphCoverage": 451
+    },
+    {
+      "file": "pretendard-fallback-64.woff2",
+      "bytes": 99236,
+      "glyphCoverage": 472
+    },
+    {
+      "file": "pretendard-fallback-65.woff2",
+      "bytes": 106908,
+      "glyphCoverage": 509
+    },
+    {
+      "file": "pretendard-fallback-66.woff2",
+      "bytes": 97500,
+      "glyphCoverage": 482
+    },
+    {
+      "file": "pretendard-fallback-67.woff2",
+      "bytes": 97176,
+      "glyphCoverage": 495
+    },
+    {
+      "file": "pretendard-fallback-68.woff2",
+      "bytes": 95516,
+      "glyphCoverage": 486
+    },
+    {
+      "file": "pretendard-fallback-69.woff2",
+      "bytes": 85860,
+      "glyphCoverage": 486
+    },
+    {
+      "file": "pretendard-fallback-6a.woff2",
+      "bytes": 91472,
+      "glyphCoverage": 482
+    },
+    {
+      "file": "pretendard-fallback-6b.woff2",
+      "bytes": 93192,
+      "glyphCoverage": 386
+    },
+    {
+      "file": "open-sans-latin.woff2",
+      "bytes": 114104,
+      "glyphCoverage": 443
+    }
+  ]
+}

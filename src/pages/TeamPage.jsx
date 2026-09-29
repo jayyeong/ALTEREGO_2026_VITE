@@ -1,9 +1,9 @@
 import React from "react";
+import ResponsiveImage from "../components/ResponsiveImage";
 import { useParams, Link } from "react-router-dom";
 import teams from "../data/teams.json";
 import membersData from "../data/members.json";
 import teamSideText from "../data/teamSideText.json";
-import { resolveAssetUrl } from "../utils/assets";
 
 const TeamPage = () => {
   const { teamId } = useParams();
@@ -25,8 +25,9 @@ const TeamPage = () => {
         <section className="flex flex-col gap-6">
           <div className="w-full max-w-[290px] mx-auto">
             <div className="w-full aspect-[3/4] bg-white overflow-hidden">
-              <img
+              <ResponsiveImage
                 src={team.poster}
+                sizes="(min-width: 1024px) 32vw, (min-width: 768px) 340px, 290px" priority
                 alt={team.name}
                 className="w-full h-full object-cover"
                 loading="lazy"
@@ -45,6 +46,7 @@ const TeamPage = () => {
         <section className="mt-14">
           <div className="w-full max-w-[340px] mx-auto aspect-video bg-black">
             <iframe
+              loading="lazy"
               className="block w-full h-full border-0"
               src={`https://www.youtube.com/embed/${team.youtubeId}`}
               title={`${team.name} Teaser`}
@@ -66,8 +68,9 @@ const TeamPage = () => {
                   className="block group w-full max-w-[135px] mx-auto"
                 >
                   <div className="relative aspect-[2/3] overflow-hidden bg-white">
-                    <img
-                      src={resolveAssetUrl(member.brochureImages?.[0] || member.profileImageUrl)}
+                    <ResponsiveImage
+                      src={member.brochureImages?.[0] || member.profileImageUrl}
+                      sizes="(min-width: 768px) 25vw, 135px"
                       alt={`${member.name} 브로슈어`}
                       loading="lazy"
                       className="absolute inset-0 h-full w-full object-cover"
@@ -128,8 +131,9 @@ const TeamPage = () => {
 
                 <div className="order-1 lg:order-2 w-full max-w-[340px] lg:max-w-none lg:w-[clamp(320px,32vw,620px)]">
                   <div className="w-full aspect-[3/4] bg-white overflow-hidden">
-                    <img
+                    <ResponsiveImage
                       src={team.poster}
+                      sizes="(min-width: 1024px) 32vw, (min-width: 768px) 340px, 290px" priority
                       alt={team.name}
                       className="w-full h-full object-cover"
                       loading="lazy"
@@ -141,6 +145,7 @@ const TeamPage = () => {
               <section className="mt-20">
                 <div className="ml-auto aspect-video w-[86%] bg-black">
                   <iframe
+                    loading="lazy"
                     className="block w-full h-full border-0"
                     src={`https://www.youtube.com/embed/${team.youtubeId}`}
                     title={`${team.name} Teaser`}
@@ -162,8 +167,9 @@ const TeamPage = () => {
                         className="block w-full group"
                       >
                         <div className="relative aspect-[2/3] overflow-hidden bg-white">
-                          <img
-                            src={resolveAssetUrl(member.brochureImages?.[0] || member.profileImageUrl)}
+                          <ResponsiveImage
+                            src={member.brochureImages?.[0] || member.profileImageUrl}
+                            sizes="(min-width: 768px) 25vw, 135px"
                             alt={`${member.name} 브로슈어`}
                             loading="lazy"
                             className="absolute inset-0 h-full w-full object-cover"

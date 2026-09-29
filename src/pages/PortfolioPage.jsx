@@ -1,8 +1,8 @@
 import React from 'react';
+import ResponsiveImage from "../components/ResponsiveImage";
 import { useParams } from 'react-router-dom';
 import members from '../data/members.json';
 import { Mail, Instagram } from 'lucide-react';
-import { resolveAssetUrl } from '../utils/assets';
 import { getRunwayImageUrls } from '../utils/runway';
 
 const ProfileTextSection = ({ member, className = '', descriptionClassName = '', lookClassName = '' }) => (
@@ -91,8 +91,9 @@ const PortfolioPage = () => {
           <div className="flex-1 min-w-0 flex justify-start">
             <div className="w-full max-w-[171px] mr-auto">
               <div className="aspect-[3/4] bg-white">
-                <img
-                  src={resolveAssetUrl(member.profileImageUrl)}
+                <ResponsiveImage
+                  src={member.profileImageUrl}
+                  sizes="171px" priority
                   alt={`${member.name} profile`}
                   className="w-full h-full object-contain"
                 />
@@ -117,8 +118,9 @@ const PortfolioPage = () => {
           {portfolioItems.map((item, idx) => (
               <div key={`${item.type}-${idx}`} className="w-full">
                 {item.type === 'image' ? (
-                  <img
-                    src={resolveAssetUrl(item.src)}
+                  <ResponsiveImage
+                    src={item.src}
+                    sizes="(min-width: 768px) 40vw, calc(100vw - 32px)" priority={idx === 0}
                     alt={
                       item.category === 'runway'
                         ? `${member.name} 런웨이 ${runwayItems.indexOf(item) + 1}`
@@ -152,8 +154,9 @@ const PortfolioPage = () => {
               <div className="p-4">
                 <div className="w-full max-w-[171px] mx-auto">
                   <div className="bg-white overflow-hidden">
-                    <img
-                      src={resolveAssetUrl(member.profileImageUrl)}
+                    <ResponsiveImage
+                      src={member.profileImageUrl}
+                      sizes="171px" priority
                       alt={`${member.name} profile`}
                       className="w-full h-full object-cover"
                     />
@@ -213,8 +216,9 @@ const PortfolioPage = () => {
                     <div key={`${item.type}-${idx}`} className="w-full">
                       {item.type === "image" ? (
                         <div className="flex w-full justify-end overflow-hidden bg-white">
-                          <img
-                            src={resolveAssetUrl(item.src)}
+                          <ResponsiveImage
+                            src={item.src}
+                            sizes="(min-width: 768px) 40vw, calc(100vw - 32px)" priority={idx === 0}
                             alt={
                               item.category === 'runway'
                                 ? `${member.name} 런웨이 ${runwayItems.indexOf(item) + 1}`

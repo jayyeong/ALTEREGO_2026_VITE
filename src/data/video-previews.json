@@ -1,0 +1,50 @@
+{
+  "videos/MainTeaser.mp4": {
+    "mobile": "optimized/videos/6bd41c4ae56aa4dc.mp4",
+    "poster": "optimized/videos/6bd41c4ae56aa4dc.webp",
+    "originalBytes": 10560958,
+    "mobileBytes": 7659400
+  },
+  "videos/dreamscape-preview.mp4": {
+    "mobile": "optimized/videos/e8076159552cf826.mp4",
+    "poster": "optimized/videos/e8076159552cf826.webp",
+    "originalBytes": 3326878,
+    "mobileBytes": 2030400
+  },
+  "videos/eleven-eleven-preview.mp4": {
+    "mobile": "optimized/videos/20747d0c23ea953e.mp4",
+    "poster": "optimized/videos/20747d0c23ea953e.webp",
+    "originalBytes": 4139128,
+    "mobileBytes": 2562109
+  },
+  "videos/limbo-preview.mp4": {
+    "mobile": "optimized/videos/312b09334783016e.mp4",
+    "poster": "optimized/videos/312b09334783016e.webp",
+    "originalBytes": 4869517,
+    "mobileBytes": 3059413
+  },
+  "videos/rei-preview.mp4": {
+    "mobile": "optimized/videos/3f46cc0bcf847e51.mp4",
+    "poster": "optimized/videos/3f46cc0bcf847e51.webp",
+    "originalBytes": 2768862,
+    "mobileBytes": 1689643
+  },
+  "videos/thorn-bloom-preview.mp4": {
+    "mobile": "optimized/videos/5965e51d36dd40b8.mp4",
+    "poster": "optimized/videos/5965e51d36dd40b8.webp",
+    "originalBytes": 5338082,
+    "mobileBytes": 3138570
+  },
+  "videos/tiny-lodge-preview.mp4": {
+    "mobile": "optimized/videos/54a00b0d143e7f33.mp4",
+    "poster": "optimized/videos/54a00b0d143e7f33.webp",
+    "originalBytes": 4489056,
+    "mobileBytes": 2694136
+  },
+  "videos/unskinned-preview.mp4": {
+    "mobile": "optimized/videos/888764e6110a9b7e.mp4",
+    "poster": "optimized/videos/888764e6110a9b7e.webp",
+    "originalBytes": 13238468,
+    "mobileBytes": 5545262
+  }
+}

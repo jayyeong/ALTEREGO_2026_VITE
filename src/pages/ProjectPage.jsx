@@ -1,4 +1,5 @@
 import React from "react";
+import ResponsiveImage from "../components/ResponsiveImage";
 import { Link } from "react-router-dom";
 
 const teams = [
@@ -17,8 +18,9 @@ const TeamCard = ({ team }) => (
     className="block text-center hover:opacity-90 transition"
   >
     <div className="w-full aspect-[3/4] overflow-hidden bg-white">
-      <img
+      <ResponsiveImage
         src={team.image}
+        sizes="(min-width: 768px) 220px, 75vw" priority={team.url === "limbo"}
         alt={team.name}
         className="w-full h-full object-cover"
       />

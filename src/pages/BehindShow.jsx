@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ResponsiveImage from "../components/ResponsiveImage";
 import { createPortal } from "react-dom";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
@@ -66,8 +67,9 @@ const ShowBehindPage = () => {
             className="block w-full cursor-zoom-in"
             aria-label={`Behind ${idx + 1} 크게 보기`}
           >
-            <img
+            <ResponsiveImage
               src={src.replace("/gallery/", "/thumbnails/")}
+              sizes="(min-width: 1024px) 260px, (min-width: 768px) 33vw, 50vw"
               alt={`Behind ${idx + 1}`}
               loading="lazy"
               decoding="async"
