@@ -1,0 +1,57 @@
+{
+  "date": "2026-09-30",
+  "baselineCommit": "1a539b0dd9aa1bb4a862e886005c63d1e146f4d8",
+  "comparisonCount": 246,
+  "fullRouteWidths": [
+    412,
+    768,
+    1440
+  ],
+  "additionalRepresentativeWidths": [
+    375,
+    1024,
+    1920
+  ],
+  "geometryToleranceCssPx": 0.75,
+  "textOrComputedStyleDifferences": 0,
+  "geometryDifferencesAboveTolerance": 0,
+  "brokenImages": 0,
+  "horizontalOverflow": 0,
+  "javascriptErrors": 0,
+  "homeVideoChecks": 16,
+  "modalChecks": 4,
+  "lookbookAnchorChecks": 7,
+  "firstPartyHttpErrorsInInteractions": 0,
+  "deploymentStatus": "blocked-pending-explicit-public-upload-approval",
+  "build": {
+    "baselineCommit": "1a539b0dd9aa1bb4a862e886005c63d1e146f4d8",
+    "performanceCommit": "ece005e8f3843932b3d7f05ae8defd4a7d350a7b",
+    "includesPortfolioSizesCorrection": true,
+    "assets": {
+      "/2026/assets/index-D8dQz9on.js": "135d570a257bfb8abc2e9d8a89650bd575db72e1f5421902fc811a225443c0df",
+      "/2026/assets/index-DqWH5-Rl.css": "42ee75d0f106cb6e4f7f9ae9329f2877be553406b0873ded559d8d750006e1e7"
+    }
+  },
+  "finalLighthouseSpotChecks": [
+    {
+      "formFactor": "mobile",
+      "route": "portfolio/eunsoo-choi",
+      "runs": 1,
+      "performance": 78,
+      "lcpMs": 4578.98385,
+      "transferBytes": 641686,
+      "runtimeError": null,
+      "httpErrors": 0
+    },
+    {
+      "formFactor": "desktop",
+      "route": "portfolio/eunsoo-choi",
+      "runs": 1,
+      "performance": 99,
+      "lcpMs": 743.16605,
+      "transferBytes": 631594,
+      "runtimeError": null,
+      "httpErrors": 0
+    }
+  ]
+}

@@ -29,3 +29,7 @@ yarn-error.log*
 *.swp
 *.swo
 /node_modules
+
+# Reproducible responsive derivatives; originals remain tracked.
+/public/optimized/images/
+/src/data/responsive-images.json

@@ -1,4 +1,5 @@
 import React from "react";
+import ResponsiveImage from "../components/ResponsiveImage";
 
 const ShowInfo = () => {
   const IMAGE_BASE_PATH = "/2026/image";
@@ -24,8 +25,9 @@ const ShowInfo = () => {
         <div className="grid items-center gap-7 md:grid-cols-[minmax(280px,0.8fr)_minmax(300px,1fr)] md:gap-12 xl:gap-16">
             <div className="w-full max-w-[350px] mx-auto lg:max-w-[430px] 2xl:max-w-[490px]">
               <div className="aspect-[1/1.414] bg-white overflow-hidden">
-                <img
+                <ResponsiveImage
                   src={POSTER_PATH}
+                  sizes="(min-width: 1536px) 490px, (min-width: 1024px) 430px, 350px" priority
                   alt="메인 포스터"
                   className="h-full w-full object-cover"
                 />
@@ -63,8 +65,9 @@ const ShowInfo = () => {
               key={image.src}
               className="overflow-hidden bg-white"
             >
-              <img
+              <ResponsiveImage
                 src={image.src}
+                sizes="(min-width: 768px) 40vw, calc(100vw - 32px)"
                 alt={image.alt}
                 loading="lazy"
                 className="h-auto w-full"
@@ -84,8 +87,9 @@ const ShowInfo = () => {
               key={image.src}
               className="overflow-hidden bg-white"
             >
-              <img
+              <ResponsiveImage
                 src={image.src}
+                sizes="(min-width: 768px) 40vw, calc(100vw - 32px)"
                 alt={image.alt}
                 loading="lazy"
                 className="h-auto w-full"

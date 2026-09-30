@@ -1,0 +1,12 @@
+{
+  "views": 148,
+  "jsErrors": 0,
+  "layoutOrRouteFailures": 0,
+  "koreanCodepoints": 11225,
+  "latinCodepoints": 443,
+  "lighthouseRuns": 120,
+  "mobileRoutes": 74,
+  "desktopLighthouseRoutes": 11,
+  "measuredBundleMatchesInitialWorkspaceBuild": true,
+  "note": "Initial 120-run workspace measurement; final release candidate is documented in release-verification.json."
+}

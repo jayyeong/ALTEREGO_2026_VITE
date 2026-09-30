@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useMemo } from "react";
+import ResponsiveImage from "../components/ResponsiveImage";
 
 const LOOKBOOK_PAGE_COUNT = 292;
 const LOOKBOOK_BASE_PATH = `${import.meta.env.BASE_URL}lookbook/`;
@@ -84,8 +85,10 @@ const LookBook = () => {
           className="w-full bg-gray-100"
           style={withIds ? { scrollMarginTop: `${scrollOffset}px` } : undefined}
         >
-          <img
+          <ResponsiveImage
             src={src}
+            sizes="(min-width: 1024px) calc((100vw - 280px) / 2), 50vw"
+            priority={i < 4}
             alt={`lookbook-${i + 1}`}
             className="w-full h-auto block object-cover"
             loading="lazy"

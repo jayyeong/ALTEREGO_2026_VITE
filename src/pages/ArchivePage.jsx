@@ -1,4 +1,5 @@
 import React from 'react';
+import ResponsiveImage from "../components/ResponsiveImage";
 
 const assetBase = import.meta.env.BASE_URL;
 
@@ -39,8 +40,9 @@ const ArchivePage = () => {
               className="group block w-full max-w-[180px] md:max-w-[220px]"
             >
               <div className="relative aspect-[3/4] overflow-hidden bg-white">
-                <img
+                <ResponsiveImage
                   src={archive.poster}
+                  sizes="(min-width: 768px) 220px, 40vw" priority
                   alt={`${archive.year} ${archive.title} poster`}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   loading="lazy"

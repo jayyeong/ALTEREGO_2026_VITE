@@ -1,5 +1,6 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import teams from "../data/teams.json";
+import videoPreviews from "../data/video-previews.json";
 import { withBaseUrl } from "../utils/assets";
 
 const teamsById = teams.reduce((acc, team) => {
@@ -73,6 +74,7 @@ export default function Home() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const current = useMemo(() => videoList[currentIndex], [currentIndex]);
+    const preview = videoPreviews[current.src.replace(/^\//, "")];
 
     const goTo = (nextIndex) => {
         const safe = (nextIndex + videoList.length) % videoList.length;
@@ -130,7 +132,9 @@ export default function Home() {
                                     <video
                                         ref={videoRef}
                                         key={currentIndex}
-                                        src={withBaseUrl(current.src)}
+                                        src={withBaseUrl(window.innerWidth < 1024 && preview ? preview.mobile : current.src)}
+                                        poster={preview ? withBaseUrl(preview.poster) : undefined}
+                                        preload="metadata"
                                         autoPlay
                                         muted
                                         playsInline

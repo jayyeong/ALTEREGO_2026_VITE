@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ResponsiveImage from "../components/ResponsiveImage";
 import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
@@ -65,8 +66,9 @@ export default function Runway() {
                           className="block w-full cursor-zoom-in"
                           aria-label={`${member.name} runway ${idx + 1} 크게 보기`}
                         >
-                          <img
+                          <ResponsiveImage
                             src={src.replace("/runway/", "/runway-thumbnails/")}
+                            sizes="(min-width: 768px) 180px, 25vw"
                             alt={`${member.name} runway ${idx + 1}`}
                             loading="lazy"
                             decoding="async"

@@ -14,13 +14,19 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "media:generate": "node scripts/generate-responsive-images.mjs",
+    "prebuild": "npm run media:generate",
+    "predev": "npm run media:generate",
+    "prestart": "npm run media:generate",
+    "media:videos": "node scripts/generate-video-previews.mjs"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.7.0",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.35",
     "postcss-preset-env": "^10.1.6",
+    "sharp": "0.34.5",
     "tailwindcss": "^3.4.1",
     "vite": "^6.4.2"
   }
