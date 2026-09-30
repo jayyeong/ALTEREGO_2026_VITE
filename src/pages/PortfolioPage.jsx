@@ -120,7 +120,7 @@ const PortfolioPage = () => {
                 {item.type === 'image' ? (
                   <ResponsiveImage
                     src={item.src}
-                    sizes="(min-width: 768px) 40vw, calc(100vw - 32px)" priority={idx === 0}
+                    sizes="(min-width: 1280px) 680px, (min-width: 1024px) 560px, (min-width: 768px) 280px, calc(100vw - 32px)" priority={idx === 0}
                     alt={
                       item.category === 'runway'
                         ? `${member.name} 런웨이 ${runwayItems.indexOf(item) + 1}`
@@ -218,7 +218,7 @@ const PortfolioPage = () => {
                         <div className="flex w-full justify-end overflow-hidden bg-white">
                           <ResponsiveImage
                             src={item.src}
-                            sizes="(min-width: 768px) 40vw, calc(100vw - 32px)" priority={idx === 0}
+                            sizes="(min-width: 1280px) 680px, (min-width: 1024px) 560px, (min-width: 768px) 280px, calc(100vw - 32px)" priority={idx === 0}
                             alt={
                               item.category === 'runway'
                                 ? `${member.name} 런웨이 ${runwayItems.indexOf(item) + 1}`

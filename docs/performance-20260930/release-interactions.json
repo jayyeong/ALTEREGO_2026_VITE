@@ -1,0 +1,281 @@
+{
+  "videos": [
+    {
+      "viewportWidth": 412,
+      "n": 0,
+      "src": "http://127.0.0.1:4177/2026/optimized/videos/6bd41c4ae56aa4dc.mp4",
+      "width": 1280,
+      "height": 720,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 412,
+      "n": 1,
+      "src": "http://127.0.0.1:4177/2026/optimized/videos/312b09334783016e.mp4",
+      "width": 1280,
+      "height": 692,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 412,
+      "n": 2,
+      "src": "http://127.0.0.1:4177/2026/optimized/videos/888764e6110a9b7e.mp4",
+      "width": 1280,
+      "height": 720,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 412,
+      "n": 3,
+      "src": "http://127.0.0.1:4177/2026/optimized/videos/e8076159552cf826.mp4",
+      "width": 1280,
+      "height": 720,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 412,
+      "n": 4,
+      "src": "http://127.0.0.1:4177/2026/optimized/videos/54a00b0d143e7f33.mp4",
+      "width": 1280,
+      "height": 720,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 412,
+      "n": 5,
+      "src": "http://127.0.0.1:4177/2026/optimized/videos/20747d0c23ea953e.mp4",
+      "width": 1280,
+      "height": 720,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 412,
+      "n": 6,
+      "src": "http://127.0.0.1:4177/2026/optimized/videos/5965e51d36dd40b8.mp4",
+      "width": 1280,
+      "height": 720,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 412,
+      "n": 7,
+      "src": "http://127.0.0.1:4177/2026/optimized/videos/3f46cc0bcf847e51.mp4",
+      "width": 1280,
+      "height": 720,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 1440,
+      "n": 0,
+      "src": "http://127.0.0.1:4177/2026/videos/MainTeaser.mp4",
+      "width": 1920,
+      "height": 1080,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 1440,
+      "n": 1,
+      "src": "http://127.0.0.1:4177/2026/videos/limbo-preview.mp4",
+      "width": 1920,
+      "height": 1038,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 1440,
+      "n": 2,
+      "src": "http://127.0.0.1:4177/2026/videos/unskinned-preview.mp4",
+      "width": 1920,
+      "height": 1080,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 1440,
+      "n": 3,
+      "src": "http://127.0.0.1:4177/2026/videos/dreamscape-preview.mp4",
+      "width": 1920,
+      "height": 1080,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 1440,
+      "n": 4,
+      "src": "http://127.0.0.1:4177/2026/videos/tiny-lodge-preview.mp4",
+      "width": 1920,
+      "height": 1080,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 1440,
+      "n": 5,
+      "src": "http://127.0.0.1:4177/2026/videos/eleven-eleven-preview.mp4",
+      "width": 1920,
+      "height": 1080,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 1440,
+      "n": 6,
+      "src": "http://127.0.0.1:4177/2026/videos/thorn-bloom-preview.mp4",
+      "width": 1920,
+      "height": 1080,
+      "playing": true,
+      "error": null
+    },
+    {
+      "viewportWidth": 1440,
+      "n": 7,
+      "src": "http://127.0.0.1:4177/2026/videos/rei-preview.mp4",
+      "width": 1920,
+      "height": 1080,
+      "playing": true,
+      "error": null
+    }
+  ],
+  "modals": [
+    {
+      "width": 412,
+      "route": "behind/",
+      "original": "/2026/behind/gallery/behind-203.webp",
+      "next": "/2026/behind/gallery/behind-001.webp",
+      "wrapped": true,
+      "previousRestored": true,
+      "closed": true,
+      "bodyUnlocked": true
+    },
+    {
+      "width": 412,
+      "route": "project/runway",
+      "original": "/2026/runway/rei/rurika_kuroshima_runway_2.webp",
+      "next": "/2026/runway/limbo/sungeon_chae_runway_1.webp",
+      "wrapped": true,
+      "previousRestored": true,
+      "closed": true,
+      "bodyUnlocked": true
+    },
+    {
+      "width": 1440,
+      "route": "behind/",
+      "original": "/2026/behind/gallery/behind-203.webp",
+      "next": "/2026/behind/gallery/behind-001.webp",
+      "wrapped": true,
+      "previousRestored": true,
+      "closed": true,
+      "bodyUnlocked": true
+    },
+    {
+      "width": 1440,
+      "route": "project/runway",
+      "original": "/2026/runway/rei/rurika_kuroshima_runway_2.webp",
+      "next": "/2026/runway/limbo/sungeon_chae_runway_1.webp",
+      "wrapped": true,
+      "previousRestored": true,
+      "closed": true,
+      "bodyUnlocked": true
+    }
+  ],
+  "anchors": [
+    {
+      "name": "Limbo",
+      "top": 8.421875,
+      "loaded": true
+    },
+    {
+      "name": "(Un)skinned",
+      "top": 8.078125,
+      "loaded": true
+    },
+    {
+      "name": "Dreamscape",
+      "top": 7.75,
+      "loaded": true
+    },
+    {
+      "name": "Tiny Lodge",
+      "top": 7.84375,
+      "loaded": true
+    },
+    {
+      "name": "11:11",
+      "top": 8.515625,
+      "loaded": true
+    },
+    {
+      "name": "Thorn Bloom",
+      "top": 8.90625,
+      "loaded": true
+    },
+    {
+      "name": "RE:I",
+      "top": 8.015625,
+      "loaded": true
+    }
+  ],
+  "routes": [
+    {
+      "route": "store",
+      "path": "/2026/store",
+      "text": "2026 KUAD Graduation\n건국대학교 의상디자인학과\nALTER EGO\nINFO\nPROJECT\nIMAGE\nSTORE\nBEHIND\nARCHIVE\n\nALTER EGO 2026\n\nStore Closed\n\nALTER EGO 2026 스토어 운영이 종료되었습니다.\n이용해 주셔서 감사합니다."
+    },
+    {
+      "route": "store/all",
+      "path": "/2026/store/all",
+      "text": "2026 KUAD Graduation\n건국대학교 의상디자인학과\nALTER EGO\nINFO\nPROJECT\nIMAGE\nSTORE\nBEHIND\nARCHIVE\n\nALTER EGO 2026\n\nStore Closed\n\nALTER EGO 2026 스토어 운영이 종료되었습니다.\n이용해 주셔서 감사합니다."
+    },
+    {
+      "route": "store/team/rei",
+      "path": "/2026/store/team/rei",
+      "text": "2026 KUAD Graduation\n건국대학교 의상디자인학과\nALTER EGO\nINFO\nPROJECT\nIMAGE\nSTORE\nBEHIND\nARCHIVE\n\nALTER EGO 2026\n\nStore Closed\n\nALTER EGO 2026 스토어 운영이 종료되었습니다.\n이용해 주셔서 감사합니다."
+    },
+    {
+      "route": "store/item/test",
+      "path": "/2026/store/item/test",
+      "text": "2026 KUAD Graduation\n건국대학교 의상디자인학과\nALTER EGO\nINFO\nPROJECT\nIMAGE\nSTORE\nBEHIND\nARCHIVE\n\nALTER EGO 2026\n\nStore Closed\n\nALTER EGO 2026 스토어 운영이 종료되었습니다.\n이용해 주셔서 감사합니다."
+    },
+    {
+      "route": "checkout",
+      "path": "/2026/checkout",
+      "text": "2026 KUAD Graduation\n건국대학교 의상디자인학과\nALTER EGO\nINFO\nPROJECT\nIMAGE\nSTORE\nBEHIND\nARCHIVE\n\nALTER EGO 2026\n\nStore Closed\n\nALTER EGO 2026 스토어 운영이 종료되었습니다.\n이용해 주셔서 감사합니다."
+    },
+    {
+      "route": "order-complete/test",
+      "path": "/2026/order-complete/test",
+      "text": "2026 KUAD Graduation\n건국대학교 의상디자인학과\nALTER EGO\nINFO\nPROJECT\nIMAGE\nSTORE\nBEHIND\nARCHIVE\n\nALTER EGO 2026\n\nStore Closed\n\nALTER EGO 2026 스토어 운영이 종료되었습니다.\n이용해 주셔서 감사합니다."
+    },
+    {
+      "route": "opening-soon",
+      "path": "/2026/store-closed",
+      "text": "2026 KUAD Graduation\n건국대학교 의상디자인학과\nALTER EGO\nINFO\nPROJECT\nIMAGE\nSTORE\nBEHIND\nARCHIVE\n\nALTER EGO 2026\n\nStore Closed\n\nALTER EGO 2026 스토어 운영이 종료되었습니다.\n이용해 주셔서 감사합니다."
+    },
+    {
+      "route": "behind/show",
+      "path": "/2026/behind/",
+      "text": "이 위의 몇 분을 위해 쌓여온 수많은 시간들.\n디자이너와 모델, 그리고 수많은 스태프들의 준비 과정 속에는 쇼의 또 다른 이야기가 존재합니다.\nALTER EGO의 무대 뒤에서 펼쳐진 준비와 열정의 순간들을 기록했습니다.\n보이지 않는 곳에서 이어진 수많은 선택과 노력, 그리고 무대를 향한 진심을 이곳에 담아 아카이빙합니다."
+    },
+    {
+      "route": "behind/brochure",
+      "path": "/2026/behind/",
+      "text": "이 위의 몇 분을 위해 쌓여온 수많은 시간들.\n디자이너와 모델, 그리고 수많은 스태프들의 준비 과정 속에는 쇼의 또 다른 이야기가 존재합니다.\nALTER EGO의 무대 뒤에서 펼쳐진 준비와 열정의 순간들을 기록했습니다.\n보이지 않는 곳에서 이어진 수많은 선택과 노력, 그리고 무대를 향한 진심을 이곳에 담아 아카이빙합니다."
+    },
+    {
+      "route": "behind/making",
+      "path": "/2026/behind/",
+      "text": "이 위의 몇 분을 위해 쌓여온 수많은 시간들.\n디자이너와 모델, 그리고 수많은 스태프들의 준비 과정 속에는 쇼의 또 다른 이야기가 존재합니다.\nALTER EGO의 무대 뒤에서 펼쳐진 준비와 열정의 순간들을 기록했습니다.\n보이지 않는 곳에서 이어진 수많은 선택과 노력, 그리고 무대를 향한 진심을 이곳에 담아 아카이빙합니다."
+    }
+  ],
+  "errors": [],
+  "httpErrors": []
+}

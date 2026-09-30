@@ -7,5 +7,6 @@
   "lighthouseRuns": 120,
   "mobileRoutes": 74,
   "desktopLighthouseRoutes": 11,
-  "measuredBundleMatchesFinalBuild": true
+  "measuredBundleMatchesInitialWorkspaceBuild": true,
+  "note": "Initial 120-run workspace measurement; final release candidate is documented in release-verification.json."
 }

@@ -1,0 +1,2861 @@
+[
+  {
+    "rows": [
+      {
+        "route": "",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 63,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "show-info",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 76,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "project/",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 85,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "project/look-book",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 636,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "project/runway",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 485,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "behind/",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 462,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "archive",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 62,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "store-closed",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 51,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/limbo",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 106,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/unskinned",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 94,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/dreamscape",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 98,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/tiny-lodge",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 94,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "team/eleven-eleven",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 90,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/thorn-bloom",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 86,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/rei",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 102,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/sungeon-chae",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/eunsoo-choi",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/wootak-kim",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/junhui-kim",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jaepyo-seo",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/seoyeon-song",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/heeju-xim",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ihak-lee",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/dahyun-lim",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/hyunmin-cho",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/daejin-hwang",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/youngseo-kim",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/yejin-park",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ye-ol-kim",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/yuna-kim",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/jin-jae-lee",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ara-cho",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/woojin-cho",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jeongho-pyo",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jin-huiling",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/su-hnin-wutt-hmone",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/wang-jialu",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/natasha",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ana",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/wang-keer",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/shannia",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/zhao-yongqi",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/chellsy",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/seunghee-seo",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jusun-lee",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/eunji-ko",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/moojin-jung",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/chaewon-song",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/joonwoo-park",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jaemin-shin",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/dahyun-lee",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/kim-ji-hoon",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 87,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ju-yewon",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 87,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/yang-yan-hong",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 85,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/zhang-wanying",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 87,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/zhou-kechen",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 87,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ashley",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 82,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/han-ji-hee",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 87,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/lee-seunghyeon",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 87,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/kim-jiwoo",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 86,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/lee-gaeun",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 86,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/bok-eunji",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 86,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/lee-somin",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 86,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/lim-ian",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 86,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/shinyeong-an",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 86,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/youngrok-shin",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/sejin-kwak",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/kyeongmin-roh",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jeongmin-park",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 86,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/hyebeen-yoon",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/naeun-lee",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/seungki-lee",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/hyeok-lee",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/rurika-kuroshima",
+        "width": 412,
+        "sameText": true,
+        "elementCount": 80,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 63,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "show-info",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 76,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "project/",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 81,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "project/look-book",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 636,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "project/runway",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 485,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "behind/",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 462,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "archive",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 62,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "store-closed",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 51,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/limbo",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 136,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/unskinned",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 118,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/dreamscape",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 124,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/tiny-lodge",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 118,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "team/eleven-eleven",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 112,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/thorn-bloom",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 106,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/rei",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 130,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/sungeon-chae",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/eunsoo-choi",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/wootak-kim",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/junhui-kim",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jaepyo-seo",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/seoyeon-song",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/heeju-xim",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ihak-lee",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/dahyun-lim",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/hyunmin-cho",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/daejin-hwang",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/youngseo-kim",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/yejin-park",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ye-ol-kim",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/yuna-kim",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/jin-jae-lee",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ara-cho",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/woojin-cho",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jeongho-pyo",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jin-huiling",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/su-hnin-wutt-hmone",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/wang-jialu",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/natasha",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ana",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/wang-keer",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/shannia",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/zhao-yongqi",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/chellsy",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/seunghee-seo",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jusun-lee",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/eunji-ko",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/moojin-jung",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/chaewon-song",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/joonwoo-park",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jaemin-shin",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/dahyun-lee",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/kim-ji-hoon",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 95,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ju-yewon",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 95,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/yang-yan-hong",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 92,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/zhang-wanying",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 95,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/zhou-kechen",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 95,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ashley",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 90,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/han-ji-hee",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 95,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/lee-seunghyeon",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 95,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/kim-jiwoo",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 94,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/lee-gaeun",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 94,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/bok-eunji",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 94,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/lee-somin",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 94,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/lim-ian",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 94,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/shinyeong-an",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 94,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/youngrok-shin",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/sejin-kwak",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/kyeongmin-roh",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jeongmin-park",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 94,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/hyebeen-yoon",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/naeun-lee",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/seungki-lee",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/hyeok-lee",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/rurika-kuroshima",
+        "width": 768,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 39,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "show-info",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 52,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "project/",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 57,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "project/look-book",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 631,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "project/runway",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 461,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "behind/",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 438,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "archive",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 38,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "store-closed",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 27,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/limbo",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 112,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/unskinned",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 94,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/dreamscape",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 100,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/tiny-lodge",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 94,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "team/eleven-eleven",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 88,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/thorn-bloom",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 82,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "team/rei",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 106,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/sungeon-chae",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/eunsoo-choi",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/wootak-kim",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/junhui-kim",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jaepyo-seo",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/seoyeon-song",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/heeju-xim",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ihak-lee",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/dahyun-lim",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/hyunmin-cho",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/daejin-hwang",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/youngseo-kim",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/yejin-park",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ye-ol-kim",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/yuna-kim",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/jin-jae-lee",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ara-cho",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/woojin-cho",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jeongho-pyo",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jin-huiling",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/su-hnin-wutt-hmone",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/wang-jialu",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/natasha",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ana",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/wang-keer",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/shannia",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/zhao-yongqi",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/chellsy",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/seunghee-seo",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jusun-lee",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/eunji-ko",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/moojin-jung",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/chaewon-song",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/joonwoo-park",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jaemin-shin",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/dahyun-lee",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/kim-ji-hoon",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 71,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ju-yewon",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 71,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/yang-yan-hong",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 68,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/zhang-wanying",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 71,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/zhou-kechen",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 71,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/ashley",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 66,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/han-ji-hee",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 71,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/lee-seunghyeon",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 71,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/kim-jiwoo",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 70,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/lee-gaeun",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 70,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/bok-eunji",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 70,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/lee-somin",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 70,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/lim-ian",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 70,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/shinyeong-an",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 70,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/youngrok-shin",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/sejin-kwak",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/kyeongmin-roh",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/jeongmin-park",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 70,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/hyebeen-yoon",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/naeun-lee",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/seungki-lee",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  },
+  {
+    "rows": [
+      {
+        "route": "portfolio/hyeok-lee",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      },
+      {
+        "route": "portfolio/rurika-kuroshima",
+        "width": 1440,
+        "sameText": true,
+        "elementCount": 64,
+        "differenceCount": 0,
+        "differences": [],
+        "brokenBefore": [],
+        "brokenAfter": [],
+        "overflowBefore": false,
+        "overflowAfter": false
+      }
+    ],
+    "errors": []
+  }
+]
