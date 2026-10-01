@@ -13,7 +13,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/generate-static-pages.mjs",
     "preview": "vite preview",
     "media:generate": "node scripts/generate-responsive-images.mjs",
     "prebuild": "npm run media:generate",

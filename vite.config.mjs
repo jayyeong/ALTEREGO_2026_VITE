@@ -1,9 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { criticalPreloads } from './scripts/critical-preloads.mjs';
 
 export default defineConfig({
   plugins: [
     react(),
+    criticalPreloads(),
     {
       name: 'redirect-root-to-base',
       configureServer(server) {
@@ -21,4 +23,5 @@ export default defineConfig({
     },
   ],
   base: '/2026/',
+  build: { manifest: true },
 });

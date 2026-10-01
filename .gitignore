@@ -9,6 +9,7 @@
 # production
 /build
 /dist
+/.deployment
 /.private-backups
 
 # misc

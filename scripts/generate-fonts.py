@@ -1,6 +1,8 @@
 """Run with fonttools[woff]. Preserves all previously supported Hangul/Latin glyphs."""
 from pathlib import Path
 import json
+import tempfile
+from fontTools.varLib.instancer import instantiateVariableFont
 from fontTools import subset
 from fontTools.ttLib import TTFont
 ROOT=Path(__file__).resolve().parents[1]
@@ -35,8 +37,17 @@ for block in sorted({c//512 for c in remaining}):
     write(source,chars,f'pretendard-fallback-{block:x}.woff2')
 latin=ROOT/'src/fonts/OpenSans-VariableFont_wght.ttf'
 chars={c for c in TTFont(latin).getBestCmap() if c<=0x024F or 0x1E00<=c<=0x1EFF}
-write(latin,chars,'open-sans-latin.woff2')
+# All styles use normal font stretch. Pin the unused width axis to its default
+# while retaining every weight and the original glyph coverage.
+font=TTFont(latin)
+instantiateVariableFont(font, {'wdth': 100}, inplace=True)
+with tempfile.TemporaryDirectory() as directory:
+    pinned=Path(directory)/'open-sans.ttf'
+    font.save(pinned)
+    common_latin=chars & ({ord(c) for c in text} | set(range(0x80)))
+    write(pinned, common_latin, 'open-sans-latin.woff2')
+    write(pinned, chars-common_latin, 'open-sans-extended.woff2')
 (OUT/'fonts.css').write_text('\n'.join(css))
-(ROOT/'docs/performance-20260930').mkdir(parents=True,exist_ok=True)
-(ROOT/'docs/performance-20260930/font-generation.json').write_text(json.dumps({'commonKoreanCharacters':len(common),'files':report},indent=2)+'\n')
-print(json.dumps({'commonKoreanCharacters':len(common),'commonFontBytes':report[0]['bytes'],'latinFontBytes':report[-1]['bytes'],'preservedKoreanCharacters':len(allchars)}))
+(ROOT/'docs/performance-20261001').mkdir(parents=True,exist_ok=True)
+(ROOT/'docs/performance-20261001/font-generation.json').write_text(json.dumps({'commonKoreanCharacters':len(common),'files':report},indent=2)+'\n')
+print(json.dumps({'commonKoreanCharacters':len(common),'commonFontBytes':report[0]['bytes'],'latinFontBytes':report[-2]['bytes'],'preservedKoreanCharacters':len(allchars)}))

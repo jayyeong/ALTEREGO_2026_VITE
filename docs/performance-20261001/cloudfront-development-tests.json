@@ -1,0 +1,71 @@
+{
+  "stage": "DEVELOPMENT",
+  "ETag": "E1F83G8C2ARO7P",
+  "checks": [
+    {
+      "uri": "/2026/",
+      "expected": "/2026/pages/home.html",
+      "actual": "/2026/pages/home.html",
+      "error": "",
+      "computeUtilization": "6",
+      "passed": true
+    },
+    {
+      "uri": "/2026/show-info",
+      "expected": "/2026/pages/show-info.html",
+      "actual": "/2026/pages/show-info.html",
+      "error": "",
+      "computeUtilization": "6",
+      "passed": true
+    },
+    {
+      "uri": "/2026/project/look-book/",
+      "expected": "/2026/pages/project__look-book.html",
+      "actual": "/2026/pages/project__look-book.html",
+      "error": "",
+      "computeUtilization": "7",
+      "passed": true
+    },
+    {
+      "uri": "/2026/team/rei",
+      "expected": "/2026/pages/team__rei.html",
+      "actual": "/2026/pages/team__rei.html",
+      "error": "",
+      "computeUtilization": "7",
+      "passed": true
+    },
+    {
+      "uri": "/2026/portfolio/eunsoo-choi",
+      "expected": "/2026/pages/portfolio__eunsoo-choi.html",
+      "actual": "/2026/pages/portfolio__eunsoo-choi.html",
+      "error": "",
+      "computeUtilization": "8",
+      "passed": true
+    },
+    {
+      "uri": "/2024/project/test",
+      "expected": "/2024/index.html",
+      "actual": "/2024/index.html",
+      "error": "",
+      "computeUtilization": "6",
+      "passed": true
+    },
+    {
+      "uri": "/2025/project/test",
+      "expected": "/2025/index.html",
+      "actual": "/2025/index.html",
+      "error": "",
+      "computeUtilization": "7",
+      "passed": true
+    },
+    {
+      "uri": "/2026/admin/dashboard",
+      "expected": "/2026/index.html",
+      "actual": "/2026/index.html",
+      "error": "",
+      "computeUtilization": "7",
+      "passed": true
+    }
+  ],
+  "published": false
+}

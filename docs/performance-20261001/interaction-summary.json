@@ -1,0 +1,11 @@
+{
+  "videos": 16,
+  "allVideosPlaying": true,
+  "modals": 4,
+  "allModalsPassed": true,
+  "anchors": 7,
+  "allAnchorsPassed": true,
+  "routes": 10,
+  "siteRuntimeErrors": [],
+  "siteHttpErrors": []
+}
