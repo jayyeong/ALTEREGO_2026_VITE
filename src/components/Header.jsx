@@ -242,7 +242,7 @@ const Header = () => {
               </div>
 
               <div className="flex items-center gap-3">
-                <button onClick={() => { setIsMobileOpen(o => !o); setExpandedMobile(null); }}>
+                <button type="button" aria-label={isMobileOpen ? "메뉴 닫기" : "메뉴 열기"} aria-expanded={isMobileOpen} aria-controls="mobile-navigation" onClick={() => { setIsMobileOpen(o => !o); setExpandedMobile(null); }}>
                   {isMobileOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
               </div>
@@ -255,6 +255,9 @@ const Header = () => {
         )}
 
         <div
+          id="mobile-navigation"
+          aria-hidden={!isMobileOpen}
+          inert={!isMobileOpen}
           className={`
             fixed top-0 right-0 bottom-0 w-[280px] bg-white z-50 border-b border-black/20
             transform transition-transform duration-300 
@@ -262,7 +265,7 @@ const Header = () => {
           `}
         >
           <div className="pt-20 px-6 pb-20 overflow-y-auto h-full relative">
-            <button className="absolute top-4 right-4" onClick={closeMobile}>
+            <button type="button" aria-label="메뉴 닫기" className="absolute top-4 right-4" onClick={closeMobile}>
               <X size={24} />
             </button>
 
@@ -281,12 +284,15 @@ const Header = () => {
                       onClick={() => onMobileTopClick(menu)}
                       style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
                       aria-disabled={isLocked}
+                      aria-expanded={hasSub ? isOpen : undefined}
                     >
                       {menu.label}
                     </button>
 
                     {hasSub && (
                       <div
+                        inert={!isOpen}
+                        aria-hidden={!isOpen}
                         className={`
                               grid transition-[grid-template-rows,opacity,margin] duration-300 ease-out
                               ${isOpen ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0 mt-0'}
@@ -316,10 +322,10 @@ const Header = () => {
             </ul>
 
             <div className="absolute bottom-6 left-6 flex space-x-4">
-              <a href="https://www.instagram.com/kuad_archive/" target="_blank" rel="noopener noreferrer">
+              <a aria-label="KUAD 인스타그램 (새 탭)" href="https://www.instagram.com/kuad_archive/" target="_blank" rel="noopener noreferrer">
                 <Instagram className="w-6 h-6" />
               </a>
-              <a href="https://www.youtube.com/@kuappareldesign" target="_blank" rel="noopener noreferrer">
+              <a aria-label="KUAD 유튜브 (새 탭)" href="https://www.youtube.com/@kuappareldesign" target="_blank" rel="noopener noreferrer">
                 <Youtube className="w-6 h-6" />
               </a>
             </div>
