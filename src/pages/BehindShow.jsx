@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ResponsiveImage from "../components/ResponsiveImage";
+import LazyIframe from "../components/LazyIframe";
 import { createPortal } from "react-dom";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
@@ -36,7 +37,7 @@ const ShowBehindPage = () => {
   return (
     <div className="mx-auto max-w-[1140px] space-y-[92px] px-4 py-10 md:space-y-[112px] md:py-14">
       <div className="w-full max-w-[860px] mx-auto aspect-video">
-        <iframe
+        <LazyIframe
           src="https://www.youtube.com/embed/sMeZQnVp-hg"
           title="BEHIND"
           className="w-full h-full"
