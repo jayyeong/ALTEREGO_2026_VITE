@@ -1,0 +1,257 @@
+{
+  "rows": [
+    {
+      "width": 412,
+      "team": "limbo",
+      "before": {
+        "top": 879.65625,
+        "width": 340,
+        "height": 191.25,
+        "src": null
+      },
+      "after": {
+        "width": 340,
+        "height": 191.25,
+        "src": "https://www.youtube.com/embed/s_I6g-OUfmI"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    },
+    {
+      "width": 412,
+      "team": "unskinned",
+      "before": {
+        "top": 970.65625,
+        "width": 340,
+        "height": 191.25,
+        "src": null
+      },
+      "after": {
+        "width": 340,
+        "height": 191.25,
+        "src": "https://www.youtube.com/embed/xmSYgqmgjrk"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    },
+    {
+      "width": 412,
+      "team": "dreamscape",
+      "before": {
+        "top": 788.65625,
+        "width": 340,
+        "height": 191.25,
+        "src": "https://www.youtube.com/embed/OxLdqkDTJkM"
+      },
+      "after": {
+        "width": 340,
+        "height": 191.25,
+        "src": "https://www.youtube.com/embed/OxLdqkDTJkM"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    },
+    {
+      "width": 412,
+      "team": "tiny-lodge",
+      "before": {
+        "top": 765.90625,
+        "width": 340,
+        "height": 191.25,
+        "src": "https://www.youtube.com/embed/kWbXFovwkwg"
+      },
+      "after": {
+        "width": 340,
+        "height": 191.25,
+        "src": "https://www.youtube.com/embed/kWbXFovwkwg"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    },
+    {
+      "width": 412,
+      "team": "eleven-eleven",
+      "before": {
+        "top": 834.15625,
+        "width": 340,
+        "height": 191.25,
+        "src": null
+      },
+      "after": {
+        "width": 340,
+        "height": 191.25,
+        "src": "https://www.youtube.com/embed/MoD3Qqzu-Eg"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    },
+    {
+      "width": 412,
+      "team": "thorn-bloom",
+      "before": {
+        "top": 834.15625,
+        "width": 340,
+        "height": 191.25,
+        "src": null
+      },
+      "after": {
+        "width": 340,
+        "height": 191.25,
+        "src": "https://www.youtube.com/embed/HqyRT4Ask4I"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    },
+    {
+      "width": 412,
+      "team": "rei",
+      "before": {
+        "top": 925.15625,
+        "width": 340,
+        "height": 191.25,
+        "src": null
+      },
+      "after": {
+        "width": 340,
+        "height": 191.25,
+        "src": "https://www.youtube.com/embed/ECPxC1z8ZV0"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    },
+    {
+      "width": 1440,
+      "team": "limbo",
+      "before": {
+        "top": 814.390625,
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/s_I6g-OUfmI"
+      },
+      "after": {
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/s_I6g-OUfmI"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    },
+    {
+      "width": 1440,
+      "team": "unskinned",
+      "before": {
+        "top": 814.390625,
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/xmSYgqmgjrk"
+      },
+      "after": {
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/xmSYgqmgjrk"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    },
+    {
+      "width": 1440,
+      "team": "dreamscape",
+      "before": {
+        "top": 814.390625,
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/OxLdqkDTJkM"
+      },
+      "after": {
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/OxLdqkDTJkM"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    },
+    {
+      "width": 1440,
+      "team": "tiny-lodge",
+      "before": {
+        "top": 814.390625,
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/kWbXFovwkwg"
+      },
+      "after": {
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/kWbXFovwkwg"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    },
+    {
+      "width": 1440,
+      "team": "eleven-eleven",
+      "before": {
+        "top": 814.390625,
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/MoD3Qqzu-Eg"
+      },
+      "after": {
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/MoD3Qqzu-Eg"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    },
+    {
+      "width": 1440,
+      "team": "thorn-bloom",
+      "before": {
+        "top": 814.390625,
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/HqyRT4Ask4I"
+      },
+      "after": {
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/HqyRT4Ask4I"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    },
+    {
+      "width": 1440,
+      "team": "rei",
+      "before": {
+        "top": 814.390625,
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/ECPxC1z8ZV0"
+      },
+      "after": {
+        "width": 946,
+        "height": 532.125,
+        "src": "https://www.youtube.com/embed/ECPxC1z8ZV0"
+      },
+      "hiddenSources": [],
+      "sizeUnchanged": true,
+      "deferredIfOutside": true
+    }
+  ],
+  "errors": []
+}
