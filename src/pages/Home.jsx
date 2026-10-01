@@ -1,12 +1,16 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState, useSyncExternalStore } from "react";
 import teams from "../data/teams.json";
 import videoPreviews from "../data/video-previews.json";
-import { withBaseUrl } from "../utils/assets";
+import { withBaseUrl } from "../utils/paths";
 
 const teamsById = teams.reduce((acc, team) => {
     acc[team.id] = team;
     return acc;
 }, {});
+
+const subscribeViewport = () => () => {};
+const mobileViewport = () => window.innerWidth < 1024;
+const serverViewport = () => false;
 
 const getCaptionLines = (teamId) => {
     const description = teamsById[teamId]?.description;
@@ -71,6 +75,7 @@ const videoList = [
 
 export default function Home() {
     const videoRef = useRef(null);
+    const mobileControls = useSyncExternalStore(subscribeViewport, mobileViewport, serverViewport);
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const current = useMemo(() => videoList[currentIndex], [currentIndex]);
@@ -132,7 +137,6 @@ export default function Home() {
                                     <video
                                         ref={videoRef}
                                         key={currentIndex}
-                                        src={withBaseUrl(window.innerWidth < 1024 && preview ? preview.mobile : current.src)}
                                         poster={preview ? withBaseUrl(preview.poster) : undefined}
                                         preload="metadata"
                                         autoPlay
@@ -140,9 +144,12 @@ export default function Home() {
                                         playsInline
                                         loop={false}
                                         onEnded={handleEnded}
-                                        controls={window.innerWidth < 1024}
+                                        controls={mobileControls}
                                         className="w-full h-full object-cover cursor-pointer"
-                                    />
+                                    >
+                                        {preview && <source media="(max-width: 1023px)" src={withBaseUrl(preview.mobile)} type="video/mp4" />}
+                                        <source src={withBaseUrl(current.src)} type="video/mp4" />
+                                    </video>
 
                                     <div className="block">
                                         <button

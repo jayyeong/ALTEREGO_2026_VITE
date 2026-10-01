@@ -1,0 +1,12 @@
+{
+  "release-comparison": {
+    "checks": 222,
+    "failures": 0,
+    "errors": 0
+  },
+  "extra-width-comparison": {
+    "checks": 24,
+    "failures": 0,
+    "errors": 0
+  }
+}
