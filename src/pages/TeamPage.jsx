@@ -1,5 +1,6 @@
 import React from "react";
 import ResponsiveImage from "../components/ResponsiveImage";
+import LazyIframe from "../components/LazyIframe";
 import { useParams, Link } from "react-router-dom";
 import teams from "../data/teams.json";
 import membersData from "../data/members.json";
@@ -45,7 +46,7 @@ const TeamPage = () => {
 
         <section className="mt-14">
           <div className="w-full max-w-[340px] mx-auto aspect-video bg-black">
-            <iframe
+            <LazyIframe
               loading="lazy"
               className="block w-full h-full border-0"
               src={`https://www.youtube.com/embed/${team.youtubeId}`}
@@ -144,7 +145,7 @@ const TeamPage = () => {
 
               <section className="mt-20">
                 <div className="ml-auto aspect-video w-[86%] bg-black">
-                  <iframe
+                  <LazyIframe
                     loading="lazy"
                     className="block w-full h-full border-0"
                     src={`https://www.youtube.com/embed/${team.youtubeId}`}

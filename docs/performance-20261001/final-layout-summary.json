@@ -1,0 +1,16 @@
+{
+  "comparisonCount": 246,
+  "failures": [],
+  "errors": [],
+  "geometryToleranceCssPx": 0.75,
+  "viewports": [
+    375,
+    412,
+    768,
+    1024,
+    1440,
+    1920
+  ],
+  "baseline": "2026-09-30 production build",
+  "candidate": "final-release-identity.json"
+}

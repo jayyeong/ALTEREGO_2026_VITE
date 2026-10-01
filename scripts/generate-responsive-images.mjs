@@ -31,7 +31,9 @@ async function worker() {
     const width = meta.autoOrient?.width || meta.width;
     const height = meta.autoOrient?.height || meta.height;
     const profile = source.includes('/profile/');
-    const widths = [...new Set((profile ? [192,384,768] : [384,768,1440,2200]).map(w => Math.min(w,width)))];
+    const poster = source.startsWith('public/poster/') || source === 'public/image/info-main-poster.webp';
+    const candidates = profile ? [192,320,384,768] : poster ? [384,640,768,1440,2200] : [384,768,1440,2200];
+    const widths = [...new Set(candidates.map(w => Math.min(w,width)))];
     const hash = crypto.createHash('sha256').update(input).update(JSON.stringify(settings)).digest('hex').slice(0,16);
     const variants = [];
     for (const w of widths) {
