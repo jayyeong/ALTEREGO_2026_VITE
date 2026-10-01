@@ -1,0 +1,29 @@
+{
+  "rows": [
+    {
+      "width": 412,
+      "video": {
+        "playing": true,
+        "time": 0.322103,
+        "error": null
+      },
+      "wrapped": true,
+      "restored": true,
+      "closed": true,
+      "bodyUnlocked": true
+    },
+    {
+      "width": 1440,
+      "video": {
+        "playing": true,
+        "time": 0.004179,
+        "error": null
+      },
+      "wrapped": true,
+      "restored": true,
+      "closed": true,
+      "bodyUnlocked": true
+    }
+  ],
+  "errors": []
+}

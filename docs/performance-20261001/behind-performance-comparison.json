@@ -1,0 +1,24 @@
+{
+  "player-before": {
+    "scores": [
+      89,
+      87,
+      91
+    ],
+    "scoreMedian": 89,
+    "lcpMedianMs": 2923.723824999999,
+    "fcpMedianMs": 2526.7476500000002,
+    "condition": "Local gzip HTTP/1.1, Lighthouse 12.8.2 default simulated mobile, 3 runs"
+  },
+  "behind-after": {
+    "scores": [
+      96,
+      95,
+      96
+    ],
+    "scoreMedian": 96,
+    "lcpMedianMs": 2561.1682499999997,
+    "fcpMedianMs": 1806.9216,
+    "condition": "Local gzip HTTP/1.1, Lighthouse 12.8.2 default simulated mobile, 3 runs"
+  }
+}
