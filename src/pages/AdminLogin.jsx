@@ -15,7 +15,8 @@ const AdminLogin = () => {
       const response = await axios.post(`${API_URL}/api/admin/login`, { password });
       
       if (response.data.success) {
-        sessionStorage.setItem('adminAuth', 'true');
+        sessionStorage.removeItem('adminAuth');
+        sessionStorage.setItem('adminToken', response.data.token);
         navigate('/admin/dashboard');
       }
     } catch (err) {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import { adminFetch } from '../config/adminApi';
 import { API_URL } from '../config/api';
 import { formatKoreanDateTime } from '../utils/dateFormat';
 import { getStoreProductPrice } from '../data/storeProductDetails';
@@ -14,8 +14,10 @@ const AdminReceiptDetail = () => {
   const fetchReceiptDetail = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`${API_URL}/api/admin/receipts/${id}`);
-      setReceipt(response.data);
+      const response = await adminFetch(`${API_URL}/api/admin/receipts/${id}`);
+      if (!response.ok) throw new Error('주문을 불러올 수 없습니다.');
+      const data = await response.json();
+      setReceipt(data);
       setLoading(false);
     } catch (err) {
       console.error('주문 상세 정보를 불러오는 중 오류가 발생했습니다:', err);
@@ -24,7 +26,7 @@ const AdminReceiptDetail = () => {
   }, [id]);
 
   useEffect(() => {
-    const isAuth = sessionStorage.getItem('adminAuth');
+    const isAuth = sessionStorage.getItem('adminToken');
     if (!isAuth) {
       navigate('/admin');
       return;

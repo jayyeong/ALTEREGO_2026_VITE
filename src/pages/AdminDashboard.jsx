@@ -1,3 +1,4 @@
+import { adminFetch, logoutAdmin } from '../config/adminApi';
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { API_URL } from '../config/api';
@@ -25,7 +26,7 @@ const AdminDashboard = () => {
   const pageAccessUnlocked = !siteLocked;
 
   useEffect(() => {
-    if (!sessionStorage.getItem('adminAuth')) {
+    if (!sessionStorage.getItem('adminToken')) {
       navigate('/admin');
       return;
     }
@@ -34,11 +35,11 @@ const AdminDashboard = () => {
       setLoading(true);
       try {
         const [resp, itemsResp] = await Promise.all([
-          fetch(
+          adminFetch(
           `${API_URL}/api/admin/receipts?page=${page}&size=20`,
           { headers: { Accept: 'application/json' } }
           ),
-          fetch(`${API_URL}/api/admin/items`, { headers: { Accept: 'application/json' } }),
+          adminFetch(`${API_URL}/api/admin/items`, { headers: { Accept: 'application/json' } }),
         ]);
 
         if (!resp.ok) throw new Error(resp.statusText);
@@ -53,7 +54,7 @@ const AdminDashboard = () => {
         setItems(Array.isArray(itemsData) ? itemsData.sort((a, b) => a.id - b.id) : []);
 
         try {
-          const summaryResp = await fetch(
+          const summaryResp = await adminFetch(
             `${API_URL}/api/admin/receipts/summary`,
             { headers: { Accept: 'application/json' } }
           );
@@ -87,7 +88,7 @@ const AdminDashboard = () => {
 
   const handleToggleStatus = async (receiptId) => {
     try {
-      const response = await fetch(`${API_URL}/api/admin/receipts/${receiptId}/toggle-status`, {
+      const response = await adminFetch(`${API_URL}/api/admin/receipts/${receiptId}/toggle-status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -128,7 +129,7 @@ const AdminDashboard = () => {
     if (!window.confirm('정말로 이 주문을 삭제하시겠습니까?')) return;
 
     try {
-      const response = await fetch(`${API_URL}/api/admin/receipts/${receiptId}`, {
+      const response = await adminFetch(`${API_URL}/api/admin/receipts/${receiptId}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -165,7 +166,7 @@ const AdminDashboard = () => {
 
   const handleToggleItemSoldOut = async (itemId) => {
     try {
-      const response = await fetch(`${API_URL}/api/admin/items/${itemId}/toggle-sold-out`, {
+      const response = await adminFetch(`${API_URL}/api/admin/items/${itemId}/toggle-sold-out`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -188,7 +189,7 @@ const AdminDashboard = () => {
 
   const handleExport = async () => {
     try {
-      const res = await fetch(
+      const res = await adminFetch(
         `${API_URL}/api/admin/receipts/export?startDate=${startDate}&endDate=${endDate}`
       );
       if (!res.ok) throw new Error(res.statusText);
@@ -206,9 +207,13 @@ const AdminDashboard = () => {
     }
   };
 
-  const handleLogout = () => {
-    sessionStorage.removeItem('adminAuth');
-    navigate('/admin');
+  const handleLogout = async () => {
+    try {
+      await logoutAdmin();
+      navigate('/admin');
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
   const handleTogglePageAccess = () => {
